@@ -21,6 +21,7 @@
 		CA0C90662C08B793003C5D8A /* NativeAdClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C90592C08B793003C5D8A /* NativeAdClient.swift */; };
 		CA0C90672C08B793003C5D8A /* MRECAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C905B2C08B793003C5D8A /* MRECAdView.swift */; };
 		CA0C90682C08B793003C5D8A /* NativeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C905C2C08B793003C5D8A /* NativeAdView.swift */; };
+		CA99B0622C08CD800057C0E7 /* MemeDatasetsFilenames.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA99B05B2C08CD800057C0E7 /* MemeDatasetsFilenames.swift */; };
 		DEDC72AD2C088413006ED1F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72AC2C088413006ED1F1 /* ContentView.swift */; };
 		DEDC72AF2C088415006ED1F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDC72AE2C088415006ED1F1 /* Assets.xcassets */; };
 		DEDC72B22C088415006ED1F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDC72B12C088415006ED1F1 /* Preview Assets.xcassets */; };
@@ -60,6 +61,7 @@
 		CA0C90592C08B793003C5D8A /* NativeAdClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeAdClient.swift; sourceTree = "<group>"; };
 		CA0C905B2C08B793003C5D8A /* MRECAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRECAdView.swift; sourceTree = "<group>"; };
 		CA0C905C2C08B793003C5D8A /* NativeAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeAdView.swift; sourceTree = "<group>"; };
+		CA99B05B2C08CD800057C0E7 /* MemeDatasetsFilenames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeDatasetsFilenames.swift; sourceTree = "<group>"; };
 		D318223CFB95BC5185B539B3 /* AppLovinQualityService.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:B8HZ37M8S5:SafeDK Mobile Ltd."; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = AppLovinQualityService.xcframework; path = AppLovinQualityService/AppLovinQualityService.xcframework; sourceTree = "<group>"; };
 		DEDC72A72C088413006ED1F1 /* voodoo-gdpr-sp-sample-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "voodoo-gdpr-sp-sample-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDC72AC2C088413006ED1F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+				CA99B05B2C08CD800057C0E7 /* MemeDatasetsFilenames.swift */,
 		DEDC729E2C088413006ED1F1 = {
 			isa = PBXGroup;
 			children = (
@@ -420,6 +423,7 @@
 				CA0C90612C08B793003C5D8A /* AdClient.swift in Sources */,
 				DEDC72C12C088432006ED1F1 /* VoodooPrivacyManager.swift in Sources */,
 				CA0C90642C08B793003C5D8A /* SessionUserInformation.swift in Sources */,
+				CA99B0622C08CD800057C0E7 /* MemeDatasetsFilenames.swift in Sources */,
 				DEDC72BE2C088432006ED1F1 /* VoodooATTPrivacyManager.swift in Sources */,
 				CA0C90652C08B793003C5D8A /* NativeAd.swift in Sources */,
 				CA0C90602C08B793003C5D8A /* AdInitializer.swift in Sources */,
