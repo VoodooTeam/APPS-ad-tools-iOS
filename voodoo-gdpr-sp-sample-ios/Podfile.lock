@@ -1,0 +1,361 @@
+PODS:
+  - Ads-Global/BUAdSDK_Compatible (5.9.0.9):
+    - Ads-Global/BURelyAdSDK
+    - Ads-Global/Dep_Compatible
+  - Ads-Global/BURelyAdSDK (5.9.0.9)
+  - Ads-Global/Dep_Compatible (5.9.0.9):
+    - BURelyFoundation_Global/Pangle (~> 0.2.1.4)
+  - AmazonPublisherServicesSDK (4.9.4)
+  - AppHarbrSDK (1.14.2)
+  - AppLovinMediationAmazonAdMarketplaceAdapter (4.9.4.0):
+    - AppLovinSDK
+  - AppLovinMediationBidMachineAdapter (2.6.1.0.0):
+    - AppLovinSDK
+    - BidMachine (= 2.6.1)
+  - AppLovinMediationByteDanceAdapter (5.9.0.9.0):
+    - Ads-Global/BUAdSDK_Compatible (= 5.9.0.9)
+    - AppLovinSDK
+  - AppLovinMediationChartboostAdapter (9.7.0.0):
+    - AppLovinSDK
+    - ChartboostSDK (= 9.7.0)
+  - AppLovinMediationFacebookAdapter (6.15.0.0):
+    - AppLovinSDK
+    - FBAudienceNetwork (= 6.15.0)
+  - AppLovinMediationFyberAdapter (8.2.8.0):
+    - AppLovinSDK
+    - Fyber_Marketplace_SDK (= 8.2.8)
+  - AppLovinMediationGoogleAdapter (11.5.0.0):
+    - AppLovinSDK
+    - Google-Mobile-Ads-SDK (= 11.5.0)
+  - AppLovinMediationGoogleAdManagerAdapter (11.5.0.0):
+    - AppLovinSDK
+    - Google-Mobile-Ads-SDK (= 11.5.0)
+  - AppLovinMediationInMobiAdapter (10.7.1.0):
+    - AppLovinSDK
+    - InMobiSDK (= 10.7.1)
+  - AppLovinMediationIronSourceAdapter (8.1.0.0.0):
+    - AppLovinSDK
+    - IronSourceSDK (= 8.1.0.0)
+  - AppLovinMediationLineAdapter (2.7.20240411.0):
+    - AppLovinSDK
+    - FiveAd (= 2.7.20240411)
+  - AppLovinMediationMintegralAdapter (7.6.6.0.0):
+    - AppLovinSDK
+    - MintegralAdSDK (= 7.6.6)
+    - MintegralAdSDK/BidSplashAd (= 7.6.6)
+  - AppLovinMediationMobileFuseAdapter (1.7.4.0):
+    - AppLovinSDK
+    - MobileFuseSDK (= 1.7.4)
+  - AppLovinMediationOguryPresageAdapter (4.3.0.0):
+    - AppLovinSDK
+    - OgurySdk (= 4.3.0)
+  - AppLovinMediationUnityAdsAdapter (4.11.3.2):
+    - AppLovinSDK
+    - UnityAds (= 4.11.3)
+  - AppLovinMediationVungleAdapter (7.3.2.1):
+    - AppLovinSDK
+    - VungleAds (= 7.3.2)
+  - AppLovinSDK (12.5.0)
+  - BidMachine (2.6.1):
+    - BidMachine/Core (= 2.6.1)
+  - BidMachine/ApiCore (2.6.1)
+  - BidMachine/BiddingCore (2.6.1):
+    - BidMachine/ApiCore
+    - BidMachineRendering (~> 0.1.0)
+    - StackIAB (~> 2.6.0)
+    - StackModules (~> 1.7.0)
+  - BidMachine/Core (2.6.1):
+    - BidMachine/ApiCore
+    - BidMachine/BiddingCore
+    - BidMachine/ModulesCore
+  - BidMachine/ModulesCore (2.6.1):
+    - BidMachine/ApiCore
+  - BidMachineRendering (0.1.0):
+    - BidMachineRendering/RenderingKit (= 0.1.0)
+  - BidMachineRendering/RenderingKit (0.1.0):
+    - BidMachineRendering/StoreKit
+    - BidMachineRendering/UtilsKit
+    - BidMachineRendering/VideoKit
+    - BidMachineRendering/WebKit
+  - BidMachineRendering/StoreKit (0.1.0):
+    - BidMachineRendering/UtilsKit
+  - BidMachineRendering/UtilsKit (0.1.0):
+    - StackModules (~> 1.7.0)
+  - BidMachineRendering/VideoKit (0.1.0):
+    - BidMachineRendering/UtilsKit
+  - BidMachineRendering/WebKit (0.1.0):
+    - BidMachineRendering/UtilsKit
+  - bigo-ads-max-adapter (4.2.0.0):
+    - AppLovinSDK
+    - BigoADS (= 4.2.0)
+  - BigoADS (4.2.0)
+  - BURelyFoundation_Global/AFNetworking (0.2.1.4)
+  - BURelyFoundation_Global/APM (0.2.1.4)
+  - BURelyFoundation_Global/Foundation (0.2.1.4):
+    - BURelyFoundation_Global/NETWork
+  - BURelyFoundation_Global/Gecko (0.2.1.4):
+    - BURelyFoundation_Global/Foundation
+  - BURelyFoundation_Global/Header (0.2.1.4)
+  - BURelyFoundation_Global/NETWork (0.2.1.4):
+    - BURelyFoundation_Global/AFNetworking
+  - BURelyFoundation_Global/Pangle (0.2.1.4):
+    - BURelyFoundation_Global/AFNetworking
+    - BURelyFoundation_Global/APM
+    - BURelyFoundation_Global/Foundation
+    - BURelyFoundation_Global/Gecko
+    - BURelyFoundation_Global/Header
+    - BURelyFoundation_Global/NETWork
+    - BURelyFoundation_Global/SDWebImage
+    - BURelyFoundation_Global/YYModel
+    - BURelyFoundation_Global/ZFPlayer
+    - BURelyFoundation_Global/Zip
+  - BURelyFoundation_Global/SDWebImage (0.2.1.4):
+    - BURelyFoundation_Global/Foundation
+  - BURelyFoundation_Global/YYModel (0.2.1.4)
+  - BURelyFoundation_Global/ZFPlayer (0.2.1.4):
+    - BURelyFoundation_Global/Foundation
+    - BURelyFoundation_Global/Zip
+  - BURelyFoundation_Global/Zip (0.2.1.4):
+    - BURelyFoundation_Global/Foundation
+  - ChartboostSDK (9.7.0)
+  - FBAudienceNetwork (6.15.0)
+  - FiveAd (2.7.20240411)
+  - Fyber_Marketplace_SDK (8.2.8)
+  - Google-Mobile-Ads-SDK (11.5.0):
+    - GoogleUserMessagingPlatform (>= 1.1)
+  - GoogleUserMessagingPlatform (2.4.0)
+  - InMobiSDK (10.7.1)
+  - IronSourceSDK (8.1.0.0)
+  - MintegralAdSDK (7.6.6):
+    - MintegralAdSDK/BannerAd (= 7.6.6)
+    - MintegralAdSDK/BidBannerAd (= 7.6.6)
+    - MintegralAdSDK/BidInterstitialVideoAd (= 7.6.6)
+    - MintegralAdSDK/BidNativeAd (= 7.6.6)
+    - MintegralAdSDK/BidNewInterstitialAd (= 7.6.6)
+    - MintegralAdSDK/BidRewardVideoAd (= 7.6.6)
+    - MintegralAdSDK/InterstitialVideoAd (= 7.6.6)
+    - MintegralAdSDK/NativeAd (= 7.6.6)
+    - MintegralAdSDK/NewInterstitialAd (= 7.6.6)
+    - MintegralAdSDK/RewardVideoAd (= 7.6.6)
+  - MintegralAdSDK/BannerAd (7.6.6):
+    - MintegralAdSDK/NativeAd
+  - MintegralAdSDK/BidBannerAd (7.6.6):
+    - MintegralAdSDK/BannerAd
+    - MintegralAdSDK/BidNativeAd
+  - MintegralAdSDK/BidInterstitialVideoAd (7.6.6):
+    - MintegralAdSDK/BidNativeAd
+    - MintegralAdSDK/InterstitialVideoAd
+  - MintegralAdSDK/BidNativeAd (7.6.6):
+    - MintegralAdSDK/NativeAd
+  - MintegralAdSDK/BidNewInterstitialAd (7.6.6):
+    - MintegralAdSDK/BidNativeAd
+    - MintegralAdSDK/NewInterstitialAd
+  - MintegralAdSDK/BidRewardVideoAd (7.6.6):
+    - MintegralAdSDK/BidNativeAd
+    - MintegralAdSDK/RewardVideoAd
+  - MintegralAdSDK/BidSplashAd (7.6.6):
+    - MintegralAdSDK/BidNativeAd
+    - MintegralAdSDK/SplashAd
+  - MintegralAdSDK/InterstitialVideoAd (7.6.6):
+    - MintegralAdSDK/NativeAd
+  - MintegralAdSDK/NativeAd (7.6.6)
+  - MintegralAdSDK/NewInterstitialAd (7.6.6):
+    - MintegralAdSDK/InterstitialVideoAd
+    - MintegralAdSDK/NativeAd
+  - MintegralAdSDK/RewardVideoAd (7.6.6):
+    - MintegralAdSDK/NativeAd
+  - MintegralAdSDK/SplashAd (7.6.6):
+    - MintegralAdSDK/NativeAd
+  - MobileFuseSDK (1.7.4)
+  - OguryAds (3.6.0):
+    - OguryAds/OMID (= 3.6.0)
+    - OguryCore (= 1.4.1)
+  - OguryAds/OMID (3.6.0):
+    - OguryCore (= 1.4.1)
+  - OguryChoiceManager (4.3.0):
+    - OguryCore (= 1.4.1)
+  - OguryCore (1.4.1)
+  - OgurySdk (4.3.0):
+    - OguryCore (= 1.4.1)
+    - OgurySdk/OguryAds (= 4.3.0)
+    - OgurySdk/OguryChoiceManager (= 4.3.0)
+  - OgurySdk/OguryAds (4.3.0):
+    - OguryAds (= 3.6.0)
+    - OguryCore (= 1.4.1)
+  - OgurySdk/OguryChoiceManager (4.3.0):
+    - OguryChoiceManager (= 4.3.0)
+    - OguryCore (= 1.4.1)
+  - OMSDK_Appodeal (1.4.12)
+  - SnapKit (5.7.1)
+  - StackIAB (2.6.0):
+    - StackIAB/StackIABAssets (= 2.6.0)
+    - StackIAB/StackMRAIDKit (= 2.6.0)
+    - StackIAB/StackNASTKit (= 2.6.0)
+    - StackIAB/StackOpenMeasure (= 2.6.0)
+    - StackIAB/StackRichMedia (= 2.6.0)
+    - StackIAB/StackVASTAssets (= 2.6.0)
+    - StackIAB/StackVASTKit (= 2.6.0)
+    - StackIAB/StackVideoPlayer (= 2.6.0)
+    - StackIAB/StackXML (= 2.6.0)
+    - StackModules (~> 1.7.0)
+  - StackIAB/StackIABAssets (2.6.0):
+    - StackModules (~> 1.7.0)
+  - StackIAB/StackMRAIDKit (2.6.0):
+    - StackIAB/StackIABAssets
+    - StackIAB/StackOpenMeasure
+    - StackModules (~> 1.7.0)
+  - StackIAB/StackNASTKit (2.6.0):
+    - StackIAB/StackVASTKit
+    - StackModules (~> 1.7.0)
+  - StackIAB/StackOpenMeasure (2.6.0):
+    - OMSDK_Appodeal (~> 1.4.12)
+    - StackModules (~> 1.7.0)
+  - StackIAB/StackRichMedia (2.6.0):
+    - StackIAB/StackIABAssets
+    - StackIAB/StackVASTAssets
+    - StackIAB/StackVideoPlayer
+    - StackModules (~> 1.7.0)
+  - StackIAB/StackVASTAssets (2.6.0):
+    - StackIAB/StackIABAssets
+    - StackIAB/StackXML
+    - StackModules (~> 1.7.0)
+  - StackIAB/StackVASTKit (2.6.0):
+    - StackIAB/StackMRAIDKit
+    - StackIAB/StackVASTAssets
+    - StackIAB/StackVideoPlayer
+    - StackModules (~> 1.7.0)
+  - StackIAB/StackVideoPlayer (2.6.0):
+    - StackModules (~> 1.7.0)
+  - StackIAB/StackXML (2.6.0):
+    - StackModules (~> 1.7.0)
+  - StackModules (1.7.3):
+    - StackModules/StackProductPresentation (= 1.7.3)
+  - StackModules/StackFoundation (1.7.3)
+  - StackModules/StackProductPresentation (1.7.3):
+    - StackModules/StackUIKit
+  - StackModules/StackUIKit (1.7.3):
+    - StackModules/StackFoundation
+  - UnityAds (4.11.3)
+  - VungleAds (7.3.2)
+
+DEPENDENCIES:
+  - AmazonPublisherServicesSDK
+  - AppHarbrSDK
+  - AppLovinMediationAmazonAdMarketplaceAdapter
+  - AppLovinMediationBidMachineAdapter (= 2.6.1.0)
+  - AppLovinMediationByteDanceAdapter
+  - AppLovinMediationChartboostAdapter
+  - AppLovinMediationFacebookAdapter
+  - AppLovinMediationFyberAdapter
+  - AppLovinMediationGoogleAdapter
+  - AppLovinMediationGoogleAdManagerAdapter
+  - AppLovinMediationInMobiAdapter (= 10.7.1)
+  - AppLovinMediationIronSourceAdapter
+  - AppLovinMediationLineAdapter
+  - AppLovinMediationMintegralAdapter
+  - AppLovinMediationMobileFuseAdapter
+  - AppLovinMediationOguryPresageAdapter
+  - AppLovinMediationUnityAdsAdapter
+  - AppLovinMediationVungleAdapter
+  - AppLovinSDK (= 12.5.0)
+  - bigo-ads-max-adapter (= 4.2.0)
+  - SnapKit
+
+SPEC REPOS:
+  trunk:
+    - Ads-Global
+    - AmazonPublisherServicesSDK
+    - AppHarbrSDK
+    - AppLovinMediationAmazonAdMarketplaceAdapter
+    - AppLovinMediationBidMachineAdapter
+    - AppLovinMediationByteDanceAdapter
+    - AppLovinMediationChartboostAdapter
+    - AppLovinMediationFacebookAdapter
+    - AppLovinMediationFyberAdapter
+    - AppLovinMediationGoogleAdapter
+    - AppLovinMediationGoogleAdManagerAdapter
+    - AppLovinMediationInMobiAdapter
+    - AppLovinMediationIronSourceAdapter
+    - AppLovinMediationLineAdapter
+    - AppLovinMediationMintegralAdapter
+    - AppLovinMediationMobileFuseAdapter
+    - AppLovinMediationOguryPresageAdapter
+    - AppLovinMediationUnityAdsAdapter
+    - AppLovinMediationVungleAdapter
+    - AppLovinSDK
+    - BidMachine
+    - BidMachineRendering
+    - bigo-ads-max-adapter
+    - BigoADS
+    - BURelyFoundation_Global
+    - ChartboostSDK
+    - FBAudienceNetwork
+    - FiveAd
+    - Fyber_Marketplace_SDK
+    - Google-Mobile-Ads-SDK
+    - GoogleUserMessagingPlatform
+    - InMobiSDK
+    - IronSourceSDK
+    - MintegralAdSDK
+    - MobileFuseSDK
+    - OguryAds
+    - OguryChoiceManager
+    - OguryCore
+    - OgurySdk
+    - OMSDK_Appodeal
+    - SnapKit
+    - StackIAB
+    - StackModules
+    - UnityAds
+    - VungleAds
+
+SPEC CHECKSUMS:
+  Ads-Global: eb2b0f3e6bf2bb9af37d7fc2646f7db975e7d639
+  AmazonPublisherServicesSDK: 3304e6c7f85847e9ef00fa3bbabbd954469e70fa
+  AppHarbrSDK: 0e6bc913a7e5ab737c109840e4a306c86e0a8aad
+  AppLovinMediationAmazonAdMarketplaceAdapter: 35ff1a1e592de8877936edcc21ca53b35e61a73b
+  AppLovinMediationBidMachineAdapter: 69bc8a7d5eb5283477e459fa2551c3d036224741
+  AppLovinMediationByteDanceAdapter: b943d9203b6d1842bfadae65c144513efec70d77
+  AppLovinMediationChartboostAdapter: b044be30b6c08122c5a4529279cb275ced87addd
+  AppLovinMediationFacebookAdapter: 30ddfcb09c1c9ff6778ba974f58e8f3204e6eebc
+  AppLovinMediationFyberAdapter: 068792cae6c9e088870dda003f3122f6018d4f22
+  AppLovinMediationGoogleAdapter: d6edc1d9176be45cac0811c76e8fd3eea470bd71
+  AppLovinMediationGoogleAdManagerAdapter: 8902d8bd20ba7fca78526c86d091497a1b563f93
+  AppLovinMediationInMobiAdapter: d1c71cc41a9ec382d9cc2f457875508ebe66281f
+  AppLovinMediationIronSourceAdapter: 324e0afea01c091a8631681c8b70eea77b63b178
+  AppLovinMediationLineAdapter: 4a0489e805708e016f0bb6bd6943f31eb4875ccc
+  AppLovinMediationMintegralAdapter: 98920febb1a949d87da64be5f1cb0c8e030c295e
+  AppLovinMediationMobileFuseAdapter: 91cb91eb73ed23d3cfdb88e18cd2156c903cb4c7
+  AppLovinMediationOguryPresageAdapter: cfed2054f99bd0d1497955a50798ca577ea3e4b1
+  AppLovinMediationUnityAdsAdapter: eb88688cc3fa939c8e040e08446b644b6d30c2d2
+  AppLovinMediationVungleAdapter: ea357ea16cc166e1de259de5d6e1ba593e528f7d
+  AppLovinSDK: 626d2aea57ae1bf9280d2012e8e20c521c58ce28
+  BidMachine: bbc6ea4c7bde7aee940483758b4dab2355916478
+  BidMachineRendering: 7924c868e65640eadc0950182277433aa7c85a5c
+  bigo-ads-max-adapter: 7a0853a537406b7bfef4104ea7f5cf6afd627ea7
+  BigoADS: 14fa36d2f5da852cf84e69dcf7bbcb400563b3d7
+  BURelyFoundation_Global: 17ed9cd58d138feefd8c0711dd3294766adcb28e
+  ChartboostSDK: 0cd093c90a5a21c89783fe5be486e511fb2dbfc8
+  FBAudienceNetwork: 6c560e4c68823ec5da1e84868544a8a246e0e201
+  FiveAd: 27375ac7fde76085544389cc090d744149fdbe78
+  Fyber_Marketplace_SDK: 50fb9e3077ddbd99e3da08dfcaab60df689ac106
+  Google-Mobile-Ads-SDK: 7db2098033ad3bfcd72a11e7503b49700a93029e
+  GoogleUserMessagingPlatform: f131fa7978d2ba88d7426702b057c2cc318e6595
+  InMobiSDK: 8b93c1d4d8ac0d91cf9585fc8b65750b8f09e835
+  IronSourceSDK: f4380fe08a2bfa1cd37c26948fcfd2585a0493a2
+  MintegralAdSDK: 4d19fa4637ad7f07916168528337d23ae6368181
+  MobileFuseSDK: 519246003ecf08b18d9d5cb52a8286958dc3a4f8
+  OguryAds: c87da5c25096a7e2e9b298898d09ba99fd6640d9
+  OguryChoiceManager: e416c5b9a3c10b8ce3beafeab687e72940c6fadd
+  OguryCore: 812c0a3e73317c2560ab7ce82998bbb04d0a2917
+  OgurySdk: 09057b4efe75dd52e008efa8d2478bcfc4eed18c
+  OMSDK_Appodeal: 416c070dfce46ca2b6875dba686271070df6b270
+  SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
+  StackIAB: 495c0df22795d2b0193a0d1853c2c5f900a7f3cd
+  StackModules: fe9f4fcd32d427c8502968bbb0d63aed6587e46d
+  UnityAds: 4c2dbd3e82778b536b0bad23b640c16aae91dbb1
+  VungleAds: 0d696ed96dd7d715a9432997356d59b2e3b58882
+
+PODFILE CHECKSUM: 1e9acef1184090fd6e5ef052414420c490345744
+
+COCOAPODS: 1.15.2
