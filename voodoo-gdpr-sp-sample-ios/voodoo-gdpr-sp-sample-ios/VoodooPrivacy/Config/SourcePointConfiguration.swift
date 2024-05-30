@@ -9,9 +9,9 @@ import Foundation
 
 struct SourcepointConfiguration {
     static let accountId = 1909
-    static let propertyId = 33918
-    static let privacyManagerId = "900785"
-    static let propertyName = "wemoms"
+    static let propertyId = 36309
+    static let privacyManagerId = "1142456"
+    static let propertyName = "voodoo.native.app"
 
     static let storeAndAccessInformationOnDeviceKey = "6548eb4444030704e1e66fbd"
     static let selectBasicAdsKey = "6548eb4444030704e1e66fef"

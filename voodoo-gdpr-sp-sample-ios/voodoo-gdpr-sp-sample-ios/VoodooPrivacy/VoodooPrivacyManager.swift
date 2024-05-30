@@ -55,6 +55,8 @@ final class VoodooPrivacyManager {
 
     private var purposeConsentDictionary: [Purpose: Bool] = [:]
     private var keyPurposeDictionary: [String: Purpose] = [:]
+    var language: SPMessageLanguage?
+
 
     // MARK: - Initializer
 
@@ -131,6 +133,8 @@ final class VoodooPrivacyManager {
     // MARK: - Private Methods
 
     private func setupConsentManager() {
+        let language = SourcePointLanguageMapper.mapLanguageCodeToSPMessageLanguage()
+
         consentManager = SPConsentManager(
             accountId: SourcepointConfiguration.accountId,
             propertyId: SourcepointConfiguration.propertyId,
@@ -140,7 +144,7 @@ final class VoodooPrivacyManager {
                 ccpa: SPCampaign(),
                 ios14: SPCampaign()
             ),
-            language: .BrowserDefault,
+            language: language,
             delegate: self
         )
         status = .running

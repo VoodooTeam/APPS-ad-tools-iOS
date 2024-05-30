@@ -18,6 +18,7 @@
 		DEDC72C72C0884C0006ED1F1 /* ConsentViewController in Frameworks */ = {isa = PBXBuildFile; productRef = DEDC72C62C0884C0006ED1F1 /* ConsentViewController */; };
 		DEDC72C92C0884CC006ED1F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72C82C0884CC006ED1F1 /* AppDelegate.swift */; };
 		DEDC72CC2C088506006ED1F1 /* ConsentViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72CB2C088506006ED1F1 /* ConsentViewControllerRepresentable.swift */; };
+		DEDC72D02C08D148006ED1F1 /* SourcePointLanguageMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72CF2C08D148006ED1F1 /* SourcePointLanguageMapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		DEDC72C82C0884CC006ED1F1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEDC72CB2C088506006ED1F1 /* ConsentViewControllerRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		DEDC72CE2C088552006ED1F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DEDC72CF2C08D148006ED1F1 /* SourcePointLanguageMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcePointLanguageMapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				DEDC72BD2C088432006ED1F1 /* SourcePointConfiguration.swift */,
+				DEDC72CF2C08D148006ED1F1 /* SourcePointLanguageMapper.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				DEDC72C12C088432006ED1F1 /* VoodooPrivacyManager.swift in Sources */,
 				DEDC72BE2C088432006ED1F1 /* VoodooATTPrivacyManager.swift in Sources */,
 				DEDC72CC2C088506006ED1F1 /* ConsentViewControllerRepresentable.swift in Sources */,
+				DEDC72D02C08D148006ED1F1 /* SourcePointLanguageMapper.swift in Sources */,
 				DEDC72AD2C088413006ED1F1 /* ContentView.swift in Sources */,
 				DEDC72C02C088432006ED1F1 /* VoodooPrivacyConsent.swift in Sources */,
 				DEDC72C22C088432006ED1F1 /* SourcePointConfiguration.swift in Sources */,
