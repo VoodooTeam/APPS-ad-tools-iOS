@@ -1,0 +1,442 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DEDC72AB2C088413006ED1F1 /* voodoo_gdpr_sp_sample_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72AA2C088413006ED1F1 /* voodoo_gdpr_sp_sample_iosApp.swift */; };
+		DEDC72AD2C088413006ED1F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72AC2C088413006ED1F1 /* ContentView.swift */; };
+		DEDC72AF2C088415006ED1F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDC72AE2C088415006ED1F1 /* Assets.xcassets */; };
+		DEDC72B22C088415006ED1F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDC72B12C088415006ED1F1 /* Preview Assets.xcassets */; };
+		DEDC72BE2C088432006ED1F1 /* VoodooATTPrivacyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72B92C088432006ED1F1 /* VoodooATTPrivacyManager.swift */; };
+		DEDC72BF2C088432006ED1F1 /* VoodooGDPRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72BA2C088432006ED1F1 /* VoodooGDPRService.swift */; };
+		DEDC72C02C088432006ED1F1 /* VoodooPrivacyConsent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72BB2C088432006ED1F1 /* VoodooPrivacyConsent.swift */; };
+		DEDC72C12C088432006ED1F1 /* VoodooPrivacyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72BC2C088432006ED1F1 /* VoodooPrivacyManager.swift */; };
+		DEDC72C22C088432006ED1F1 /* SourcePointConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72BD2C088432006ED1F1 /* SourcePointConfiguration.swift */; };
+		DEDC72C72C0884C0006ED1F1 /* ConsentViewController in Frameworks */ = {isa = PBXBuildFile; productRef = DEDC72C62C0884C0006ED1F1 /* ConsentViewController */; };
+		DEDC72C92C0884CC006ED1F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72C82C0884CC006ED1F1 /* AppDelegate.swift */; };
+		DEDC72CC2C088506006ED1F1 /* ConsentViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72CB2C088506006ED1F1 /* ConsentViewControllerRepresentable.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DEDC72A72C088413006ED1F1 /* voodoo-gdpr-sp-sample-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "voodoo-gdpr-sp-sample-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEDC72AA2C088413006ED1F1 /* voodoo_gdpr_sp_sample_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = voodoo_gdpr_sp_sample_iosApp.swift; sourceTree = "<group>"; };
+		DEDC72AC2C088413006ED1F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DEDC72AE2C088415006ED1F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DEDC72B12C088415006ED1F1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DEDC72B92C088432006ED1F1 /* VoodooATTPrivacyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoodooATTPrivacyManager.swift; sourceTree = "<group>"; };
+		DEDC72BA2C088432006ED1F1 /* VoodooGDPRService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoodooGDPRService.swift; sourceTree = "<group>"; };
+		DEDC72BB2C088432006ED1F1 /* VoodooPrivacyConsent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoodooPrivacyConsent.swift; sourceTree = "<group>"; };
+		DEDC72BC2C088432006ED1F1 /* VoodooPrivacyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoodooPrivacyManager.swift; sourceTree = "<group>"; };
+		DEDC72BD2C088432006ED1F1 /* SourcePointConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourcePointConfiguration.swift; sourceTree = "<group>"; };
+		DEDC72C82C0884CC006ED1F1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DEDC72CB2C088506006ED1F1 /* ConsentViewControllerRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentViewControllerRepresentable.swift; sourceTree = "<group>"; };
+		DEDC72CE2C088552006ED1F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DEDC72A42C088413006ED1F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DEDC72C72C0884C0006ED1F1 /* ConsentViewController in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DEDC729E2C088413006ED1F1 = {
+			isa = PBXGroup;
+			children = (
+				DEDC72A92C088413006ED1F1 /* voodoo-gdpr-sp-sample-ios */,
+				DEDC72A82C088413006ED1F1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DEDC72A82C088413006ED1F1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DEDC72A72C088413006ED1F1 /* voodoo-gdpr-sp-sample-ios.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DEDC72A92C088413006ED1F1 /* voodoo-gdpr-sp-sample-ios */ = {
+			isa = PBXGroup;
+			children = (
+				DEDC72CE2C088552006ED1F1 /* Info.plist */,
+				DEDC72B82C088423006ED1F1 /* VoodooPrivacy */,
+				DEDC72CD2C088510006ED1F1 /* ViewController */,
+				DEDC72AA2C088413006ED1F1 /* voodoo_gdpr_sp_sample_iosApp.swift */,
+				DEDC72AC2C088413006ED1F1 /* ContentView.swift */,
+				DEDC72C82C0884CC006ED1F1 /* AppDelegate.swift */,
+				DEDC72AE2C088415006ED1F1 /* Assets.xcassets */,
+				DEDC72B02C088415006ED1F1 /* Preview Content */,
+			);
+			path = "voodoo-gdpr-sp-sample-ios";
+			sourceTree = "<group>";
+		};
+		DEDC72B02C088415006ED1F1 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				DEDC72B12C088415006ED1F1 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DEDC72B82C088423006ED1F1 /* VoodooPrivacy */ = {
+			isa = PBXGroup;
+			children = (
+				DEDC72BC2C088432006ED1F1 /* VoodooPrivacyManager.swift */,
+				DEDC72B92C088432006ED1F1 /* VoodooATTPrivacyManager.swift */,
+				DEDC72BB2C088432006ED1F1 /* VoodooPrivacyConsent.swift */,
+				DEDC72C42C08844F006ED1F1 /* Service */,
+				DEDC72C32C088442006ED1F1 /* Config */,
+			);
+			path = VoodooPrivacy;
+			sourceTree = "<group>";
+		};
+		DEDC72C32C088442006ED1F1 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				DEDC72BD2C088432006ED1F1 /* SourcePointConfiguration.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		DEDC72C42C08844F006ED1F1 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				DEDC72BA2C088432006ED1F1 /* VoodooGDPRService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		DEDC72CD2C088510006ED1F1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DEDC72CB2C088506006ED1F1 /* ConsentViewControllerRepresentable.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DEDC72A62C088413006ED1F1 /* voodoo-gdpr-sp-sample-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DEDC72B52C088415006ED1F1 /* Build configuration list for PBXNativeTarget "voodoo-gdpr-sp-sample-ios" */;
+			buildPhases = (
+				DEDC72A32C088413006ED1F1 /* Sources */,
+				DEDC72A42C088413006ED1F1 /* Frameworks */,
+				DEDC72A52C088413006ED1F1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "voodoo-gdpr-sp-sample-ios";
+			packageProductDependencies = (
+				DEDC72C62C0884C0006ED1F1 /* ConsentViewController */,
+			);
+			productName = "voodoo-gdpr-sp-sample-ios";
+			productReference = DEDC72A72C088413006ED1F1 /* voodoo-gdpr-sp-sample-ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DEDC729F2C088413006ED1F1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					DEDC72A62C088413006ED1F1 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = DEDC72A22C088413006ED1F1 /* Build configuration list for PBXProject "voodoo-gdpr-sp-sample-ios" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DEDC729E2C088413006ED1F1;
+			packageReferences = (
+				DEDC72C52C0884C0006ED1F1 /* XCRemoteSwiftPackageReference "ios-cmp-app" */,
+			);
+			productRefGroup = DEDC72A82C088413006ED1F1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DEDC72A62C088413006ED1F1 /* voodoo-gdpr-sp-sample-ios */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DEDC72A52C088413006ED1F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DEDC72B22C088415006ED1F1 /* Preview Assets.xcassets in Resources */,
+				DEDC72AF2C088415006ED1F1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DEDC72A32C088413006ED1F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DEDC72C92C0884CC006ED1F1 /* AppDelegate.swift in Sources */,
+				DEDC72C12C088432006ED1F1 /* VoodooPrivacyManager.swift in Sources */,
+				DEDC72BE2C088432006ED1F1 /* VoodooATTPrivacyManager.swift in Sources */,
+				DEDC72CC2C088506006ED1F1 /* ConsentViewControllerRepresentable.swift in Sources */,
+				DEDC72AD2C088413006ED1F1 /* ContentView.swift in Sources */,
+				DEDC72C02C088432006ED1F1 /* VoodooPrivacyConsent.swift in Sources */,
+				DEDC72C22C088432006ED1F1 /* SourcePointConfiguration.swift in Sources */,
+				DEDC72BF2C088432006ED1F1 /* VoodooGDPRService.swift in Sources */,
+				DEDC72AB2C088413006ED1F1 /* voodoo_gdpr_sp_sample_iosApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		DEDC72B32C088415006ED1F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DEDC72B42C088415006ED1F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DEDC72B62C088415006ED1F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"voodoo-gdpr-sp-sample-ios/Preview Content\"";
+				DEVELOPMENT_TEAM = L5FFFLAZHG;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "voodoo-gdpr-sp-sample-ios/Info.plist";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to deliver personalized ads to you.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.sarra.privacy.example.voodoo-gdpr-sp-sample-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DEDC72B72C088415006ED1F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"voodoo-gdpr-sp-sample-ios/Preview Content\"";
+				DEVELOPMENT_TEAM = L5FFFLAZHG;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "voodoo-gdpr-sp-sample-ios/Info.plist";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to deliver personalized ads to you.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.sarra.privacy.example.voodoo-gdpr-sp-sample-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DEDC72A22C088413006ED1F1 /* Build configuration list for PBXProject "voodoo-gdpr-sp-sample-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DEDC72B32C088415006ED1F1 /* Debug */,
+				DEDC72B42C088415006ED1F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DEDC72B52C088415006ED1F1 /* Build configuration list for PBXNativeTarget "voodoo-gdpr-sp-sample-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DEDC72B62C088415006ED1F1 /* Debug */,
+				DEDC72B72C088415006ED1F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DEDC72C52C0884C0006ED1F1 /* XCRemoteSwiftPackageReference "ios-cmp-app" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SourcePointUSA/ios-cmp-app.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.6.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DEDC72C62C0884C0006ED1F1 /* ConsentViewController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DEDC72C52C0884C0006ED1F1 /* XCRemoteSwiftPackageReference "ios-cmp-app" */;
+			productName = ConsentViewController;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = DEDC729F2C088413006ED1F1 /* Project object */;
+}

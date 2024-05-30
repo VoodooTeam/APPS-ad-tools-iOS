@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "ios-cmp-app",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SourcePointUSA/ios-cmp-app.git",
+      "state" : {
+        "revision" : "b6f086f32a637fda5f58337194bcc40bbf2ec872",
+        "version" : "7.6.8"
+      }
+    }
+  ],
+  "version" : 2
+}
