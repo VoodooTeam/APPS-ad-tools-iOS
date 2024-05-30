@@ -27,7 +27,6 @@ struct SourcepointConfiguration {
 }
 
 enum Purpose: String {
-    case Age
     case StoreAndAccessInformationOnDevice
     case SelectBasicAds
     case CreatePersonalisedAdsProfile

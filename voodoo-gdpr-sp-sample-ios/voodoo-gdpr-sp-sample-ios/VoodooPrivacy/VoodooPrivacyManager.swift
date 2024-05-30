@@ -74,8 +74,17 @@ final class VoodooPrivacyManager {
         print("Consent privacy analytics: \(consent.analyticsConsent)")
 
         if consent.adsConsent {
-            // Initialize Ads SDK
-            /* Check for IDFA */
+            Task {
+                let status = await VoodooATTPrivacyManager.shared.requestTrackingAuthorization()
+
+                if status == .authorized, let idfa = VoodooATTPrivacyManager.shared.fetchIDFA() {
+                    print("IDFA: \(idfa)")
+                    // Initialize MaxMediation here
+
+                } else {
+                    print("Tracking not authorized or IDFA not available")
+                }
+            }
         }
 
         if consent.analyticsConsent {
@@ -104,6 +113,7 @@ final class VoodooPrivacyManager {
             fromViewController = from
             consentManager.loadGDPRPrivacyManager(withId:SourcepointConfiguration.privacyManagerId)
         } else {
+            status = .notAvailable
             print("Privacy -- not available in your country")
         }
     }
@@ -247,7 +257,6 @@ extension VoodooPrivacyManager: SPDelegate {
         if let gdprConsent = userData.gdpr?.consents {
             updatePurposeConsentDictionary(gdprConsent)
         }
-
         launchSDKs()
     }
 
@@ -259,7 +268,5 @@ extension VoodooPrivacyManager: SPDelegate {
         if let gdprConsent = userData.gdpr?.consents {
             updatePurposeConsentDictionary(gdprConsent)
         }
-
-        launchSDKs()
     }
 } 

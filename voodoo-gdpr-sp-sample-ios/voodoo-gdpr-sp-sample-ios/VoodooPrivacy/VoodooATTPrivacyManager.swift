@@ -4,39 +4,46 @@
 //
 //  Created by Sarra Srairi on 29/05/2024.
 //
-
 import AppTrackingTransparency
 import AdSupport
+import NotificationCenter
 
 final class VoodooATTPrivacyManager {
     static let shared = VoodooATTPrivacyManager()
 
     private init() {}
 
-    private let userDefaultsKey = "voodoo-identifier-sp"
+    // Method to request ATT authorization using async/await
+    @discardableResult
+    func requestTrackingAuthorization() async -> ATTrackingManager.AuthorizationStatus {
+        var status = await ATTrackingManager.requestTrackingAuthorization()
 
-    // Method to check ATT status and retrieve the IDFA
-    func checkATTStatus(completion: @escaping (String?) -> Void) {
+        // Handle iOS 17.4 bug where status might be incorrectly set
+        if status == .denied, ATTrackingManager.trackingAuthorizationStatus == .notDetermined {
+            let notificationCenter = NotificationCenter.default
+            let notifications = await notificationCenter.notifications(named: UIApplication.didBecomeActiveNotification)
+            defer {
+                // Ensure the observer is removed after we're done
+                notificationCenter.removeObserver(self)
+            }
 
-        // Check if IDFA is already stored in UserDefaults
-        if let storedIDFA = UserDefaults.standard.string(forKey: userDefaultsKey) {
-            completion(storedIDFA)
-            return
+            for await _ in notifications {
+                status = await ATTrackingManager.requestTrackingAuthorization()
+                if status != .notDetermined {
+                    break
+                }
+            }
         }
 
-        // Request ATT authorization
-        ATTrackingManager.requestTrackingAuthorization { status in
-            switch status {
-            case .authorized:
-                let advertisingId = ASIdentifierManager.shared().advertisingIdentifier.uuidString
-                // Store the IDFA in UserDefaults
-                UserDefaults.standard.set(advertisingId, forKey: self.userDefaultsKey)
-                completion(advertisingId)
-            case .denied, .restricted, .notDetermined:
-                completion(nil)
-            @unknown default:
-                completion(nil)
-            }
+        return status
+    }
+
+    // Method to fetch the latest IDFA directly from the system
+    func fetchIDFA() -> String? {
+        if ATTrackingManager.trackingAuthorizationStatus == .authorized {
+            return ASIdentifierManager.shared().advertisingIdentifier.uuidString
+        } else {
+            return nil
         }
     }
 }
