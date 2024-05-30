@@ -12,7 +12,6 @@
 		DEDC72AF2C088415006ED1F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDC72AE2C088415006ED1F1 /* Assets.xcassets */; };
 		DEDC72B22C088415006ED1F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDC72B12C088415006ED1F1 /* Preview Assets.xcassets */; };
 		DEDC72BE2C088432006ED1F1 /* VoodooATTPrivacyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72B92C088432006ED1F1 /* VoodooATTPrivacyManager.swift */; };
-		DEDC72BF2C088432006ED1F1 /* VoodooGDPRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72BA2C088432006ED1F1 /* VoodooGDPRService.swift */; };
 		DEDC72C02C088432006ED1F1 /* VoodooPrivacyConsent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72BB2C088432006ED1F1 /* VoodooPrivacyConsent.swift */; };
 		DEDC72C12C088432006ED1F1 /* VoodooPrivacyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72BC2C088432006ED1F1 /* VoodooPrivacyManager.swift */; };
 		DEDC72C22C088432006ED1F1 /* SourcePointConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72BD2C088432006ED1F1 /* SourcePointConfiguration.swift */; };
@@ -28,7 +27,6 @@
 		DEDC72AE2C088415006ED1F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEDC72B12C088415006ED1F1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DEDC72B92C088432006ED1F1 /* VoodooATTPrivacyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoodooATTPrivacyManager.swift; sourceTree = "<group>"; };
-		DEDC72BA2C088432006ED1F1 /* VoodooGDPRService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoodooGDPRService.swift; sourceTree = "<group>"; };
 		DEDC72BB2C088432006ED1F1 /* VoodooPrivacyConsent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoodooPrivacyConsent.swift; sourceTree = "<group>"; };
 		DEDC72BC2C088432006ED1F1 /* VoodooPrivacyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoodooPrivacyManager.swift; sourceTree = "<group>"; };
 		DEDC72BD2C088432006ED1F1 /* SourcePointConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourcePointConfiguration.swift; sourceTree = "<group>"; };
@@ -94,7 +92,6 @@
 				DEDC72BC2C088432006ED1F1 /* VoodooPrivacyManager.swift */,
 				DEDC72B92C088432006ED1F1 /* VoodooATTPrivacyManager.swift */,
 				DEDC72BB2C088432006ED1F1 /* VoodooPrivacyConsent.swift */,
-				DEDC72C42C08844F006ED1F1 /* Service */,
 				DEDC72C32C088442006ED1F1 /* Config */,
 			);
 			path = VoodooPrivacy;
@@ -106,14 +103,6 @@
 				DEDC72BD2C088432006ED1F1 /* SourcePointConfiguration.swift */,
 			);
 			path = Config;
-			sourceTree = "<group>";
-		};
-		DEDC72C42C08844F006ED1F1 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				DEDC72BA2C088432006ED1F1 /* VoodooGDPRService.swift */,
-			);
-			path = Service;
 			sourceTree = "<group>";
 		};
 		DEDC72CD2C088510006ED1F1 /* ViewController */ = {
@@ -207,7 +196,6 @@
 				DEDC72AD2C088413006ED1F1 /* ContentView.swift in Sources */,
 				DEDC72C02C088432006ED1F1 /* VoodooPrivacyConsent.swift in Sources */,
 				DEDC72C22C088432006ED1F1 /* SourcePointConfiguration.swift in Sources */,
-				DEDC72BF2C088432006ED1F1 /* VoodooGDPRService.swift in Sources */,
 				DEDC72AB2C088413006ED1F1 /* voodoo_gdpr_sp_sample_iosApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -63,18 +63,9 @@ final class VoodooPrivacyManager {
     // MARK: - Public Methods
 
     func configure() {
-        GDPRService.shared.fetchConfig { [weak self] gdprEnabled in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                if gdprEnabled {
-                    self.setupConsentManager()
-                    self.initializeKeyPurposeDictionary()
-                    self.loadConsentUI()
-                } else {
-                    self.status = .notAvailable
-                }
-            }
-        }
+        self.setupConsentManager()
+        self.initializeKeyPurposeDictionary()
+        self.loadConsentUI()
     }
     
     private func launchSDKs() {
@@ -84,6 +75,7 @@ final class VoodooPrivacyManager {
 
         if consent.adsConsent {
             // Initialize Ads SDK
+            /* Check for IDFA */
         }
 
         if consent.analyticsConsent {
@@ -100,7 +92,6 @@ final class VoodooPrivacyManager {
         from.present(consentViewController, animated: true)
     }
 
-
     func loadAndDisplayConsentUI(from: UIViewController) {
         guard let consentManager else {
             if status != .notAvailable {
@@ -109,8 +100,12 @@ final class VoodooPrivacyManager {
             return
         }
 
-        fromViewController = from
-        consentManager.loadGDPRPrivacyManager(withId: SourcepointConfiguration.privacyManagerId)
+        if consentManager.gdprApplies || consentManager.usnatApplies {
+            fromViewController = from
+            consentManager.loadGDPRPrivacyManager(withId:SourcepointConfiguration.privacyManagerId)
+        } else {
+            print("Privacy -- not available in your country")
+        }
     }
 
     func isPurposeAuthorized(_ purpose: Purpose) -> Bool {
