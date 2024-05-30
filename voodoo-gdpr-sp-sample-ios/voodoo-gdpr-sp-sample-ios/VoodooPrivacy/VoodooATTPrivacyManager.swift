@@ -4,7 +4,6 @@
 //
 //  Created by Sarra Srairi on 29/05/2024.
 //
-
 import AppTrackingTransparency
 import AdSupport
 import NotificationCenter
@@ -24,6 +23,7 @@ final class VoodooATTPrivacyManager {
             let notificationCenter = NotificationCenter.default
             let notifications = await notificationCenter.notifications(named: UIApplication.didBecomeActiveNotification)
             defer {
+                // Ensure the observer is removed after we're done
                 notificationCenter.removeObserver(self)
             }
 
