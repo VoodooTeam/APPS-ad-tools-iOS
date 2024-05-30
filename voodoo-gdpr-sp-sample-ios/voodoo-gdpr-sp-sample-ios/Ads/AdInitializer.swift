@@ -28,7 +28,10 @@ class AdInitializer: NSObject {
     // MARK: - class methods
     
     static func launchAdsSDK() {
+        print("🧙🏻‍♂️ launchAdsSDK")
+        
         guard !isStarted else { return }
+        
         ALPrivacySettings.setHasUserConsent(true)
         ALPrivacySettings.setDoNotSell(false)
         ALPrivacySettings.setIsAgeRestrictedUser(false)

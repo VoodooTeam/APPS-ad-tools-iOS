@@ -72,6 +72,8 @@ final class VoodooPrivacyManager {
     
     private func launchSDKs() {
 
+        print("🧙🏻‍♂️ launchSDKs")
+        
         let consent = getPrivacyConsent()
         print("Consent privacy ads: \(consent.adsConsent)")
         print("Consent privacy analytics: \(consent.analyticsConsent)")
@@ -82,7 +84,7 @@ final class VoodooPrivacyManager {
         
         if shouldPrivacyApplicable() {
             if consent.adsConsent {
-                /* initt SDK MAX */
+                AdInitializer.launchAdsSDK()
             }
 
             if consent.analyticsConsent {
@@ -90,7 +92,7 @@ final class VoodooPrivacyManager {
             }
             
         } else {
-            /* INIT SDK MAX */
+            AdInitializer.launchAdsSDK()
         }
 
         
