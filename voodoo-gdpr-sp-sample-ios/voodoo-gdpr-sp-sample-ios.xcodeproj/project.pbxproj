@@ -21,7 +21,6 @@
 		CA0C90662C08B793003C5D8A /* NativeAdClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C90592C08B793003C5D8A /* NativeAdClient.swift */; };
 		CA0C90672C08B793003C5D8A /* MRECAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C905B2C08B793003C5D8A /* MRECAdView.swift */; };
 		CA0C90682C08B793003C5D8A /* NativeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C905C2C08B793003C5D8A /* NativeAdView.swift */; };
-		DEDC72AB2C088413006ED1F1 /* voodoo_gdpr_sp_sample_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72AA2C088413006ED1F1 /* voodoo_gdpr_sp_sample_iosApp.swift */; };
 		DEDC72AD2C088413006ED1F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72AC2C088413006ED1F1 /* ContentView.swift */; };
 		DEDC72AF2C088415006ED1F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDC72AE2C088415006ED1F1 /* Assets.xcassets */; };
 		DEDC72B22C088415006ED1F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDC72B12C088415006ED1F1 /* Preview Assets.xcassets */; };
@@ -64,7 +63,6 @@
 		CA0C905C2C08B793003C5D8A /* NativeAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeAdView.swift; sourceTree = "<group>"; };
 		D318223CFB95BC5185B539B3 /* AppLovinQualityService.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:B8HZ37M8S5:SafeDK Mobile Ltd."; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = AppLovinQualityService.xcframework; path = AppLovinQualityService/AppLovinQualityService.xcframework; sourceTree = "<group>"; };
 		DEDC72A72C088413006ED1F1 /* voodoo-gdpr-sp-sample-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "voodoo-gdpr-sp-sample-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DEDC72AA2C088413006ED1F1 /* voodoo_gdpr_sp_sample_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = voodoo_gdpr_sp_sample_iosApp.swift; sourceTree = "<group>"; };
 		DEDC72AC2C088413006ED1F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DEDC72AE2C088415006ED1F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEDC72B12C088415006ED1F1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -186,8 +184,7 @@
 				DEDC72CE2C088552006ED1F1 /* Info.plist */,
 				CA0C904E2C08B74B003C5D8A /* Ads */,
 				DEDC72B82C088423006ED1F1 /* VoodooPrivacy */,
-				DEDC72CD2C088510006ED1F1 /* ViewController */,
-				DEDC72AA2C088413006ED1F1 /* voodoo_gdpr_sp_sample_iosApp.swift */,
+				DEDC72CD2C088510006ED1F1 /* Consent */,
 				DEDC72AC2C088413006ED1F1 /* ContentView.swift */,
 				DEDC72C82C0884CC006ED1F1 /* AppDelegate.swift */,
 				DEDC72AE2C088415006ED1F1 /* Assets.xcassets */,
@@ -224,12 +221,12 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
-		DEDC72CD2C088510006ED1F1 /* ViewController */ = {
+		DEDC72CD2C088510006ED1F1 /* Consent */ = {
 			isa = PBXGroup;
 			children = (
 				DEDC72CB2C088506006ED1F1 /* ConsentViewControllerRepresentable.swift */,
 			);
-			path = ViewController;
+			path = Consent;
 			sourceTree = "<group>";
 		};
 		E0CC3C3748AB47C50E976532 /* Frameworks */ = {
@@ -442,7 +439,6 @@
 				DEDC72C02C088432006ED1F1 /* VoodooPrivacyConsent.swift in Sources */,
 				DEDC72C22C088432006ED1F1 /* SourcePointConfiguration.swift in Sources */,
 				CA0C90632C08B793003C5D8A /* MRECAdClient.swift in Sources */,
-				DEDC72AB2C088413006ED1F1 /* voodoo_gdpr_sp_sample_iosApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,11 +591,10 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "voodoo-gdpr-sp-sample-ios/Info.plist";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to deliver personalized ads to you.";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -636,11 +631,10 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "voodoo-gdpr-sp-sample-ios/Info.plist";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to deliver personalized ads to you.";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
