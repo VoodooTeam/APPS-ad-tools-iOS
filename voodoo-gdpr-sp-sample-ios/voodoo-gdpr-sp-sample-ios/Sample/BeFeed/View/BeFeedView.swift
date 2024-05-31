@@ -29,10 +29,11 @@ struct BeFeedView: View {
                     Button("AppLo Debug") {
                         ALSdk.shared().showMediationDebugger()
                     }
+                    Spacer()
                     Button("Privacy Settings") {
                         showConsentView = true
                     }
-                }
+                }.padding(.horizontal, 8)
                 ForEach(viewModel.feedItems) { item in
                     switch item.content {
                     case .media(let media):
