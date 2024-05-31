@@ -27,7 +27,7 @@ struct BeFeedView: View {
             LazyVStack(spacing: 30) {
                 HStack {
                     Button("AppLo Debug") {
-                        AdInitializer.appLoSdk.showMediationDebugger()
+                        ALSdk.shared().showMediationDebugger()
                     }
                     Button("Privacy Settings") {
                         showConsentView = true

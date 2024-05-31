@@ -78,7 +78,7 @@ final class MRECAdClient: NSObject, AdClient {
         guard !isLoading && availableAd == nil else { return }
         isLoading = true
         
-        loadingView = MAAdView(adUnitIdentifier: AdConfig.mrecAdUnit, adFormat: MAAdFormat.mrec, sdk: AdInitializer.appLoSdk)
+        loadingView = MAAdView(adUnitIdentifier: AdConfig.mrecAdUnit, adFormat: MAAdFormat.mrec, sdk: ALSdk.shared())
         loadingView.delegate = self
         loadingView.revenueDelegate = self
         loadingView.setExtraParameterForKey("allow_pause_auto_refresh_immediately", value: "true")

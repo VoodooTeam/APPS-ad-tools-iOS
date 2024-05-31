@@ -11,19 +11,17 @@ import FBAudienceNetwork
 import UIKit
 import AppHarbrSDK
 
-class AdInitializer: NSObject {
+enum MediationProvider: String {
+    case max
+}
+
+final class AdInitializer: NSObject {
         
     // MARK: - Static properties
     
-    static var nativeAdLoader = MANativeAdLoader(adUnitIdentifier: AdConfig.nativeAdUnit, sdk: appLoSdk)
+    static var nativeAdLoader = MANativeAdLoader(adUnitIdentifier: AdConfig.nativeAdUnit, sdk: ALSdk.shared())
             
     private static var isStarted = false
-    
-    static var appLoSdk: ALSdk {
-        let alSdk = ALSdk.shared(withKey: AdConfig.appLovinKey)!
-        alSdk.mediationProvider = "max"
-        return alSdk
-    }
     
     // MARK: - class methods
     
@@ -37,7 +35,10 @@ class AdInitializer: NSObject {
         ALPrivacySettings.setIsAgeRestrictedUser(false)
         
         setupAppHarbr()
-        appLoSdk.initializeSdk { (configuration: ALSdkConfiguration) in
+        let configuration = ALSdkInitializationConfiguration(sdkKey: AdConfig.appLovinKey) { configuration in
+            configuration.mediationProvider = MediationProvider.max.rawValue
+        }
+        ALSdk.shared().initialize(with: configuration) { configuration in
             FBAdSettings.setDataProcessingOptions([])
             isStarted = true
             AdCoordinator.shared.initWith(
