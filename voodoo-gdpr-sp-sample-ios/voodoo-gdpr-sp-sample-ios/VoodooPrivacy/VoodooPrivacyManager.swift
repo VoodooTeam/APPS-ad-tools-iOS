@@ -76,23 +76,24 @@ final class VoodooPrivacyManager {
         print("Consent privacy ads: \(consent.adsConsent)")
         print("Consent privacy analytics: \(consent.analyticsConsent)")
 
-
+        Task {
+            let status = await VoodooATTPrivacyManager.shared.requestTrackingAuthorization()
+        }
+        
         if shouldPrivacyApplicable() {
             if consent.adsConsent {
-                Task {
-                    let status = await VoodooATTPrivacyManager.shared.requestTrackingAuthorization()
-                }
-
                 /* initt SDK MAX */
             }
 
             if consent.analyticsConsent {
                 // Initialize Analytics SDK
             }
+            
         } else {
             /* INIT SDK MAX */
         }
 
+        
     }
 
     func displayContentUI(from: UIViewController, completion: ((Status) -> Void)? = nil) {
