@@ -1,5 +1,5 @@
 //
-//  VoodooPrivacyManager.swift
+//  PrivacyManager.swift
 //  GDPRConsentPOC
 //
 //  Created by Sarra Srairi on 29/05/2024.
@@ -10,8 +10,8 @@ import ConsentViewController
 import UIKit
 import SwiftUI
 
-final class VoodooPrivacyManager {
-    
+final class PrivacyManager {
+
     // MARK: - Enums
     
     enum PrivacyError: Error {
@@ -26,8 +26,8 @@ final class VoodooPrivacyManager {
         case available
         case finished
         case error(Error)
-        
-        static func == (lhs: VoodooPrivacyManager.Status, rhs: VoodooPrivacyManager.Status) -> Bool {
+
+        static func == (lhs: PrivacyManager.Status, rhs: PrivacyManager.Status) -> Bool {
             switch (lhs, rhs) {
             case (.notAvailable, .notAvailable),
                 (.notRequested, .notRequested),
@@ -42,9 +42,9 @@ final class VoodooPrivacyManager {
     }
     
     // MARK: - Singleton
-    
-    static let shared = VoodooPrivacyManager()
-    
+
+    static let shared = PrivacyManager()
+
     // MARK: - Properties
     
     private var consentManager: SPSDK?
@@ -52,9 +52,8 @@ final class VoodooPrivacyManager {
     private var onCompletion: ((Status) -> Void)?
     private(set) var fromViewController: UIViewController?
     private(set) var status: Status = .notRequested
-    
-    private var purposeConsentDictionary: [Purpose: Bool] = [:]
-    private var keyPurposeDictionary: [String: Purpose] = [:]
+    private var purposeConsentDictionary: [PrivacyPurpose: Bool] = [:]
+    private var keyPurposeDictionary: [String: PrivacyPurpose] = [:]
     var language: SPMessageLanguage?
     
     private var hasUserConsent: Bool {
@@ -90,7 +89,7 @@ final class VoodooPrivacyManager {
         print("Consent privacy analytics: \(consent.analyticsConsent)")
 
         Task {
-            await VoodooATTPrivacyManager.shared.requestTrackingAuthorization()
+            await PrivacyATTManager.shared.requestTrackingAuthorization()
         }
         
         if shouldPrivacyApplicable() {
@@ -136,7 +135,7 @@ final class VoodooPrivacyManager {
 
         if shouldPrivacyApplicable() {
             fromViewController = from
-            consentManager.loadGDPRPrivacyManager(withId:SourcepointConfiguration.privacyManagerId)
+            consentManager.loadGDPRPrivacyManager(withId:PrivacyConfig.privacyManagerId)
         } else {
             status = .notAvailable
             print("Privacy -- not available in your country")
@@ -150,7 +149,7 @@ final class VoodooPrivacyManager {
         return consentManager.gdprApplies || consentManager.usnatApplies || consentManager.ccpaApplies
     }
 
-    func isPurposeAuthorized(_ purpose: Purpose) -> Bool {
+    func isPurposeAuthorized(_ purpose: PrivacyPurpose) -> Bool {
         return purposeConsentDictionary[purpose] ?? false
     }
 
@@ -163,11 +162,11 @@ final class VoodooPrivacyManager {
     // MARK: - Private Methods
 
     private func setupConsentManager() {
-        let language = SourcePointLanguageMapper.mapLanguageCodeToSPMessageLanguage()
+        let language = PrivacyLanguageMapper.mapLanguageCodeToSPMessageLanguage()
         consentManager = SPConsentManager(
-            accountId: SourcepointConfiguration.accountId,
-            propertyId: SourcepointConfiguration.propertyId,
-            propertyName: try! SPPropertyName(SourcepointConfiguration.propertyName),
+            accountId: PrivacyConfig.accountId,
+            propertyId: PrivacyConfig.propertyId,
+            propertyName: try! SPPropertyName(PrivacyConfig.propertyName),
             campaigns: SPCampaigns(
                 gdpr: SPCampaign(),
                 ccpa: SPCampaign(),
@@ -181,15 +180,15 @@ final class VoodooPrivacyManager {
 
     private func initializeKeyPurposeDictionary() {
         keyPurposeDictionary = [
-            SourcepointConfiguration.storeAndAccessInformationOnDeviceKey: .StoreAndAccessInformationOnDevice,
-            SourcepointConfiguration.selectBasicAdsKey: .SelectBasicAds,
-            SourcepointConfiguration.createPersonalisedAdsProfileKey: .CreatePersonalisedAdsProfile,
-            SourcepointConfiguration.selectPersonalisedAdsKey: .SelectPersonalisedAds,
-            SourcepointConfiguration.measureAdsPerformanceKey: .MeasureAdsPerformance,
-            SourcepointConfiguration.measureContentPerformanceKey: .MeasureContentPerformance,
-            SourcepointConfiguration.applyMarketResearchToGenerateAudienceInsightsKey: .ApplyMarketResearchToGenerateAudienceInsights,
-            SourcepointConfiguration.developAndImproveProductsKey: .DevelopAndImproveProducts,
-            SourcepointConfiguration.useLimitedDataContent: .UseLimitedDataContent
+            PrivacyConfig.storeAndAccessInformationOnDeviceKey: .StoreAndAccessInformationOnDevice,
+            PrivacyConfig.selectBasicAdsKey: .SelectBasicAds,
+            PrivacyConfig.createPersonalisedAdsProfileKey: .CreatePersonalisedAdsProfile,
+            PrivacyConfig.selectPersonalisedAdsKey: .SelectPersonalisedAds,
+            PrivacyConfig.measureAdsPerformanceKey: .MeasureAdsPerformance,
+            PrivacyConfig.measureContentPerformanceKey: .MeasureContentPerformance,
+            PrivacyConfig.applyMarketResearchToGenerateAudienceInsightsKey: .ApplyMarketResearchToGenerateAudienceInsights,
+            PrivacyConfig.developAndImproveProductsKey: .DevelopAndImproveProducts,
+            PrivacyConfig.useLimitedDataContent: .UseLimitedDataContent
         ]
     }
 
@@ -198,7 +197,7 @@ final class VoodooPrivacyManager {
     }
 
     private func updatePurposeConsentDictionary(_ gdprConsent: SPGDPRConsent) {
-        purposeConsentDictionary = keyPurposeDictionary.reduce(into: [Purpose: Bool]()) { dict, keyPurpose in
+        purposeConsentDictionary = keyPurposeDictionary.reduce(into: [PrivacyPurpose: Bool]()) { dict, keyPurpose in
             dict[keyPurpose.value] = true
         }
 
@@ -211,8 +210,8 @@ final class VoodooPrivacyManager {
         }
     }
 
-    private func getPrivacyConsent() -> VoodooPrivacyConsent {
-        return VoodooPrivacyConsent(
+    private func getPrivacyConsent() -> PrivacyConsent {
+        return PrivacyConsent(
             adsConsent: purposeConsentDictionary[.StoreAndAccessInformationOnDevice] ?? false &&
                         purposeConsentDictionary[.SelectBasicAds] ?? false &&
                         purposeConsentDictionary[.CreatePersonalisedAdsProfile] ?? false &&
@@ -246,7 +245,7 @@ final class VoodooPrivacyManager {
 
 // MARK: - SPDelegate
 
-extension VoodooPrivacyManager: SPDelegate {
+extension PrivacyManager: SPDelegate {
     func onSPUIReady(_ controller: UIViewController) {
         controller.modalPresentationStyle = .overFullScreen
 

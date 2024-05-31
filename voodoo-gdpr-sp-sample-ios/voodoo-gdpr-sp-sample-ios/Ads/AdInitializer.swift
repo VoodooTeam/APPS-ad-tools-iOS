@@ -26,10 +26,7 @@ final class AdInitializer: NSObject {
     // MARK: - class methods
     
     static func launchAdsSDK(hasUserConsent: Bool, doNotSell: Bool, isAgeRestrictedUser: Bool) {
-        print("🧙🏻‍♂️ launchAdsSDK")
-        
         guard !isStarted else { return }
-        
         ALPrivacySettings.setHasUserConsent(hasUserConsent)
         ALPrivacySettings.setDoNotSell(doNotSell)
         ALPrivacySettings.setIsAgeRestrictedUser(isAgeRestrictedUser)
@@ -43,8 +40,8 @@ final class AdInitializer: NSObject {
             isStarted = true
             AdCoordinator.shared.initWith(
                 clients: [
-                    NativeAdClient(userInfo: .empty),
-                    MRECAdClient(userInfo: .empty)
+                    NativeMAadClient(userInfo: .empty),
+                    MRECMAadClient(userInfo: .empty)
                 ]
             )
         }

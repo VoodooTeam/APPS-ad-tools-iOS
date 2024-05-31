@@ -1,13 +1,23 @@
 //
-//  SourcePointConfig.swift
-//  GDPRConsentPOC
+//  Config.swift
+//  voodoo-gdpr-sp-sample-ios
 //
-//  Created by Sarra Srairi on 29/05/2024.
+//  Created by Gautier Gedoux on 31/05/2024.
 //
 
-import Foundation
+struct AdConfig {
+    static let gadNativeAdViewTag = 1008
+    static let appLovinKey = "E1M7r57HoT7PoxvgxbXnJLA55TKI1GOGHmO6rVNdzV1mQwQMWz7rJIxOrGgtW48prWwf1II-oKkDF9Zn7gbQzX"
+    static let appHarbrKey = "6d693b09-dde8-45a2-86d4-f0ad12ad655e"
+    static let nativeAdUnit = "252036be5c9ebe29"
+    static let mrecAdUnit = "0b317d8985405a5e"
+    static let interval = 3
+    static let fetchOffset = 2
+    static let surroundingUserBaseUrl = "https://crawler.getwizz.io/wizz_profiles.html?uid=%1$@"
+    static let amazonSlotID = "b636cd42-59d9-46f6-bec8-017dad7bef1b"
+}
 
-struct SourcepointConfiguration {
+struct PrivacyConfig {
     static let accountId = 1909
     static let propertyId = 36309
     static let privacyManagerId = "1142456"
@@ -24,18 +34,4 @@ struct SourcepointConfiguration {
     static let applyMarketResearchToGenerateAudienceInsightsKey = "6656fcd5a0fa9305065e54a9"
     static let developAndImproveProductsKey = "6656fcd5a0fa9305065e54f3"
     static let useLimitedDataContent = "6656fcd5a0fa9305065e5561"
-
 }
-
-enum Purpose: String {
-    case StoreAndAccessInformationOnDevice
-    case SelectBasicAds
-    case CreatePersonalisedAdsProfile
-    case SelectPersonalisedAds
-    case MeasureAdsPerformance
-    case MeasureContentPerformance
-    case ApplyMarketResearchToGenerateAudienceInsights
-    case DevelopAndImproveProducts
-    case UseLimitedDataContent
-}
-

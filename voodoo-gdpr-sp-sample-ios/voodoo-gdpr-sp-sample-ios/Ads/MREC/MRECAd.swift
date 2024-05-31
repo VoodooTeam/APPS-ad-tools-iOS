@@ -8,20 +8,11 @@
 import Foundation
 import AppLovinSDK
 
-final class MRECAd: Ad {
-    let adUnit: String
-    let ad: MAAd
+final class MRECAd: MAXAd {
     let adView: MAAdView
-    var index: Int?
-    var type: AdType = .mrec
-    
-    var price: Double {
-        return ad.revenue
-    }
-    
+
     init(adUnit: String, ad: MAAd, adView: MAAdView) {
-        self.adUnit = adUnit
-        self.ad = ad
         self.adView = adView
+        super.init(adUnit: adUnit, ad: ad, type: .mrec)
     }
 }

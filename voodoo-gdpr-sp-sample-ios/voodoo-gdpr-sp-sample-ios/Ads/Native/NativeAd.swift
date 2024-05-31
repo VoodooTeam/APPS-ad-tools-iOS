@@ -8,18 +8,9 @@
 import Foundation
 import AppLovinSDK
 
-final class NativeAd: Ad {
-    let adUnit: String
-    let ad: MAAd
-    var index: Int?
-    var type: AdType = .native
-    
-    var price: Double {
-        return ad.revenue
-    }
+final class NativeAd: MAXAd {
     
     init(adUnit: String, ad: MAAd) {
-        self.adUnit = adUnit
-        self.ad = ad
+        super.init(adUnit: adUnit, ad: ad, type: .native)
     }
 }

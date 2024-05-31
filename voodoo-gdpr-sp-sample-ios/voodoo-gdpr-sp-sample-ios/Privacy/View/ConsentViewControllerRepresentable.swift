@@ -12,7 +12,7 @@ struct ConsentViewControllerRepresentable: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIViewController {
         let viewController = UIViewController()
         DispatchQueue.main.async {
-            VoodooPrivacyManager.shared.loadAndDisplayConsentUI(from: viewController)
+            PrivacyManager.shared.loadAndDisplayConsentUI(from: viewController)
         }
         return viewController
     }
