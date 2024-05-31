@@ -24,9 +24,14 @@ def ad_pods
   pod 'AppLovinMediationMobileFuseAdapter'
 end
 
+def consent_pods
+  pod 'ConsentViewController'
+end
+
+
 target 'voodoo-gdpr-sp-sample-ios' do
   ad_pods
-  
+  consent_pods
   pod 'SnapKit'
 end
 
