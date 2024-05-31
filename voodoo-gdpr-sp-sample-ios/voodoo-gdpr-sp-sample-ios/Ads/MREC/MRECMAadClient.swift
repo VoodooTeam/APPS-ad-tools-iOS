@@ -1,5 +1,5 @@
 //
-//  MRECAdClient.swift
+//  MRECMAadClient.swift
 //  Wizz
 //
 //  Created by Gautier Gedoux on 29/04/2022.
@@ -12,72 +12,31 @@ import UIKit
 import AppHarbrSDK
 import DTBiOSSDK
 
-final class MRECAdClient: NSObject, AdClient {
+final class MRECMAadClient: MAadClientBase, AdClient {
     // MARK: - data
     
     //properties
     let adUnit: String = AdConfig.mrecAdUnit
     
-    private var availableAd: MRECAd?
-    private var displayedAds: [MRECAd] = []
-    var adIndexes = Set<Int>()
-    
-    private var isLoading = false
-    private var retryAttempt = 0
-    private let maxRetryAttempt = 5
-    
     private var loadingView: MAAdView!
     
-    private let userInfo: SessionUserInformation?
-    
-    // MARK: - Init
-    
-    init(userInfo: SessionUserInformation) {
-        self.userInfo = userInfo
-    }
+    private var didDisplay: Bool = false
     
     // MARK: - instance methods
-    
-    func getAd(for index: Int) -> Ad? {
-        guard adIndexes.contains(index) || availableAd != nil else { return nil }
-        return getMRECAd(at: index)
-    }
-    
-    func electAd(for index: Int) {
-        adIndexes.insert(index)
-    }
 
     func getAdView(for index: Int) -> UIView {
-        if let ad = getMRECAd(at: index) {
+        if let ad = getCustomAd(at: index) as? MRECAd {
             return MRECAdView(mrecView: ad.adView)
         }
         return UIView()
     }
     
-    func reset() {
-        resetIndexedAd()
-    }
-    
-    func getMRECAd(at index: Int) -> MRECAd? {
-        if let displayedAd = displayedAds.first(where: { $0.index == index }) {
-            return displayedAd
-        }
-        
-        if let newAd = availableAd {
-            newAd.index = index
-            displayedAds.append(newAd)
-            availableAd = nil
-        } else if adIndexes.contains(index), let oldAd = displayedAds.first {
-            oldAd.index = index
-            return oldAd
-        }
-        return displayedAds.last
-    }
-    
-    func load(with surroundingIds: [String] = []) {
+    override func load(with surroundingIds: [String] = []) {
         guard !isLoading && availableAd == nil else { return }
         isLoading = true
-        
+        didDisplay = false
+
+        AdAnalytics.adLoadingStarted.send(params: ["adUnitIdentifier": adUnit])
         loadingView = MAAdView(adUnitIdentifier: AdConfig.mrecAdUnit, adFormat: MAAdFormat.mrec, sdk: AdInitializer.appLoSdk)
         loadingView.delegate = self
         loadingView.revenueDelegate = self
@@ -89,6 +48,8 @@ final class MRECAdClient: NSObject, AdClient {
         AH.addBanner(with: .max, adObject: loadingView, delegate: self)
 
         loadingView.stopAutoRefresh()
+        loadingView.loadAd()
+        
         let adLoader = DTBAdLoader()
         adLoader.setAdSizes([DTBAdSize(bannerAdSizeWithWidth: 300,
                              height: 250,
@@ -104,6 +65,10 @@ final class MRECAdClient: NSObject, AdClient {
     
     private func resetIndexedAd() {
         adIndexes = Set<Int>()
+    }
+    
+    func reset() {
+        resetIndexedAd()
     }
 
     // MARK: - Private
@@ -121,15 +86,23 @@ final class MRECAdClient: NSObject, AdClient {
         }
     }
     
+    private func sendAnalytics(_ ad: MAAd, blocked: Bool = false, appHarbrResult: String = "") {
+        let adParams = getMAadParameters(ad: ad)
+        if didDisplay {
+            AdAnalytics.adLoadingFinishedBlocked.send(params: adParams)
+        } else {
+            AdAnalytics.adLoadingFinished.send(params: adParams)
+        }
+    }
+    
 }
 
 // MARK: - MANativeAdDelegate
 
-extension MRECAdClient: MAAdViewAdDelegate {
+extension MRECMAadClient: MAAdViewAdDelegate {
     
     func didLoad(_ ad: MAAd) {
-//        sendAnalytics(ad)
-        
+        sendAnalytics(ad)
         finishLoading()
         resetAvailableAd()
         
@@ -138,18 +111,11 @@ extension MRECAdClient: MAAdViewAdDelegate {
     }
 
     func didFailToLoadAd(forAdUnitIdentifier adUnitIdentifier: String, withError error: MAError) {
-        restartLoad()
+        adLoadingFailed(for: adUnitIdentifier, with: error)
     }
 
     func didClick(_ ad: MAAd) {
-//        Analytics.adClicked(
-//            adType: .storyAd,
-//            adNetwork: ad.networkName,
-//            adCreativeId: ad.creativeIdentifier,
-//            adReviewCreativeId: ad.adReviewCreativeIdentifier,
-//            adTestName: ad.waterfall.testName,
-//            from: .swipe
-//        )
+        AdAnalytics.adClicked.send(params: getMAadParameters(ad: ad))
     }
 
     func didFail(toDisplay ad: MAAd, withError error: MAError) {}
@@ -159,39 +125,17 @@ extension MRECAdClient: MAAdViewAdDelegate {
     func didCollapse(_ ad: MAAd) {}
     
     func didDisplay(_ ad: MAAd) {
+        didDisplay = true
     }
     
     func didHide(_ ad: MAAd) {}
-    
-    func finishLoading() {
-        isLoading = false
-        retryAttempt = 0
-    }
-    
-    func restartLoad() {
-        isLoading = false
-        guard retryAttempt < maxRetryAttempt else { return }
-        retryAttempt += 1
-        let delaySec = pow(2.0, min(6.0, Double(retryAttempt)))
-        DispatchQueue.main.asyncAfter(deadline: .now() + delaySec) { [weak self] in
-            self?.load()
-        }
-    }
-
-}
-
-// MARK: - MAAdRevenueDelegate
-
-extension MRECAdClient: MAAdRevenueDelegate {
-    
-    func didPayRevenue(for ad: MAAd) {}
 }
 
 //MARK: - AppHarbr
-extension MRECAdClient: AppHarbrDelegate {
+extension MRECMAadClient: AppHarbrDelegate {
     func didAdBlocked(ad: NSObject?, unitId: String?, adForamt: AppHarbrSDK.AdFormat, reasons: [String]) {
         guard let maxAd = ad as? MAAd else { return }
-//        AdAnalytics.adDisplayBlocked.send(params: )
+        sendAnalytics(maxAd)
         
         resetIndexedAd()
         resetAvailableAd()
@@ -200,7 +144,7 @@ extension MRECAdClient: AppHarbrDelegate {
     }
 }
 
-extension MRECAdClient: DTBAdCallback {
+extension MRECMAadClient: DTBAdCallback {
     func onSuccess(_ adResponse: DTBAdResponse!) {
         loadingView.setLocalExtraParameterForKey("amazon_ad_response", value: adResponse)
         loadingView.loadAd()

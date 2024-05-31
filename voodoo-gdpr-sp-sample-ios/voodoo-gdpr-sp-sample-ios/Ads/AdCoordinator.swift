@@ -66,7 +66,7 @@ final class AdCoordinator {
         return electedAd != nil
     }
     
-    func load(with surroundingIds: [String]) {
+    func load(with surroundingIds: [String] = []) {
         clients.values.forEach { $0.load(with: surroundingIds) }
     }
 }
