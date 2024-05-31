@@ -11,6 +11,8 @@ import AppLovinSDK
 struct BeFeedView: View {
     
     @StateObject var viewModel: BeFeedViewModel
+    @State var showConsentView: Bool = false
+    
 
     var body: some View {
         VStack {
@@ -23,8 +25,13 @@ struct BeFeedView: View {
     @ViewBuilder private var horizontalFeedView: some View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVStack(spacing: 30) {
-                Button("AppLovin Mediation Debugger") {
-                    AdInitializer.appLoSdk.showMediationDebugger()
+                HStack {
+                    Button("AppLo Debug") {
+                        AdInitializer.appLoSdk.showMediationDebugger()
+                    }
+                    Button("Privacy Settings") {
+                        showConsentView = true
+                    }
                 }
                 ForEach(viewModel.feedItems) { item in
                     switch item.content {
@@ -42,6 +49,9 @@ struct BeFeedView: View {
                                 viewModel.didDisplay(item: item)
                             }
                     }
+                }
+                .fullScreenCover(isPresented: $showConsentView) {
+                    ConsentViewControllerRepresentable()
                 }
             }
             .padding(.top, 50)

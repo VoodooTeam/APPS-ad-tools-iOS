@@ -79,7 +79,7 @@ final class VoodooPrivacyManager {
         print("Consent privacy analytics: \(consent.analyticsConsent)")
 
         Task {
-            let status = await VoodooATTPrivacyManager.shared.requestTrackingAuthorization()
+            await VoodooATTPrivacyManager.shared.requestTrackingAuthorization()
         }
         
         if shouldPrivacyApplicable() {
