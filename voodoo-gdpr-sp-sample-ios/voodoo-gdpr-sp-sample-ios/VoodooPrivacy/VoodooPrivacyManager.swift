@@ -134,7 +134,6 @@ final class VoodooPrivacyManager {
 
     private func setupConsentManager() {
         let language = SourcePointLanguageMapper.mapLanguageCodeToSPMessageLanguage()
-
         consentManager = SPConsentManager(
             accountId: SourcepointConfiguration.accountId,
             propertyId: SourcepointConfiguration.propertyId,
@@ -156,12 +155,11 @@ final class VoodooPrivacyManager {
             SourcepointConfiguration.selectBasicAdsKey: .SelectBasicAds,
             SourcepointConfiguration.createPersonalisedAdsProfileKey: .CreatePersonalisedAdsProfile,
             SourcepointConfiguration.selectPersonalisedAdsKey: .SelectPersonalisedAds,
-            SourcepointConfiguration.createPersonalisedContentProfileKey: .CreatePersonalisedContentProfile,
-            SourcepointConfiguration.selectPersonalisedContentKey: .SelectPersonalisedContent,
             SourcepointConfiguration.measureAdsPerformanceKey: .MeasureAdsPerformance,
             SourcepointConfiguration.measureContentPerformanceKey: .MeasureContentPerformance,
             SourcepointConfiguration.applyMarketResearchToGenerateAudienceInsightsKey: .ApplyMarketResearchToGenerateAudienceInsights,
-            SourcepointConfiguration.developAndImproveProductsKey: .DevelopAndImproveProducts
+            SourcepointConfiguration.developAndImproveProductsKey: .DevelopAndImproveProducts,
+            SourcepointConfiguration.useLimitedDataContent: .UseLimitedDataContent
         ]
     }
 
@@ -188,15 +186,14 @@ final class VoodooPrivacyManager {
             adsConsent: purposeConsentDictionary[.StoreAndAccessInformationOnDevice] ?? false &&
                         purposeConsentDictionary[.SelectBasicAds] ?? false &&
                         purposeConsentDictionary[.CreatePersonalisedAdsProfile] ?? false &&
-                        purposeConsentDictionary[.SelectPersonalisedAds] ?? false &&
-                        purposeConsentDictionary[.CreatePersonalisedContentProfile] ?? false &&
-                        purposeConsentDictionary[.SelectPersonalisedContent] ?? false,
+                        purposeConsentDictionary[.SelectPersonalisedAds] ?? false,
 
             analyticsConsent: purposeConsentDictionary[.StoreAndAccessInformationOnDevice] ?? false &&
                               purposeConsentDictionary[.MeasureAdsPerformance] ?? false &&
                               purposeConsentDictionary[.MeasureContentPerformance] ?? false &&
                               purposeConsentDictionary[.ApplyMarketResearchToGenerateAudienceInsights] ?? false &&
-                              purposeConsentDictionary[.DevelopAndImproveProducts] ?? false
+                              purposeConsentDictionary[.DevelopAndImproveProducts] ?? false &&
+                              purposeConsentDictionary[.UseLimitedDataContent] ?? false
         )
     }
 
