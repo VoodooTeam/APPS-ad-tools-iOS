@@ -581,7 +581,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"voodoo-gdpr-sp-sample-ios/Preview Content\"";
-				DEVELOPMENT_TEAM = BL642LCXCT;
+				DEVELOPMENT_TEAM = QNV8T6GK4F;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -604,7 +604,7 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "io.loicsaillant.privacy.example.voodoo-gdpr-sp-sample-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = io.voodoo.apps.ads;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -621,7 +621,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"voodoo-gdpr-sp-sample-ios/Preview Content\"";
-				DEVELOPMENT_TEAM = BL642LCXCT;
+				DEVELOPMENT_TEAM = QNV8T6GK4F;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -644,7 +644,7 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "io.loicsaillant.privacy.example.voodoo-gdpr-sp-sample-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = io.voodoo.apps.ads;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
