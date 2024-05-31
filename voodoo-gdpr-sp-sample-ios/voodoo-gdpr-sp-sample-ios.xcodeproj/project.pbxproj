@@ -18,22 +18,22 @@
 		1379EC282C09FD9700142B8D /* NativeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC182C09FD9700142B8D /* NativeAdView.swift */; };
 		1379EC292C09FD9700142B8D /* AdAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC1A2C09FD9700142B8D /* AdAnalytics.swift */; };
 		1379EC2A2C09FD9700142B8D /* AdClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC1B2C09FD9700142B8D /* AdClient.swift */; };
-		1379EC2B2C09FD9700142B8D /* AdConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC1C2C09FD9700142B8D /* AdConfig.swift */; };
 		1379EC2C2C09FD9700142B8D /* AdCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC1D2C09FD9700142B8D /* AdCoordinator.swift */; };
 		1379EC2D2C09FD9700142B8D /* AdInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC1E2C09FD9700142B8D /* AdInitializer.swift */; };
+		1379EC302C0A038300142B8D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC2F2C0A038300142B8D /* Config.swift */; };
+		1379EC322C0A03A300142B8D /* PrivacyPurpose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC312C0A03A300142B8D /* PrivacyPurpose.swift */; };
 		23D049EB5576E7E3D17CA5DD /* libPods-voodoo-gdpr-sp-sample-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E28CC5A6615CCCFAA2D5B737 /* libPods-voodoo-gdpr-sp-sample-ios.a */; };
 		621EB591322911DCC4DC4CA8 /* AppLovinQualityService.xcframework in AppLovinQualityService Embed Framework */ = {isa = PBXBuildFile; fileRef = D318223CFB95BC5185B539B3 /* AppLovinQualityService.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		87EDD01827588CE6110C9DB7 /* AppLovinQualityService.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D318223CFB95BC5185B539B3 /* AppLovinQualityService.xcframework */; };
 		DEDC72AD2C088413006ED1F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72AC2C088413006ED1F1 /* ContentView.swift */; };
 		DEDC72AF2C088415006ED1F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDC72AE2C088415006ED1F1 /* Assets.xcassets */; };
 		DEDC72B22C088415006ED1F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDC72B12C088415006ED1F1 /* Preview Assets.xcassets */; };
-		DEDC72BE2C088432006ED1F1 /* VoodooATTPrivacyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72B92C088432006ED1F1 /* VoodooATTPrivacyManager.swift */; };
-		DEDC72C02C088432006ED1F1 /* VoodooPrivacyConsent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72BB2C088432006ED1F1 /* VoodooPrivacyConsent.swift */; };
-		DEDC72C12C088432006ED1F1 /* VoodooPrivacyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72BC2C088432006ED1F1 /* VoodooPrivacyManager.swift */; };
-		DEDC72C22C088432006ED1F1 /* SourcePointConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72BD2C088432006ED1F1 /* SourcePointConfiguration.swift */; };
+		DEDC72BE2C088432006ED1F1 /* PrivacyATTManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72B92C088432006ED1F1 /* PrivacyATTManager.swift */; };
+		DEDC72C02C088432006ED1F1 /* PrivacyConsent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72BB2C088432006ED1F1 /* PrivacyConsent.swift */; };
+		DEDC72C12C088432006ED1F1 /* PrivacyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72BC2C088432006ED1F1 /* PrivacyManager.swift */; };
 		DEDC72C92C0884CC006ED1F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72C82C0884CC006ED1F1 /* AppDelegate.swift */; };
 		DEDC72CC2C088506006ED1F1 /* ConsentViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72CB2C088506006ED1F1 /* ConsentViewControllerRepresentable.swift */; };
-		DEDC72D02C08D148006ED1F1 /* SourcePointLanguageMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72CF2C08D148006ED1F1 /* SourcePointLanguageMapper.swift */; };
+		DEDC72D02C08D148006ED1F1 /* PrivacyLanguageMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72CF2C08D148006ED1F1 /* PrivacyLanguageMapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,23 +62,23 @@
 		1379EC182C09FD9700142B8D /* NativeAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeAdView.swift; sourceTree = "<group>"; };
 		1379EC1A2C09FD9700142B8D /* AdAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdAnalytics.swift; sourceTree = "<group>"; };
 		1379EC1B2C09FD9700142B8D /* AdClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdClient.swift; sourceTree = "<group>"; };
-		1379EC1C2C09FD9700142B8D /* AdConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdConfig.swift; sourceTree = "<group>"; };
 		1379EC1D2C09FD9700142B8D /* AdCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdCoordinator.swift; sourceTree = "<group>"; };
 		1379EC1E2C09FD9700142B8D /* AdInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdInitializer.swift; sourceTree = "<group>"; };
+		1379EC2F2C0A038300142B8D /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		1379EC312C0A03A300142B8D /* PrivacyPurpose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPurpose.swift; sourceTree = "<group>"; };
 		361327BF6DD735930DEEB2D3 /* Pods-voodoo-gdpr-sp-sample-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-voodoo-gdpr-sp-sample-ios.release.xcconfig"; path = "Target Support Files/Pods-voodoo-gdpr-sp-sample-ios/Pods-voodoo-gdpr-sp-sample-ios.release.xcconfig"; sourceTree = "<group>"; };
 		D318223CFB95BC5185B539B3 /* AppLovinQualityService.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:B8HZ37M8S5:SafeDK Mobile Ltd."; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = AppLovinQualityService.xcframework; path = AppLovinQualityService/AppLovinQualityService.xcframework; sourceTree = "<group>"; };
 		DEDC72A72C088413006ED1F1 /* voodoo-gdpr-sp-sample-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "voodoo-gdpr-sp-sample-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDC72AC2C088413006ED1F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DEDC72AE2C088415006ED1F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEDC72B12C088415006ED1F1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		DEDC72B92C088432006ED1F1 /* VoodooATTPrivacyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoodooATTPrivacyManager.swift; sourceTree = "<group>"; };
-		DEDC72BB2C088432006ED1F1 /* VoodooPrivacyConsent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoodooPrivacyConsent.swift; sourceTree = "<group>"; };
-		DEDC72BC2C088432006ED1F1 /* VoodooPrivacyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoodooPrivacyManager.swift; sourceTree = "<group>"; };
-		DEDC72BD2C088432006ED1F1 /* SourcePointConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourcePointConfiguration.swift; sourceTree = "<group>"; };
+		DEDC72B92C088432006ED1F1 /* PrivacyATTManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyATTManager.swift; sourceTree = "<group>"; };
+		DEDC72BB2C088432006ED1F1 /* PrivacyConsent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyConsent.swift; sourceTree = "<group>"; };
+		DEDC72BC2C088432006ED1F1 /* PrivacyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyManager.swift; sourceTree = "<group>"; };
 		DEDC72C82C0884CC006ED1F1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEDC72CB2C088506006ED1F1 /* ConsentViewControllerRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		DEDC72CE2C088552006ED1F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		DEDC72CF2C08D148006ED1F1 /* SourcePointLanguageMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcePointLanguageMapper.swift; sourceTree = "<group>"; };
+		DEDC72CF2C08D148006ED1F1 /* PrivacyLanguageMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyLanguageMapper.swift; sourceTree = "<group>"; };
 		E28CC5A6615CCCFAA2D5B737 /* libPods-voodoo-gdpr-sp-sample-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-voodoo-gdpr-sp-sample-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA0C026B4355D515B1CB9B10 /* Pods-voodoo-gdpr-sp-sample-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-voodoo-gdpr-sp-sample-ios.debug.xcconfig"; path = "Target Support Files/Pods-voodoo-gdpr-sp-sample-ios/Pods-voodoo-gdpr-sp-sample-ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,11 +150,18 @@
 				1379EC192C09FD9700142B8D /* View */,
 				1379EC1A2C09FD9700142B8D /* AdAnalytics.swift */,
 				1379EC1B2C09FD9700142B8D /* AdClient.swift */,
-				1379EC1C2C09FD9700142B8D /* AdConfig.swift */,
 				1379EC1D2C09FD9700142B8D /* AdCoordinator.swift */,
 				1379EC1E2C09FD9700142B8D /* AdInitializer.swift */,
 			);
 			path = Ads;
+			sourceTree = "<group>";
+		};
+		1379EC2E2C09FFE800142B8D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DEDC72CB2C088506006ED1F1 /* ConsentViewControllerRepresentable.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		8DF643F9FAD49F1FE46D272D /* AppLovinQualityService */ = {
@@ -197,9 +204,9 @@
 			isa = PBXGroup;
 			children = (
 				DEDC72CE2C088552006ED1F1 /* Info.plist */,
+				1379EC2F2C0A038300142B8D /* Config.swift */,
 				1379EC1F2C09FD9700142B8D /* Ads */,
-				DEDC72B82C088423006ED1F1 /* VoodooPrivacy */,
-				DEDC72CD2C088510006ED1F1 /* Consent */,
+				DEDC72B82C088423006ED1F1 /* Privacy */,
 				DEDC72AC2C088413006ED1F1 /* ContentView.swift */,
 				DEDC72C82C0884CC006ED1F1 /* AppDelegate.swift */,
 				DEDC72AE2C088415006ED1F1 /* Assets.xcassets */,
@@ -216,32 +223,17 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		DEDC72B82C088423006ED1F1 /* VoodooPrivacy */ = {
+		DEDC72B82C088423006ED1F1 /* Privacy */ = {
 			isa = PBXGroup;
 			children = (
-				DEDC72BC2C088432006ED1F1 /* VoodooPrivacyManager.swift */,
-				DEDC72B92C088432006ED1F1 /* VoodooATTPrivacyManager.swift */,
-				DEDC72BB2C088432006ED1F1 /* VoodooPrivacyConsent.swift */,
-				DEDC72C32C088442006ED1F1 /* Config */,
+				DEDC72BC2C088432006ED1F1 /* PrivacyManager.swift */,
+				DEDC72CF2C08D148006ED1F1 /* PrivacyLanguageMapper.swift */,
+				1379EC312C0A03A300142B8D /* PrivacyPurpose.swift */,
+				DEDC72B92C088432006ED1F1 /* PrivacyATTManager.swift */,
+				DEDC72BB2C088432006ED1F1 /* PrivacyConsent.swift */,
+				1379EC2E2C09FFE800142B8D /* View */,
 			);
-			path = VoodooPrivacy;
-			sourceTree = "<group>";
-		};
-		DEDC72C32C088442006ED1F1 /* Config */ = {
-			isa = PBXGroup;
-			children = (
-				DEDC72BD2C088432006ED1F1 /* SourcePointConfiguration.swift */,
-				DEDC72CF2C08D148006ED1F1 /* SourcePointLanguageMapper.swift */,
-			);
-			path = Config;
-			sourceTree = "<group>";
-		};
-		DEDC72CD2C088510006ED1F1 /* Consent */ = {
-			isa = PBXGroup;
-			children = (
-				DEDC72CB2C088506006ED1F1 /* ConsentViewControllerRepresentable.swift */,
-			);
-			path = Consent;
+			path = Privacy;
 			sourceTree = "<group>";
 		};
 		E0CC3C3748AB47C50E976532 /* Frameworks */ = {
@@ -434,26 +426,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEDC72C92C0884CC006ED1F1 /* AppDelegate.swift in Sources */,
-				DEDC72C12C088432006ED1F1 /* VoodooPrivacyManager.swift in Sources */,
+				DEDC72C12C088432006ED1F1 /* PrivacyManager.swift in Sources */,
 				1379EC272C09FD9700142B8D /* MRECAdView.swift in Sources */,
+				1379EC322C0A03A300142B8D /* PrivacyPurpose.swift in Sources */,
 				1379EC2D2C09FD9700142B8D /* AdInitializer.swift in Sources */,
-				DEDC72BE2C088432006ED1F1 /* VoodooATTPrivacyManager.swift in Sources */,
+				DEDC72BE2C088432006ED1F1 /* PrivacyATTManager.swift in Sources */,
 				1379EC252C09FD9700142B8D /* NativeAd.swift in Sources */,
 				1379EC222C09FD9700142B8D /* SessionUserInformation.swift in Sources */,
 				DEDC72CC2C088506006ED1F1 /* ConsentViewControllerRepresentable.swift in Sources */,
 				1379EC242C09FD9700142B8D /* MRECMAadClient.swift in Sources */,
 				1379EC212C09FD9700142B8D /* MAadClientBase.swift in Sources */,
-				DEDC72D02C08D148006ED1F1 /* SourcePointLanguageMapper.swift in Sources */,
+				DEDC72D02C08D148006ED1F1 /* PrivacyLanguageMapper.swift in Sources */,
 				1379EC202C09FD9700142B8D /* MAad.swift in Sources */,
 				1379EC282C09FD9700142B8D /* NativeAdView.swift in Sources */,
 				DEDC72AD2C088413006ED1F1 /* ContentView.swift in Sources */,
 				1379EC262C09FD9700142B8D /* NativeMAadClient.swift in Sources */,
 				1379EC2A2C09FD9700142B8D /* AdClient.swift in Sources */,
-				DEDC72C02C088432006ED1F1 /* VoodooPrivacyConsent.swift in Sources */,
-				1379EC2B2C09FD9700142B8D /* AdConfig.swift in Sources */,
+				DEDC72C02C088432006ED1F1 /* PrivacyConsent.swift in Sources */,
+				1379EC302C0A038300142B8D /* Config.swift in Sources */,
 				1379EC292C09FD9700142B8D /* AdAnalytics.swift in Sources */,
 				1379EC2C2C09FD9700142B8D /* AdCoordinator.swift in Sources */,
-				DEDC72C22C088432006ED1F1 /* SourcePointConfiguration.swift in Sources */,
 				1379EC232C09FD9700142B8D /* MRECAd.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

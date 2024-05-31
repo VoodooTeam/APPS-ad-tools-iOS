@@ -1,5 +1,5 @@
 //
-//  VoodooPrivacyConsent.swift
+//  PrivacyConsent.swift
 //  GDPRConsentPOC
 //
 //  Created by Sarra Srairi on 29/05/2024.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class VoodooPrivacyConsent {
+class PrivacyConsent {
     var adsConsent: Bool
     var analyticsConsent: Bool
 

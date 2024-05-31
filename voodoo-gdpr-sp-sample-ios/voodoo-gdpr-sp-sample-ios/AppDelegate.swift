@@ -17,7 +17,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
 
-        VoodooPrivacyManager.shared.configure()
+        PrivacyManager.shared.configure()
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UIHostingController(
