@@ -55,6 +55,8 @@ final class VoodooPrivacyManager {
 
     private var purposeConsentDictionary: [Purpose: Bool] = [:]
     private var keyPurposeDictionary: [String: Purpose] = [:]
+    var language: SPMessageLanguage?
+
 
     // MARK: - Initializer
 
@@ -69,27 +71,28 @@ final class VoodooPrivacyManager {
     }
     
     private func launchSDKs() {
+
         let consent = getPrivacyConsent()
         print("Consent privacy ads: \(consent.adsConsent)")
         print("Consent privacy analytics: \(consent.analyticsConsent)")
 
-        if consent.adsConsent {
-            Task {
-                let status = await VoodooATTPrivacyManager.shared.requestTrackingAuthorization()
 
-                if status == .authorized, let idfa = VoodooATTPrivacyManager.shared.fetchIDFA() {
-                    print("IDFA: \(idfa)")
-                    // Initialize MaxMediation here
-
-                } else {
-                    print("Tracking not authorized or IDFA not available")
+        if shouldPrivacyApplicable() {
+            if consent.adsConsent {
+                Task {
+                    let status = await VoodooATTPrivacyManager.shared.requestTrackingAuthorization()
                 }
+
+                /* initt SDK MAX */
             }
+
+            if consent.analyticsConsent {
+                // Initialize Analytics SDK
+            }
+        } else {
+            /* INIT SDK MAX */
         }
 
-        if consent.analyticsConsent {
-            // Initialize Analytics SDK
-        }
     }
 
     func displayContentUI(from: UIViewController, completion: ((Status) -> Void)? = nil) {
@@ -109,13 +112,20 @@ final class VoodooPrivacyManager {
             return
         }
 
-        if consentManager.gdprApplies || consentManager.usnatApplies {
+        if shouldPrivacyApplicable() {
             fromViewController = from
             consentManager.loadGDPRPrivacyManager(withId:SourcepointConfiguration.privacyManagerId)
         } else {
             status = .notAvailable
             print("Privacy -- not available in your country")
         }
+    }
+
+    func shouldPrivacyApplicable() -> Bool {
+        guard let consentManager else {
+            return false
+        }
+        return consentManager.gdprApplies || consentManager.usnatApplies || consentManager.ccpaApplies
     }
 
     func isPurposeAuthorized(_ purpose: Purpose) -> Bool {
@@ -131,6 +141,7 @@ final class VoodooPrivacyManager {
     // MARK: - Private Methods
 
     private func setupConsentManager() {
+        let language = SourcePointLanguageMapper.mapLanguageCodeToSPMessageLanguage()
         consentManager = SPConsentManager(
             accountId: SourcepointConfiguration.accountId,
             propertyId: SourcepointConfiguration.propertyId,
@@ -140,7 +151,7 @@ final class VoodooPrivacyManager {
                 ccpa: SPCampaign(),
                 ios14: SPCampaign()
             ),
-            language: .BrowserDefault,
+            language: language,
             delegate: self
         )
         status = .running
@@ -152,12 +163,11 @@ final class VoodooPrivacyManager {
             SourcepointConfiguration.selectBasicAdsKey: .SelectBasicAds,
             SourcepointConfiguration.createPersonalisedAdsProfileKey: .CreatePersonalisedAdsProfile,
             SourcepointConfiguration.selectPersonalisedAdsKey: .SelectPersonalisedAds,
-            SourcepointConfiguration.createPersonalisedContentProfileKey: .CreatePersonalisedContentProfile,
-            SourcepointConfiguration.selectPersonalisedContentKey: .SelectPersonalisedContent,
             SourcepointConfiguration.measureAdsPerformanceKey: .MeasureAdsPerformance,
             SourcepointConfiguration.measureContentPerformanceKey: .MeasureContentPerformance,
             SourcepointConfiguration.applyMarketResearchToGenerateAudienceInsightsKey: .ApplyMarketResearchToGenerateAudienceInsights,
-            SourcepointConfiguration.developAndImproveProductsKey: .DevelopAndImproveProducts
+            SourcepointConfiguration.developAndImproveProductsKey: .DevelopAndImproveProducts,
+            SourcepointConfiguration.useLimitedDataContent: .UseLimitedDataContent
         ]
     }
 
@@ -184,15 +194,14 @@ final class VoodooPrivacyManager {
             adsConsent: purposeConsentDictionary[.StoreAndAccessInformationOnDevice] ?? false &&
                         purposeConsentDictionary[.SelectBasicAds] ?? false &&
                         purposeConsentDictionary[.CreatePersonalisedAdsProfile] ?? false &&
-                        purposeConsentDictionary[.SelectPersonalisedAds] ?? false &&
-                        purposeConsentDictionary[.CreatePersonalisedContentProfile] ?? false &&
-                        purposeConsentDictionary[.SelectPersonalisedContent] ?? false,
+                        purposeConsentDictionary[.SelectPersonalisedAds] ?? false,
 
             analyticsConsent: purposeConsentDictionary[.StoreAndAccessInformationOnDevice] ?? false &&
                               purposeConsentDictionary[.MeasureAdsPerformance] ?? false &&
                               purposeConsentDictionary[.MeasureContentPerformance] ?? false &&
                               purposeConsentDictionary[.ApplyMarketResearchToGenerateAudienceInsights] ?? false &&
-                              purposeConsentDictionary[.DevelopAndImproveProducts] ?? false
+                              purposeConsentDictionary[.DevelopAndImproveProducts] ?? false &&
+                              purposeConsentDictionary[.UseLimitedDataContent] ?? false
         )
     }
 
