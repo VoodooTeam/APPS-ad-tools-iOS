@@ -84,10 +84,21 @@ final class BeFeedViewModel: ObservableObject {
             guard let index = feedItems.firstIndex(where: { $0.id == item.id }), index > lastDisplayedId else { return }
             self.lastDisplayedId = index
             let adIndex = index + AdConfig.fetchOffset
-            guard AdCoordinator.shared.isAdAvailable(for: adIndex, surroundingIds: []) else { return }
+            let nextFeedItem = feedItems[safe: index + 1]
+            let surroundingIds = [feedItems[safe: index], feedItems[safe: index+1]].compactMap { $0?.id }
+            guard AdCoordinator.shared.isAdAvailable(for: adIndex, surroundingIds: surroundingIds) else { return }
             Task { @MainActor in
                 self.handleLoad()
             }
         }
+    }
+}
+
+private extension Array {
+    subscript(safe index: Index) -> Element? {
+        guard index >= startIndex && index < endIndex else {
+            return nil
+        }
+        return self[index]
     }
 }
