@@ -25,14 +25,14 @@ final class AdInitializer: NSObject {
     
     // MARK: - class methods
     
-    static func launchAdsSDK() {
+    static func launchAdsSDK(hasUserConsent: Bool, doNotSell: Bool, isAgeRestrictedUser: Bool) {
         print("🧙🏻‍♂️ launchAdsSDK")
         
         guard !isStarted else { return }
         
-        ALPrivacySettings.setHasUserConsent(true)
-        ALPrivacySettings.setDoNotSell(false)
-        ALPrivacySettings.setIsAgeRestrictedUser(false)
+        ALPrivacySettings.setHasUserConsent(hasUserConsent)
+        ALPrivacySettings.setDoNotSell(doNotSell)
+        ALPrivacySettings.setIsAgeRestrictedUser(isAgeRestrictedUser)
         
         setupAppHarbr()
         let configuration = ALSdkInitializationConfiguration(sdkKey: AdConfig.appLovinKey) { configuration in

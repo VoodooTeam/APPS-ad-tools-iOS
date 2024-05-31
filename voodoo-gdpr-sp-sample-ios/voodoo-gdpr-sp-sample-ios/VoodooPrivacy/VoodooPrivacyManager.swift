@@ -11,14 +11,14 @@ import UIKit
 import SwiftUI
 
 final class VoodooPrivacyManager {
-
+    
     // MARK: - Enums
-
+    
     enum PrivacyError: Error {
         case unknown
         case consentManagerUnavailable
     }
-
+    
     enum Status: Equatable {
         case notAvailable
         case notRequested
@@ -26,36 +26,47 @@ final class VoodooPrivacyManager {
         case available
         case finished
         case error(Error)
-
+        
         static func == (lhs: VoodooPrivacyManager.Status, rhs: VoodooPrivacyManager.Status) -> Bool {
             switch (lhs, rhs) {
             case (.notAvailable, .notAvailable),
-                 (.notRequested, .notRequested),
-                 (.running, .running),
-                 (.available, .available),
-                 (.finished, .finished):
+                (.notRequested, .notRequested),
+                (.running, .running),
+                (.available, .available),
+                (.finished, .finished):
                 return true
             default:
                 return false
             }
         }
     }
-
+    
     // MARK: - Singleton
-
+    
     static let shared = VoodooPrivacyManager()
-
+    
     // MARK: - Properties
-
+    
     private var consentManager: SPSDK?
     private var consentViewController: UIViewController?
     private var onCompletion: ((Status) -> Void)?
     private(set) var fromViewController: UIViewController?
     private(set) var status: Status = .notRequested
-
+    
     private var purposeConsentDictionary: [Purpose: Bool] = [:]
     private var keyPurposeDictionary: [String: Purpose] = [:]
     var language: SPMessageLanguage?
+    
+    private var hasUserConsent: Bool {
+        getPrivacyConsent().adsConsent
+    }
+    private var doNotSell: Bool {
+        let consent = getPrivacyConsent()
+        return !consent.adsConsent || !consent.adsConsent
+    }
+    private var isAgeRestrictedUser: Bool {
+        false
+    }
 
 
     // MARK: - Initializer
@@ -84,7 +95,11 @@ final class VoodooPrivacyManager {
         
         if shouldPrivacyApplicable() {
             if consent.adsConsent {
-                AdInitializer.launchAdsSDK()
+                AdInitializer.launchAdsSDK(
+                    hasUserConsent: hasUserConsent,
+                    doNotSell: doNotSell,
+                    isAgeRestrictedUser: isAgeRestrictedUser
+                )
             }
 
             if consent.analyticsConsent {
@@ -92,7 +107,11 @@ final class VoodooPrivacyManager {
             }
             
         } else {
-            AdInitializer.launchAdsSDK()
+            AdInitializer.launchAdsSDK(
+                hasUserConsent: hasUserConsent,
+                doNotSell: doNotSell,
+                isAgeRestrictedUser: isAgeRestrictedUser
+            )
         }
 
         
