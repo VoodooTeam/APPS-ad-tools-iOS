@@ -21,7 +21,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UIHostingController(
-            rootView: ContentView()
+            rootView: BeFeedView(viewModel: .init())
         )
         window?.makeKeyAndVisible()
         

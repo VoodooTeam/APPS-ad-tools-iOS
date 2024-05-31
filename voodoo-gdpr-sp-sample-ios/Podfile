@@ -33,6 +33,7 @@ target 'voodoo-gdpr-sp-sample-ios' do
   ad_pods
   consent_pods
   pod 'SnapKit'
+  pod 'Kingfisher'
 end
 
 post_install do |installer|

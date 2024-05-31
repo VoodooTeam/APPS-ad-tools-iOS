@@ -21,7 +21,17 @@
 		CA0C90662C08B793003C5D8A /* NativeAdClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C90592C08B793003C5D8A /* NativeAdClient.swift */; };
 		CA0C90672C08B793003C5D8A /* MRECAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C905B2C08B793003C5D8A /* MRECAdView.swift */; };
 		CA0C90682C08B793003C5D8A /* NativeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C905C2C08B793003C5D8A /* NativeAdView.swift */; };
-		CA99B0622C08CD800057C0E7 /* MemeDatasetsFilenames.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA99B05B2C08CD800057C0E7 /* MemeDatasetsFilenames.swift */; };
+		CA36E5502C09CE1400F35344 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA36E5422C09CE1400F35344 /* Media.swift */; };
+		CA36E5512C09CE1400F35344 /* MediaContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA36E5432C09CE1400F35344 /* MediaContent.swift */; };
+		CA36E5522C09CE1400F35344 /* MemeDatasetsFilenames.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA36E5442C09CE1400F35344 /* MemeDatasetsFilenames.swift */; };
+		CA36E5532C09CE1400F35344 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA36E5452C09CE1400F35344 /* User.swift */; };
+		CA36E5542C09CE1400F35344 /* AdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA36E5472C09CE1400F35344 /* AdView.swift */; };
+		CA36E5552C09CE1400F35344 /* BeFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA36E5482C09CE1400F35344 /* BeFeedView.swift */; };
+		CA36E5562C09CE1400F35344 /* BeMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA36E5492C09CE1400F35344 /* BeMediaView.swift */; };
+		CA36E5572C09CE1400F35344 /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA36E54A2C09CE1400F35344 /* PlaceholderView.swift */; };
+		CA36E5582C09CE1400F35344 /* UserPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA36E54B2C09CE1400F35344 /* UserPhotoView.swift */; };
+		CA36E5592C09CE1400F35344 /* BeFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA36E54D2C09CE1400F35344 /* BeFeedViewModel.swift */; };
+		CA36E55A2C09CE1400F35344 /* MediaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA36E54E2C09CE1400F35344 /* MediaViewModel.swift */; };
 		DEDC72AD2C088413006ED1F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72AC2C088413006ED1F1 /* ContentView.swift */; };
 		DEDC72AF2C088415006ED1F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDC72AE2C088415006ED1F1 /* Assets.xcassets */; };
 		DEDC72B22C088415006ED1F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDC72B12C088415006ED1F1 /* Preview Assets.xcassets */; };
@@ -61,7 +71,17 @@
 		CA0C90592C08B793003C5D8A /* NativeAdClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeAdClient.swift; sourceTree = "<group>"; };
 		CA0C905B2C08B793003C5D8A /* MRECAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRECAdView.swift; sourceTree = "<group>"; };
 		CA0C905C2C08B793003C5D8A /* NativeAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeAdView.swift; sourceTree = "<group>"; };
-		CA99B05B2C08CD800057C0E7 /* MemeDatasetsFilenames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeDatasetsFilenames.swift; sourceTree = "<group>"; };
+		CA36E5422C09CE1400F35344 /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
+		CA36E5432C09CE1400F35344 /* MediaContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaContent.swift; sourceTree = "<group>"; };
+		CA36E5442C09CE1400F35344 /* MemeDatasetsFilenames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeDatasetsFilenames.swift; sourceTree = "<group>"; };
+		CA36E5452C09CE1400F35344 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CA36E5472C09CE1400F35344 /* AdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdView.swift; sourceTree = "<group>"; };
+		CA36E5482C09CE1400F35344 /* BeFeedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeFeedView.swift; sourceTree = "<group>"; };
+		CA36E5492C09CE1400F35344 /* BeMediaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeMediaView.swift; sourceTree = "<group>"; };
+		CA36E54A2C09CE1400F35344 /* PlaceholderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
+		CA36E54B2C09CE1400F35344 /* UserPhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPhotoView.swift; sourceTree = "<group>"; };
+		CA36E54D2C09CE1400F35344 /* BeFeedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeFeedViewModel.swift; sourceTree = "<group>"; };
+		CA36E54E2C09CE1400F35344 /* MediaViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaViewModel.swift; sourceTree = "<group>"; };
 		D318223CFB95BC5185B539B3 /* AppLovinQualityService.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:B8HZ37M8S5:SafeDK Mobile Ltd."; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = AppLovinQualityService.xcframework; path = AppLovinQualityService/AppLovinQualityService.xcframework; sourceTree = "<group>"; };
 		DEDC72A72C088413006ED1F1 /* voodoo-gdpr-sp-sample-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "voodoo-gdpr-sp-sample-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDC72AC2C088413006ED1F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -159,7 +179,48 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-				CA99B05B2C08CD800057C0E7 /* MemeDatasetsFilenames.swift */,
+		CA36E53B2C09CE0000F35344 /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				CA36E54F2C09CE1400F35344 /* BeFeed */,
+			);
+			path = Sample;
+			sourceTree = "<group>";
+		};
+		CA36E5462C09CE1400F35344 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CA36E5422C09CE1400F35344 /* Media.swift */,
+				CA36E5432C09CE1400F35344 /* MediaContent.swift */,
+				CA36E5442C09CE1400F35344 /* MemeDatasetsFilenames.swift */,
+				CA36E5452C09CE1400F35344 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CA36E54C2C09CE1400F35344 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CA36E5472C09CE1400F35344 /* AdView.swift */,
+				CA36E5482C09CE1400F35344 /* BeFeedView.swift */,
+				CA36E5492C09CE1400F35344 /* BeMediaView.swift */,
+				CA36E54A2C09CE1400F35344 /* PlaceholderView.swift */,
+				CA36E54B2C09CE1400F35344 /* UserPhotoView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CA36E54F2C09CE1400F35344 /* BeFeed */ = {
+			isa = PBXGroup;
+			children = (
+				CA36E5462C09CE1400F35344 /* Model */,
+				CA36E54C2C09CE1400F35344 /* View */,
+				CA36E54D2C09CE1400F35344 /* BeFeedViewModel.swift */,
+				CA36E54E2C09CE1400F35344 /* MediaViewModel.swift */,
+			);
+			path = BeFeed;
+			sourceTree = "<group>";
+		};
 		DEDC729E2C088413006ED1F1 = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +247,7 @@
 				CA0C904E2C08B74B003C5D8A /* Ads */,
 				DEDC72B82C088423006ED1F1 /* VoodooPrivacy */,
 				DEDC72CD2C088510006ED1F1 /* Consent */,
+				CA36E53B2C09CE0000F35344 /* Sample */,
 				DEDC72AC2C088413006ED1F1 /* ContentView.swift */,
 				DEDC72C82C0884CC006ED1F1 /* AppDelegate.swift */,
 				DEDC72AE2C088415006ED1F1 /* Assets.xcassets */,
@@ -421,24 +483,34 @@
 			files = (
 				DEDC72C92C0884CC006ED1F1 /* AppDelegate.swift in Sources */,
 				CA0C90612C08B793003C5D8A /* AdClient.swift in Sources */,
+				CA36E5512C09CE1400F35344 /* MediaContent.swift in Sources */,
 				DEDC72C12C088432006ED1F1 /* VoodooPrivacyManager.swift in Sources */,
 				CA0C90642C08B793003C5D8A /* SessionUserInformation.swift in Sources */,
-				CA99B0622C08CD800057C0E7 /* MemeDatasetsFilenames.swift in Sources */,
 				DEDC72BE2C088432006ED1F1 /* VoodooATTPrivacyManager.swift in Sources */,
 				CA0C90652C08B793003C5D8A /* NativeAd.swift in Sources */,
 				CA0C90602C08B793003C5D8A /* AdInitializer.swift in Sources */,
+				CA36E5572C09CE1400F35344 /* PlaceholderView.swift in Sources */,
+				CA36E5562C09CE1400F35344 /* BeMediaView.swift in Sources */,
 				CA0C90622C08B793003C5D8A /* MRECAd.swift in Sources */,
 				CA0C905E2C08B793003C5D8A /* AdCoordinator.swift in Sources */,
 				CA0C90682C08B793003C5D8A /* NativeAdView.swift in Sources */,
 				DEDC72CC2C088506006ED1F1 /* ConsentViewControllerRepresentable.swift in Sources */,
 				DEDC72D02C08D148006ED1F1 /* SourcePointLanguageMapper.swift in Sources */,
+				CA36E5522C09CE1400F35344 /* MemeDatasetsFilenames.swift in Sources */,
 				CA0C90672C08B793003C5D8A /* MRECAdView.swift in Sources */,
+				CA36E5552C09CE1400F35344 /* BeFeedView.swift in Sources */,
+				CA36E5582C09CE1400F35344 /* UserPhotoView.swift in Sources */,
+				CA36E5542C09CE1400F35344 /* AdView.swift in Sources */,
 				CA0C90662C08B793003C5D8A /* NativeAdClient.swift in Sources */,
+				CA36E5502C09CE1400F35344 /* Media.swift in Sources */,
+				CA36E5592C09CE1400F35344 /* BeFeedViewModel.swift in Sources */,
 				DEDC72AD2C088413006ED1F1 /* ContentView.swift in Sources */,
 				CA0C905F2C08B793003C5D8A /* AdConfig.swift in Sources */,
+				CA36E55A2C09CE1400F35344 /* MediaViewModel.swift in Sources */,
 				DEDC72C02C088432006ED1F1 /* VoodooPrivacyConsent.swift in Sources */,
 				DEDC72C22C088432006ED1F1 /* SourcePointConfiguration.swift in Sources */,
 				CA0C90632C08B793003C5D8A /* MRECAdClient.swift in Sources */,
+				CA36E5532C09CE1400F35344 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
