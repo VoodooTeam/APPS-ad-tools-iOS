@@ -7,20 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1379EC202C09FD9700142B8D /* MAad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC0C2C09FD9700142B8D /* MAad.swift */; };
+		1379EC212C09FD9700142B8D /* MAadClientBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC0D2C09FD9700142B8D /* MAadClientBase.swift */; };
+		1379EC222C09FD9700142B8D /* SessionUserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC0F2C09FD9700142B8D /* SessionUserInformation.swift */; };
+		1379EC232C09FD9700142B8D /* MRECAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC112C09FD9700142B8D /* MRECAd.swift */; };
+		1379EC242C09FD9700142B8D /* MRECMAadClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC122C09FD9700142B8D /* MRECMAadClient.swift */; };
+		1379EC252C09FD9700142B8D /* NativeAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC142C09FD9700142B8D /* NativeAd.swift */; };
+		1379EC262C09FD9700142B8D /* NativeMAadClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC152C09FD9700142B8D /* NativeMAadClient.swift */; };
+		1379EC272C09FD9700142B8D /* MRECAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC172C09FD9700142B8D /* MRECAdView.swift */; };
+		1379EC282C09FD9700142B8D /* NativeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC182C09FD9700142B8D /* NativeAdView.swift */; };
+		1379EC292C09FD9700142B8D /* AdAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC1A2C09FD9700142B8D /* AdAnalytics.swift */; };
+		1379EC2A2C09FD9700142B8D /* AdClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC1B2C09FD9700142B8D /* AdClient.swift */; };
+		1379EC2B2C09FD9700142B8D /* AdConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC1C2C09FD9700142B8D /* AdConfig.swift */; };
+		1379EC2C2C09FD9700142B8D /* AdCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC1D2C09FD9700142B8D /* AdCoordinator.swift */; };
+		1379EC2D2C09FD9700142B8D /* AdInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC1E2C09FD9700142B8D /* AdInitializer.swift */; };
 		23D049EB5576E7E3D17CA5DD /* libPods-voodoo-gdpr-sp-sample-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E28CC5A6615CCCFAA2D5B737 /* libPods-voodoo-gdpr-sp-sample-ios.a */; };
 		621EB591322911DCC4DC4CA8 /* AppLovinQualityService.xcframework in AppLovinQualityService Embed Framework */ = {isa = PBXBuildFile; fileRef = D318223CFB95BC5185B539B3 /* AppLovinQualityService.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		87EDD01827588CE6110C9DB7 /* AppLovinQualityService.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D318223CFB95BC5185B539B3 /* AppLovinQualityService.xcframework */; };
-		CA0C905E2C08B793003C5D8A /* AdCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C904F2C08B793003C5D8A /* AdCoordinator.swift */; };
-		CA0C905F2C08B793003C5D8A /* AdConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C90502C08B793003C5D8A /* AdConfig.swift */; };
-		CA0C90602C08B793003C5D8A /* AdInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C90512C08B793003C5D8A /* AdInitializer.swift */; };
-		CA0C90612C08B793003C5D8A /* AdClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C90522C08B793003C5D8A /* AdClient.swift */; };
-		CA0C90622C08B793003C5D8A /* MRECAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C90532C08B793003C5D8A /* MRECAd.swift */; };
-		CA0C90632C08B793003C5D8A /* MRECAdClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C90542C08B793003C5D8A /* MRECAdClient.swift */; };
-		CA0C90642C08B793003C5D8A /* SessionUserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C90562C08B793003C5D8A /* SessionUserInformation.swift */; };
-		CA0C90652C08B793003C5D8A /* NativeAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C90582C08B793003C5D8A /* NativeAd.swift */; };
-		CA0C90662C08B793003C5D8A /* NativeAdClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C90592C08B793003C5D8A /* NativeAdClient.swift */; };
-		CA0C90672C08B793003C5D8A /* MRECAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C905B2C08B793003C5D8A /* MRECAdView.swift */; };
-		CA0C90682C08B793003C5D8A /* NativeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C905C2C08B793003C5D8A /* NativeAdView.swift */; };
 		DEDC72AD2C088413006ED1F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72AC2C088413006ED1F1 /* ContentView.swift */; };
 		DEDC72AF2C088415006ED1F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDC72AE2C088415006ED1F1 /* Assets.xcassets */; };
 		DEDC72B22C088415006ED1F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDC72B12C088415006ED1F1 /* Preview Assets.xcassets */; };
@@ -48,18 +51,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1379EC0C2C09FD9700142B8D /* MAad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAad.swift; sourceTree = "<group>"; };
+		1379EC0D2C09FD9700142B8D /* MAadClientBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAadClientBase.swift; sourceTree = "<group>"; };
+		1379EC0F2C09FD9700142B8D /* SessionUserInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionUserInformation.swift; sourceTree = "<group>"; };
+		1379EC112C09FD9700142B8D /* MRECAd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRECAd.swift; sourceTree = "<group>"; };
+		1379EC122C09FD9700142B8D /* MRECMAadClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRECMAadClient.swift; sourceTree = "<group>"; };
+		1379EC142C09FD9700142B8D /* NativeAd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeAd.swift; sourceTree = "<group>"; };
+		1379EC152C09FD9700142B8D /* NativeMAadClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeMAadClient.swift; sourceTree = "<group>"; };
+		1379EC172C09FD9700142B8D /* MRECAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRECAdView.swift; sourceTree = "<group>"; };
+		1379EC182C09FD9700142B8D /* NativeAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeAdView.swift; sourceTree = "<group>"; };
+		1379EC1A2C09FD9700142B8D /* AdAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdAnalytics.swift; sourceTree = "<group>"; };
+		1379EC1B2C09FD9700142B8D /* AdClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdClient.swift; sourceTree = "<group>"; };
+		1379EC1C2C09FD9700142B8D /* AdConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdConfig.swift; sourceTree = "<group>"; };
+		1379EC1D2C09FD9700142B8D /* AdCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdCoordinator.swift; sourceTree = "<group>"; };
+		1379EC1E2C09FD9700142B8D /* AdInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdInitializer.swift; sourceTree = "<group>"; };
 		361327BF6DD735930DEEB2D3 /* Pods-voodoo-gdpr-sp-sample-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-voodoo-gdpr-sp-sample-ios.release.xcconfig"; path = "Target Support Files/Pods-voodoo-gdpr-sp-sample-ios/Pods-voodoo-gdpr-sp-sample-ios.release.xcconfig"; sourceTree = "<group>"; };
-		CA0C904F2C08B793003C5D8A /* AdCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdCoordinator.swift; sourceTree = "<group>"; };
-		CA0C90502C08B793003C5D8A /* AdConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdConfig.swift; sourceTree = "<group>"; };
-		CA0C90512C08B793003C5D8A /* AdInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdInitializer.swift; sourceTree = "<group>"; };
-		CA0C90522C08B793003C5D8A /* AdClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdClient.swift; sourceTree = "<group>"; };
-		CA0C90532C08B793003C5D8A /* MRECAd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRECAd.swift; sourceTree = "<group>"; };
-		CA0C90542C08B793003C5D8A /* MRECAdClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRECAdClient.swift; sourceTree = "<group>"; };
-		CA0C90562C08B793003C5D8A /* SessionUserInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionUserInformation.swift; sourceTree = "<group>"; };
-		CA0C90582C08B793003C5D8A /* NativeAd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeAd.swift; sourceTree = "<group>"; };
-		CA0C90592C08B793003C5D8A /* NativeAdClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeAdClient.swift; sourceTree = "<group>"; };
-		CA0C905B2C08B793003C5D8A /* MRECAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRECAdView.swift; sourceTree = "<group>"; };
-		CA0C905C2C08B793003C5D8A /* NativeAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeAdView.swift; sourceTree = "<group>"; };
 		D318223CFB95BC5185B539B3 /* AppLovinQualityService.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:B8HZ37M8S5:SafeDK Mobile Ltd."; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = AppLovinQualityService.xcframework; path = AppLovinQualityService/AppLovinQualityService.xcframework; sourceTree = "<group>"; };
 		DEDC72A72C088413006ED1F1 /* voodoo-gdpr-sp-sample-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "voodoo-gdpr-sp-sample-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDC72AC2C088413006ED1F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -90,6 +96,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1379EC0E2C09FD9700142B8D /* Max */ = {
+			isa = PBXGroup;
+			children = (
+				1379EC0C2C09FD9700142B8D /* MAad.swift */,
+				1379EC0D2C09FD9700142B8D /* MAadClientBase.swift */,
+			);
+			path = Max;
+			sourceTree = "<group>";
+		};
+		1379EC102C09FD9700142B8D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1379EC0F2C09FD9700142B8D /* SessionUserInformation.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1379EC132C09FD9700142B8D /* MREC */ = {
+			isa = PBXGroup;
+			children = (
+				1379EC112C09FD9700142B8D /* MRECAd.swift */,
+				1379EC122C09FD9700142B8D /* MRECMAadClient.swift */,
+			);
+			path = MREC;
+			sourceTree = "<group>";
+		};
+		1379EC162C09FD9700142B8D /* Native */ = {
+			isa = PBXGroup;
+			children = (
+				1379EC142C09FD9700142B8D /* NativeAd.swift */,
+				1379EC152C09FD9700142B8D /* NativeMAadClient.swift */,
+			);
+			path = Native;
+			sourceTree = "<group>";
+		};
+		1379EC192C09FD9700142B8D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1379EC172C09FD9700142B8D /* MRECAdView.swift */,
+				1379EC182C09FD9700142B8D /* NativeAdView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1379EC1F2C09FD9700142B8D /* Ads */ = {
+			isa = PBXGroup;
+			children = (
+				1379EC0E2C09FD9700142B8D /* Max */,
+				1379EC102C09FD9700142B8D /* Model */,
+				1379EC132C09FD9700142B8D /* MREC */,
+				1379EC162C09FD9700142B8D /* Native */,
+				1379EC192C09FD9700142B8D /* View */,
+				1379EC1A2C09FD9700142B8D /* AdAnalytics.swift */,
+				1379EC1B2C09FD9700142B8D /* AdClient.swift */,
+				1379EC1C2C09FD9700142B8D /* AdConfig.swift */,
+				1379EC1D2C09FD9700142B8D /* AdCoordinator.swift */,
+				1379EC1E2C09FD9700142B8D /* AdInitializer.swift */,
+			);
+			path = Ads;
+			sourceTree = "<group>";
+		};
 		8DF643F9FAD49F1FE46D272D /* AppLovinQualityService */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,56 +172,6 @@
 				361327BF6DD735930DEEB2D3 /* Pods-voodoo-gdpr-sp-sample-ios.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		CA0C904E2C08B74B003C5D8A /* Ads */ = {
-			isa = PBXGroup;
-			children = (
-				CA0C90522C08B793003C5D8A /* AdClient.swift */,
-				CA0C90502C08B793003C5D8A /* AdConfig.swift */,
-				CA0C904F2C08B793003C5D8A /* AdCoordinator.swift */,
-				CA0C90512C08B793003C5D8A /* AdInitializer.swift */,
-				CA0C90572C08B793003C5D8A /* Model */,
-				CA0C90552C08B793003C5D8A /* MREC */,
-				CA0C905A2C08B793003C5D8A /* Native */,
-				CA0C905D2C08B793003C5D8A /* View */,
-			);
-			path = Ads;
-			sourceTree = "<group>";
-		};
-		CA0C90552C08B793003C5D8A /* MREC */ = {
-			isa = PBXGroup;
-			children = (
-				CA0C90532C08B793003C5D8A /* MRECAd.swift */,
-				CA0C90542C08B793003C5D8A /* MRECAdClient.swift */,
-			);
-			path = MREC;
-			sourceTree = "<group>";
-		};
-		CA0C90572C08B793003C5D8A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				CA0C90562C08B793003C5D8A /* SessionUserInformation.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		CA0C905A2C08B793003C5D8A /* Native */ = {
-			isa = PBXGroup;
-			children = (
-				CA0C90582C08B793003C5D8A /* NativeAd.swift */,
-				CA0C90592C08B793003C5D8A /* NativeAdClient.swift */,
-			);
-			path = Native;
-			sourceTree = "<group>";
-		};
-		CA0C905D2C08B793003C5D8A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				CA0C905B2C08B793003C5D8A /* MRECAdView.swift */,
-				CA0C905C2C08B793003C5D8A /* NativeAdView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		DEDC729E2C088413006ED1F1 = {
@@ -180,7 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				DEDC72CE2C088552006ED1F1 /* Info.plist */,
-				CA0C904E2C08B74B003C5D8A /* Ads */,
+				1379EC1F2C09FD9700142B8D /* Ads */,
 				DEDC72B82C088423006ED1F1 /* VoodooPrivacy */,
 				DEDC72CD2C088510006ED1F1 /* Consent */,
 				DEDC72AC2C088413006ED1F1 /* ContentView.swift */,
@@ -417,24 +434,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEDC72C92C0884CC006ED1F1 /* AppDelegate.swift in Sources */,
-				CA0C90612C08B793003C5D8A /* AdClient.swift in Sources */,
 				DEDC72C12C088432006ED1F1 /* VoodooPrivacyManager.swift in Sources */,
-				CA0C90642C08B793003C5D8A /* SessionUserInformation.swift in Sources */,
+				1379EC272C09FD9700142B8D /* MRECAdView.swift in Sources */,
+				1379EC2D2C09FD9700142B8D /* AdInitializer.swift in Sources */,
 				DEDC72BE2C088432006ED1F1 /* VoodooATTPrivacyManager.swift in Sources */,
-				CA0C90652C08B793003C5D8A /* NativeAd.swift in Sources */,
-				CA0C90602C08B793003C5D8A /* AdInitializer.swift in Sources */,
-				CA0C90622C08B793003C5D8A /* MRECAd.swift in Sources */,
-				CA0C905E2C08B793003C5D8A /* AdCoordinator.swift in Sources */,
-				CA0C90682C08B793003C5D8A /* NativeAdView.swift in Sources */,
+				1379EC252C09FD9700142B8D /* NativeAd.swift in Sources */,
+				1379EC222C09FD9700142B8D /* SessionUserInformation.swift in Sources */,
 				DEDC72CC2C088506006ED1F1 /* ConsentViewControllerRepresentable.swift in Sources */,
+				1379EC242C09FD9700142B8D /* MRECMAadClient.swift in Sources */,
+				1379EC212C09FD9700142B8D /* MAadClientBase.swift in Sources */,
 				DEDC72D02C08D148006ED1F1 /* SourcePointLanguageMapper.swift in Sources */,
-				CA0C90672C08B793003C5D8A /* MRECAdView.swift in Sources */,
-				CA0C90662C08B793003C5D8A /* NativeAdClient.swift in Sources */,
+				1379EC202C09FD9700142B8D /* MAad.swift in Sources */,
+				1379EC282C09FD9700142B8D /* NativeAdView.swift in Sources */,
 				DEDC72AD2C088413006ED1F1 /* ContentView.swift in Sources */,
-				CA0C905F2C08B793003C5D8A /* AdConfig.swift in Sources */,
+				1379EC262C09FD9700142B8D /* NativeMAadClient.swift in Sources */,
+				1379EC2A2C09FD9700142B8D /* AdClient.swift in Sources */,
 				DEDC72C02C088432006ED1F1 /* VoodooPrivacyConsent.swift in Sources */,
+				1379EC2B2C09FD9700142B8D /* AdConfig.swift in Sources */,
+				1379EC292C09FD9700142B8D /* AdAnalytics.swift in Sources */,
+				1379EC2C2C09FD9700142B8D /* AdCoordinator.swift in Sources */,
 				DEDC72C22C088432006ED1F1 /* SourcePointConfiguration.swift in Sources */,
-				CA0C90632C08B793003C5D8A /* MRECAdClient.swift in Sources */,
+				1379EC232C09FD9700142B8D /* MRECAd.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
