@@ -71,27 +71,28 @@ final class VoodooPrivacyManager {
     }
     
     private func launchSDKs() {
+
         let consent = getPrivacyConsent()
         print("Consent privacy ads: \(consent.adsConsent)")
         print("Consent privacy analytics: \(consent.analyticsConsent)")
 
-        if consent.adsConsent {
-            Task {
-                let status = await VoodooATTPrivacyManager.shared.requestTrackingAuthorization()
 
-                if status == .authorized, let idfa = VoodooATTPrivacyManager.shared.fetchIDFA() {
-                    print("IDFA: \(idfa)")
-                    // Initialize MaxMediation here
-
-                } else {
-                    print("Tracking not authorized or IDFA not available")
+        if shouldPrivacyApplicable() {
+            if consent.adsConsent {
+                Task {
+                    let status = await VoodooATTPrivacyManager.shared.requestTrackingAuthorization()
                 }
+
+                /* initt SDK MAX */
             }
+
+            if consent.analyticsConsent {
+                // Initialize Analytics SDK
+            }
+        } else {
+            /* INIT SDK MAX */
         }
 
-        if consent.analyticsConsent {
-            // Initialize Analytics SDK
-        }
     }
 
     func displayContentUI(from: UIViewController, completion: ((Status) -> Void)? = nil) {
@@ -111,13 +112,20 @@ final class VoodooPrivacyManager {
             return
         }
 
-        if consentManager.gdprApplies || consentManager.usnatApplies {
+        if shouldPrivacyApplicable() {
             fromViewController = from
             consentManager.loadGDPRPrivacyManager(withId:SourcepointConfiguration.privacyManagerId)
         } else {
             status = .notAvailable
             print("Privacy -- not available in your country")
         }
+    }
+
+    func shouldPrivacyApplicable() -> Bool {
+        guard let consentManager else {
+            return false
+        }
+        return consentManager.gdprApplies || consentManager.usnatApplies || consentManager.ccpaApplies
     }
 
     func isPurposeAuthorized(_ purpose: Purpose) -> Bool {
