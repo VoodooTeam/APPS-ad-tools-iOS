@@ -196,7 +196,7 @@ final class NativeAdView: MANativeAdView {
         mediaView.snp.makeConstraints { make in
             make.top.equalTo(topContainerView.snp.bottom)
             make.left.right.equalToSuperview()
-            make.height.equalTo(mediaView.snp.width).multipliedBy(1.33)
+//            make.height.equalTo(mediaView.snp.width).multipliedBy(1.33)
         }
 
         actionContainerView.snp.makeConstraints { make in

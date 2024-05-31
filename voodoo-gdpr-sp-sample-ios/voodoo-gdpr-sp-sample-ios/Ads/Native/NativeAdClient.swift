@@ -130,7 +130,7 @@ extension NativeAdClient: MANativeAdDelegate {
     }
     
     func didFailToLoadNativeAd(forAdUnitIdentifier adUnitIdentifier: String, withError error: MAError) {
-        print("😜😜😜 didFailToLoad :) \(error)")
+        print("😜😜😜 didFailToLoad :) \(error) waterfall=\(error.waterfall)")
         restartLoad()
     }
     

@@ -20,6 +20,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         VoodooPrivacyManager.shared.configure()
         
         window = UIWindow(frame: UIScreen.main.bounds)
+        let viewModel = BeFeedViewModel()
         window?.rootViewController = UIHostingController(
             rootView: BeFeedView(viewModel: .init())
         )
