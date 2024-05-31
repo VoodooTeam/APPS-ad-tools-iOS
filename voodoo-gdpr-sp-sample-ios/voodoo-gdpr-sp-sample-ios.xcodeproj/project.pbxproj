@@ -28,7 +28,6 @@
 		DEDC72C02C088432006ED1F1 /* VoodooPrivacyConsent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72BB2C088432006ED1F1 /* VoodooPrivacyConsent.swift */; };
 		DEDC72C12C088432006ED1F1 /* VoodooPrivacyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72BC2C088432006ED1F1 /* VoodooPrivacyManager.swift */; };
 		DEDC72C22C088432006ED1F1 /* SourcePointConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72BD2C088432006ED1F1 /* SourcePointConfiguration.swift */; };
-		DEDC72C72C0884C0006ED1F1 /* ConsentViewController in Frameworks */ = {isa = PBXBuildFile; productRef = DEDC72C62C0884C0006ED1F1 /* ConsentViewController */; };
 		DEDC72C92C0884CC006ED1F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72C82C0884CC006ED1F1 /* AppDelegate.swift */; };
 		DEDC72CC2C088506006ED1F1 /* ConsentViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72CB2C088506006ED1F1 /* ConsentViewControllerRepresentable.swift */; };
 		DEDC72D02C08D148006ED1F1 /* SourcePointLanguageMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72CF2C08D148006ED1F1 /* SourcePointLanguageMapper.swift */; };
@@ -84,7 +83,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				87EDD01827588CE6110C9DB7 /* AppLovinQualityService.xcframework in Frameworks */,
-				DEDC72C72C0884C0006ED1F1 /* ConsentViewController in Frameworks */,
 				23D049EB5576E7E3D17CA5DD /* libPods-voodoo-gdpr-sp-sample-ios.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,7 +258,6 @@
 			);
 			name = "voodoo-gdpr-sp-sample-ios";
 			packageProductDependencies = (
-				DEDC72C62C0884C0006ED1F1 /* ConsentViewController */,
 			);
 			productName = "voodoo-gdpr-sp-sample-ios";
 			productReference = DEDC72A72C088413006ED1F1 /* voodoo-gdpr-sp-sample-ios.app */;
@@ -291,7 +288,6 @@
 			);
 			mainGroup = DEDC729E2C088413006ED1F1;
 			packageReferences = (
-				DEDC72C52C0884C0006ED1F1 /* XCRemoteSwiftPackageReference "ios-cmp-app" */,
 			);
 			productRefGroup = DEDC72A82C088413006ED1F1 /* Products */;
 			projectDirPath = "";
@@ -674,25 +670,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		DEDC72C52C0884C0006ED1F1 /* XCRemoteSwiftPackageReference "ios-cmp-app" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SourcePointUSA/ios-cmp-app.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.6.8;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		DEDC72C62C0884C0006ED1F1 /* ConsentViewController */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DEDC72C52C0884C0006ED1F1 /* XCRemoteSwiftPackageReference "ios-cmp-app" */;
-			productName = ConsentViewController;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DEDC729F2C088413006ED1F1 /* Project object */;
 }

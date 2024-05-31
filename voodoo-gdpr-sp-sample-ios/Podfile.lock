@@ -118,6 +118,8 @@ PODS:
   - BURelyFoundation_Global/Zip (0.2.1.4):
     - BURelyFoundation_Global/Foundation
   - ChartboostSDK (9.7.0)
+  - ConsentViewController (7.6.8):
+    - Down (~> 0.11.0)
   - FBAudienceNetwork (6.15.0)
   - FiveAd (2.7.20240411)
   - Fyber_Marketplace_SDK (8.2.8)
@@ -259,6 +261,7 @@ DEPENDENCIES:
   - AppLovinMediationVungleAdapter
   - AppLovinSDK (= 12.5.0)
   - bigo-ads-max-adapter (= 4.2.0)
+  - ConsentViewController
   - SnapKit
 
 SPEC REPOS:
@@ -289,6 +292,7 @@ SPEC REPOS:
     - BigoADS
     - BURelyFoundation_Global
     - ChartboostSDK
+    - ConsentViewController
     - FBAudienceNetwork
     - FiveAd
     - Fyber_Marketplace_SDK
@@ -336,7 +340,8 @@ SPEC CHECKSUMS:
   BigoADS: 14fa36d2f5da852cf84e69dcf7bbcb400563b3d7
   BURelyFoundation_Global: 17ed9cd58d138feefd8c0711dd3294766adcb28e
   ChartboostSDK: 0cd093c90a5a21c89783fe5be486e511fb2dbfc8
-  FBAudienceNetwork: 6c560e4c68823ec5da1e84868544a8a246e0e201
+  ConsentViewController: b132e5d3438c6c135a6faef8ed8cada5a75c4d8e
+  FBAudienceNetwork: 80a035aa69cc3a71c99e44cb5c2874e4cef9909f
   FiveAd: 27375ac7fde76085544389cc090d744149fdbe78
   Fyber_Marketplace_SDK: 50fb9e3077ddbd99e3da08dfcaab60df689ac106
   Google-Mobile-Ads-SDK: 7db2098033ad3bfcd72a11e7503b49700a93029e
@@ -356,6 +361,6 @@ SPEC CHECKSUMS:
   UnityAds: 4c2dbd3e82778b536b0bad23b640c16aae91dbb1
   VungleAds: 0d696ed96dd7d715a9432997356d59b2e3b58882
 
-PODFILE CHECKSUM: 1e9acef1184090fd6e5ef052414420c490345744
+PODFILE CHECKSUM: 88ce5bd071d0c20ae5c066a0d7d0e42ae42ac1c4
 
 COCOAPODS: 1.15.2
