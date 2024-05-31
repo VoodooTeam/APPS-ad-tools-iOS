@@ -1,5 +1,5 @@
 //
-//  SourcePointLanguageMapper.swift
+//  PrivacyLanguageMapper.swift
 //  voodoo-gdpr-sp-sample-ios
 //
 //  Created by Sarra Srairi on 30/05/2024.
@@ -8,7 +8,7 @@
 import Foundation
 import ConsentViewController
 
-class SourcePointLanguageMapper {
+class PrivacyLanguageMapper {
     static func mapLanguageCodeToSPMessageLanguage() -> SPMessageLanguage {
         let languageCode = Locale.current.language.languageCode?.identifier ?? "en"
 

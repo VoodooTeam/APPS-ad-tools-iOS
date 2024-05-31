@@ -1,5 +1,5 @@
 //
-//  ATTPrivacyManager.swift
+//  PrivacyATTManager.swift
 //  GDPRConsentPOC
 //
 //  Created by Sarra Srairi on 29/05/2024.
@@ -8,8 +8,8 @@ import AppTrackingTransparency
 import AdSupport
 import NotificationCenter
 
-final class VoodooATTPrivacyManager {
-    static let shared = VoodooATTPrivacyManager()
+final class PrivacyATTManager {
+    static let shared = PrivacyATTManager()
 
     private init() {}
 
