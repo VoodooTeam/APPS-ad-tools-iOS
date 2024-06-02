@@ -14,8 +14,6 @@ import AppHarbrSDK
 class AdInitializer: NSObject {
         
     // MARK: - Static properties
-    
-    static var nativeAdLoader = MANativeAdLoader(adUnitIdentifier: AdConfig.nativeAdUnit, sdk: appLoSdk)
             
     private static var isStarted = false
     
@@ -39,8 +37,8 @@ class AdInitializer: NSObject {
             isStarted = true
             AdCoordinator.shared.initWith(
                 clients: [
-                    NativeMAadClient(userInfo: .empty),
-                    MRECMAadClient(userInfo: .empty)
+                    NativeMAadClient(adUnit: AdConfig.nativeAdUnit, userInfo: .empty),
+                    MRECMAadClient(adUnit: AdConfig.mrecAdUnit, userInfo: .empty)
                 ]
             )
         }

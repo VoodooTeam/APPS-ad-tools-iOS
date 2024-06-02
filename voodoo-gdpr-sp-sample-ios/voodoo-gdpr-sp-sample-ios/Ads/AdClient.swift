@@ -12,7 +12,7 @@ protocol AdClient {
     var adIndexes: Set<Int> { get }
     var adAvailableCallback: (() -> Void)? { get set }
     
-    init(userInfo: SessionUserInformation)
+    init(adUnit: String, userInfo: SessionUserInformation)
     
     func getAdView(for index: Int) -> UIView
     func getAd(for index: Int) -> Ad?

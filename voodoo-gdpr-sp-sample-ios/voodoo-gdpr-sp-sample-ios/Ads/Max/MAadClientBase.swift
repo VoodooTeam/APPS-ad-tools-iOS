@@ -14,6 +14,8 @@ class MAadClientBase: NSObject {
     // MARK: - data
     
     //properties
+    let adUnit: String
+    
     var availableAd: MAXAd? {
         didSet {
             guard availableAd != nil else { return }
@@ -27,6 +29,7 @@ class MAadClientBase: NSObject {
     var isLoading = false
     var retryAttempt = 0
     let maxRetryAttempt = 5
+    let loadBackgroundQueue: DispatchQueue
     
     let userInfo: SessionUserInformation?
 
@@ -36,8 +39,10 @@ class MAadClientBase: NSObject {
     
     // MARK: - Init
     
-    init(userInfo: SessionUserInformation) {
+    init(adUnit: String, userInfo: SessionUserInformation) {
+        self.adUnit = adUnit
         self.userInfo = userInfo
+        self.loadBackgroundQueue = DispatchQueue(label: adUnit, qos: .default)
     }
             
     // MARK: - instance methods

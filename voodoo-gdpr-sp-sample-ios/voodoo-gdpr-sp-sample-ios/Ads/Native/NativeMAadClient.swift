@@ -13,11 +13,9 @@ final class NativeMAadClient: MAadClientBase, AdClient {
     
     // MARK: - data
     
-    //properties
-    let adUnit: String = AdConfig.nativeAdUnit
-    
+    //properties    
     private lazy var adLoader: MANativeAdLoader = {
-        let adLoader = AdInitializer.nativeAdLoader
+        let adLoader = MANativeAdLoader(adUnitIdentifier: AdConfig.nativeAdUnit, sdk: AdInitializer.appLoSdk)
         adLoader.setLocalExtraParameterForKey("google_max_ad_content_rating", value: "T")
         adLoader.setLocalExtraParameterForKey("google_native_ad_view_tag", value: AdConfig.gadNativeAdViewTag)
         setBigoParameters(for: adLoader)
@@ -43,7 +41,7 @@ final class NativeMAadClient: MAadClientBase, AdClient {
         isLoading = true
         AdAnalytics.adLoadingStarted.send(params: ["adUnitIdentifier": adUnit])
         adLoader.setLocalExtraParameterForKey("google_neighbouring_content_url_strings", value: surroundingIds)
-        adLoader.loadAd()
+        loadBackgroundQueue.async { self.adLoader.loadAd() }
     }
     
     // MARK: - Private

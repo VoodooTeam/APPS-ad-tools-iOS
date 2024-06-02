@@ -15,9 +15,7 @@ import DTBiOSSDK
 final class MRECMAadClient: MAadClientBase, AdClient {
     // MARK: - data
     
-    //properties
-    let adUnit: String = AdConfig.mrecAdUnit
-    
+    //properties    
     private var loadingView: MAAdView!
     
     private var didDisplay: Bool = false
@@ -54,7 +52,7 @@ final class MRECMAadClient: MAadClientBase, AdClient {
         adLoader.setAdSizes([DTBAdSize(bannerAdSizeWithWidth: 300,
                              height: 250,
                                        andSlotUUID: AdConfig.amazonSlotID)!])
-        adLoader.loadAd(self)
+        loadBackgroundQueue.async { adLoader.loadAd(self) }
     }
     
     // MARK: - destroy
