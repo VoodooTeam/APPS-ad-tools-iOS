@@ -24,26 +24,24 @@ final class AdCoordinator {
         return Array(adIndexes).sorted()
     }
     
-    var adAvailableCallback: (() -> Void)?
+    var firstAdLoadedCallback: (() -> Void)?
     
     // MARK: - init
     
     func initWith(clients: [AdClient]) {
-        for var client in clients {
-            client.adAvailableCallback = { [weak self] in
-                self?.newAdLoaded()
-            }
-            self.clients[client.adUnit] = client
-        }
+        clients.forEach { self.clients[$0.adUnit] = $0 }
+        reload()
     }
     
     // MARK: - instance methods
     
-    func reset() {
-        adIndexes = Set<Int>()
-        clients.values.forEach { $0.reset() }
+    func reload() {
+        for var client in clients.values {
+            client.adAvailableCallback = { [weak self] in self?.newAdLoaded() }
+        }
+        reset()
+        load()
     }
-    
     
     func getAdView(for index: Int) -> UIView {
         for client in clients.values {
@@ -53,10 +51,15 @@ final class AdCoordinator {
         return UIView()
     }
     
+    func shouldDisplayFooterAd(forDataSize dataSize: Int) -> Bool {
+        guard dataSize > 0 && dataSize <= AdConfig.interval else { return false }
+        return AdCoordinator.shared.isAdAvailable(for: dataSize, isLastIndex: true)
+    }
+    
     func isAdAvailable(for index: Int, isLastIndex: Bool = false, surroundingIds: [String] = []) -> Bool {
         load(with: surroundingIds)
         guard index > currentBiggestIndex + AdConfig.interval ||
-                isLastIndex && index < AdConfig.interval else { return false }
+                isLastIndex && currentBiggestIndex < 0  && index < AdConfig.interval else { return false }
         
         let ads = clients.values.map { $0.getAd(for: index) }
         var electedAd: Ad?
@@ -74,11 +77,19 @@ final class AdCoordinator {
         return electedAd != nil
     }
     
-    func load(with surroundingIds: [String] = []) {
+    // MARK: - private methods
+    
+    private func reset() {
+        adIndexes = Set<Int>()
+        clients.values.forEach { $0.reset() }
+        currentBiggestIndex = -1
+    }
+    
+    private func load(with surroundingIds: [String] = []) {
         clients.values.forEach { $0.load(with: surroundingIds) }
     }
     
     private func newAdLoaded() {
-        adAvailableCallback?()
+        firstAdLoadedCallback?()
     }
 }

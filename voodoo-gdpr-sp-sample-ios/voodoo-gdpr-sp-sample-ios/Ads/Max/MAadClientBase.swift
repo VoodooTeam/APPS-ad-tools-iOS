@@ -29,7 +29,9 @@ class MAadClientBase: NSObject {
     let maxRetryAttempt = 5
     
     let userInfo: SessionUserInformation?
-    
+
+    //constants
+    let availableAdsRefreshThreshold: TimeInterval = 10 * 60
     
     
     // MARK: - Init

@@ -12,6 +12,7 @@ class MAXAd: Ad {
     let adUnit: String
     let ad: MAAd
     let type: AdType
+    let createdAt = Date()
     var index: Int?
     
     var price: Double {
