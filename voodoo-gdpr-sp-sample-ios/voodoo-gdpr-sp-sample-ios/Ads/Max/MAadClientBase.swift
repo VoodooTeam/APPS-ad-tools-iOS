@@ -36,7 +36,6 @@ class MAadClientBase: NSObject {
     //constants
     let availableAdsRefreshThreshold: TimeInterval = 10 * 60
     
-    
     // MARK: - Init
     
     init(adUnit: String, userInfo: SessionUserInformation) {

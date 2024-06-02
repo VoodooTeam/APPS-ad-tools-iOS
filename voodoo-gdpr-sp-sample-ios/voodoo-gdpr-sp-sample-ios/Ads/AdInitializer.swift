@@ -12,45 +12,54 @@ import UIKit
 import AppHarbrSDK
 
 class AdInitializer: NSObject {
-        
-    // MARK: - Static properties
-            
-    private static var isStarted = false
-    
-    static var appLoSdk: ALSdk {
-        let alSdk = ALSdk.shared(withKey: AdConfig.appLovinKey)!
-        alSdk.mediationProvider = "max"
-        return alSdk
-    }
-    
+                            
     // MARK: - class methods
     
     static func launchAdsSDK() {
-        guard !isStarted else { return }
-        ALPrivacySettings.setHasUserConsent(true)
-        ALPrivacySettings.setDoNotSell(false)
-        ALPrivacySettings.setIsAgeRestrictedUser(false)
-        
-        setupAppHarbr()
-        appLoSdk.initializeSdk { (configuration: ALSdkConfiguration) in
-            FBAdSettings.setDataProcessingOptions([])
-            isStarted = true
-            AdCoordinator.shared.initWith(
-                clients: [
-                    NativeMAadClient(adUnit: AdConfig.nativeAdUnit, userInfo: .empty),
-                    MRECMAadClient(adUnit: AdConfig.mrecAdUnit, userInfo: .empty)
-                ]
-            )
+        let group = DispatchGroup()
+        setupAppHarbr(group)
+        setupAppLovin(group)
+        group.notify(queue: .main) {
+            setupCoordinator()
         }
     }
     
-    static func setupAppHarbr() {
+    private static func setupAppHarbr(_ group: DispatchGroup) {
+        group.enter()
         let configuration = AppHarbrConfigurationBuilder(apiKey: AdConfig.appHarbrKey).build()
         AH.initializeSdk(configuration: configuration) { error in
             if let error = error {
                 print(error)
-                return
+            } else {
+                group.leave()
             }
         }
+    }
+    
+    private static func setupAppLovin(_ group: DispatchGroup) {
+        group.enter()
+
+        let initConfig = ALSdkInitializationConfiguration(sdkKey: AdConfig.appLovinKey) { builder in
+          builder.mediationProvider = ALMediationProviderMAX
+        }
+        
+        ALPrivacySettings.setHasUserConsent(true)
+        ALPrivacySettings.setDoNotSell(false)
+        ALPrivacySettings.setIsAgeRestrictedUser(false)
+
+        // Initialize the SDK with the configuration
+        ALSdk.shared().initialize(with: initConfig) { sdkConfig in
+            FBAdSettings.setDataProcessingOptions([])
+            group.leave()
+        }
+    }
+    
+    private static func setupCoordinator() {
+        AdCoordinator.shared.initWith(
+            clients: [
+                NativeMAadClient(adUnit: AdConfig.nativeAdUnit, userInfo: .empty),
+                MRECMAadClient(adUnit: AdConfig.mrecAdUnit, userInfo: .empty)
+            ]
+        )
     }
 }

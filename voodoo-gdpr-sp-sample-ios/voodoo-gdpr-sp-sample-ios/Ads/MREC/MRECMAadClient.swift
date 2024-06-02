@@ -35,7 +35,7 @@ final class MRECMAadClient: MAadClientBase, AdClient {
         didDisplay = false
 
         AdAnalytics.adLoadingStarted.send(params: ["adUnitIdentifier": adUnit])
-        loadingView = MAAdView(adUnitIdentifier: AdConfig.mrecAdUnit, adFormat: MAAdFormat.mrec, sdk: AdInitializer.appLoSdk)
+        loadingView = MAAdView(adUnitIdentifier: AdConfig.mrecAdUnit, adFormat: MAAdFormat.mrec, sdk: ALSdk.shared())
         loadingView.delegate = self
         loadingView.revenueDelegate = self
         loadingView.setExtraParameterForKey("allow_pause_auto_refresh_immediately", value: "true")
@@ -43,40 +43,32 @@ final class MRECMAadClient: MAadClientBase, AdClient {
         loadingView.setExtraParameterForKey("allow_pause_auto_refresh_immediately", value: "true")
         loadingView.setLocalExtraParameterForKey("google_neighbouring_content_url_strings", value: surroundingIds)
         
+        setBigoParameters()
+        
         AH.addBanner(with: .max, adObject: loadingView, delegate: self)
 
         loadingView.stopAutoRefresh()
         loadingView.loadAd()
         
-        let adLoader = DTBAdLoader()
-        adLoader.setAdSizes([DTBAdSize(bannerAdSizeWithWidth: 300,
-                             height: 250,
-                                       andSlotUUID: AdConfig.amazonSlotID)!])
-        loadBackgroundQueue.async { adLoader.loadAd(self) }
+        let amazonAdLoader = DTBAdLoader()
+        let amazonAdSize = DTBAdSize(bannerAdSizeWithWidth: Int(MRECAdView.Constants.adWidth),
+                                     height: Int(MRECAdView.Constants.adHeight),
+                                     andSlotUUID: AdConfig.amazonSlotID)
+        amazonAdLoader.setAdSizes([amazonAdSize!])
+        loadBackgroundQueue.async { amazonAdLoader.loadAd(self) }
     }
-    
-    // MARK: - destroy
-    
-    private func resetAvailableAd() {
-        availableAd = nil
-    }
-    
-    private func resetIndexedAd() {
-        adIndexes = Set<Int>()
-        displayedAds = []
-    }
+
 
     // MARK: - Private
     
     private func setBigoParameters() {
-        guard let userInfo, let loadingView else { return }
-        if let age = userInfo.age {
+        if let age = userInfo?.age {
             loadingView.setLocalExtraParameterForKey("bigoads_age", value: "\(age)")
         }
-        if let gender = userInfo.gender {
+        if let gender = userInfo?.gender {
             loadingView.setLocalExtraParameterForKey("bigoads_gender", value: "\(gender)")
         }
-        if let activatedTime = userInfo.activatedTime {
+        if let activatedTime = userInfo?.activatedTime {
             loadingView.setLocalExtraParameterForKey("bigoads_activated_time", value: "\(activatedTime)")
         }
     }
@@ -89,7 +81,6 @@ final class MRECMAadClient: MAadClientBase, AdClient {
             AdAnalytics.adLoadingFinished.send(params: adParams)
         }
     }
-    
 }
 
 // MARK: - MANativeAdDelegate
@@ -99,9 +90,6 @@ extension MRECMAadClient: MAAdViewAdDelegate {
     func didLoad(_ ad: MAAd) {
         sendAnalytics(ad)
         finishLoading()
-        resetAvailableAd()
-        
-        guard let loadingView = loadingView else { return }
         availableAd = MRECAd(adUnit: adUnit, ad: ad, adView: loadingView)
     }
 
@@ -112,6 +100,10 @@ extension MRECMAadClient: MAAdViewAdDelegate {
     func didClick(_ ad: MAAd) {
         AdAnalytics.adClicked.send(params: getMAadParameters(ad: ad))
     }
+    
+    func didDisplay(_ ad: MAAd) {
+        didDisplay = true
+    }
 
     func didFail(toDisplay ad: MAAd, withError error: MAError) {}
     
@@ -119,25 +111,21 @@ extension MRECMAadClient: MAAdViewAdDelegate {
     
     func didCollapse(_ ad: MAAd) {}
     
-    func didDisplay(_ ad: MAAd) {
-        didDisplay = true
-    }
-    
     func didHide(_ ad: MAAd) {}
 }
 
-//MARK: - AppHarbr
+//MARK: - AppHarbrDelegate
+
 extension MRECMAadClient: AppHarbrDelegate {
     func didAdBlocked(ad: NSObject?, unitId: String?, adForamt: AppHarbrSDK.AdFormat, reasons: [String]) {
         guard let maxAd = ad as? MAAd else { return }
         sendAnalytics(maxAd)
-        
-        resetIndexedAd()
-        resetAvailableAd()
-        
+        availableAd = nil
         load()
     }
 }
+
+// MARK: - DTBAdCallback
 
 extension MRECMAadClient: DTBAdCallback {
     func onSuccess(_ adResponse: DTBAdResponse!) {

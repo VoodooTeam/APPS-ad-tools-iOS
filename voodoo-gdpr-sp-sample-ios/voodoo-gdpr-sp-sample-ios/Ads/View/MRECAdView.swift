@@ -12,7 +12,7 @@ import SnapKit
 
 final class MRECAdView: UIView {
     
-    private enum Constants {
+    enum Constants {
         static let iconViewSize: CGFloat = 35
         static let smallPadding: CGFloat = 5
         static let verticalPadding: CGFloat = 10

@@ -37,7 +37,7 @@ final class AdCoordinator {
     
     func reload() {
         for var client in clients.values {
-            client.adAvailableCallback = { [weak self] in self?.newAdLoaded() }
+            client.adAvailableCallback = { self.newAdLoaded() }
         }
         reset()
         load()
@@ -59,7 +59,7 @@ final class AdCoordinator {
     func isAdAvailable(for index: Int, isLastIndex: Bool = false, surroundingIds: [String] = []) -> Bool {
         load(with: surroundingIds)
         guard index > currentBiggestIndex + AdConfig.interval ||
-                isLastIndex && currentBiggestIndex < 0  && index < AdConfig.interval else { return false }
+                isLastIndex && currentBiggestIndex < 0 && index < AdConfig.interval else { return false }
         
         let ads = clients.values.map { $0.getAd(for: index) }
         var electedAd: Ad?
