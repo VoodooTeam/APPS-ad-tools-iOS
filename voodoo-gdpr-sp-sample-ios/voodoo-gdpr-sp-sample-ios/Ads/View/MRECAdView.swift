@@ -1,6 +1,6 @@
 //
 //  NativeAdView.swift
-//  Drop
+//  voodoo-gdpr-sp-sample-ios
 //
 //  Created by Gautier Gedoux on 23/05/2024.
 //
@@ -54,7 +54,7 @@ final class MRECAdView: UIView {
         let label = UILabel()
         label.textColor = .systemGray
         label.font = UIFont.systemFont(ofSize: 12)
-        label.text = "Thanks for helping us making Drop a better app"
+        label.text = "Thanks for helping us making voodoo-gdpr-sp-sample-ios a better app"
         return label
     }()
     

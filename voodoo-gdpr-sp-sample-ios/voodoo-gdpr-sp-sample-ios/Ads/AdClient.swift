@@ -1,6 +1,6 @@
 //
 //  AdClient.swift
-//  Drop
+//  voodoo-gdpr-sp-sample-ios
 //
 //  Created by Loïc Saillant on 28/05/2024.
 //
@@ -10,6 +10,7 @@ import UIKit
 protocol AdClient {
     var adUnit: String { get }
     var adIndexes: Set<Int> { get }
+    var adAvailableCallback: (() -> Void)? { get set }
     
     init(userInfo: SessionUserInformation)
     

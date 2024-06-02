@@ -1,6 +1,6 @@
 //
 //  MAad.swift
-//  Drop
+//  voodoo-gdpr-sp-sample-ios
 //
 //  Created by Gautier Gedoux on 31/05/2024.
 //
@@ -12,6 +12,7 @@ class MAXAd: Ad {
     let adUnit: String
     let ad: MAAd
     let type: AdType
+    let createdAt = Date()
     var index: Int?
     
     var price: Double {

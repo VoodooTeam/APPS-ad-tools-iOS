@@ -1,6 +1,6 @@
 //
 //  MRECAd.swift
-//  Drop
+//  voodoo-gdpr-sp-sample-ios
 //
 //  Created by Loïc Saillant on 29/05/2024.
 //

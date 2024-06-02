@@ -1,6 +1,6 @@
 //
 //  NativeAd.swift
-//  Drop
+//  voodoo-gdpr-sp-sample-ios
 //
 //  Created by Loïc Saillant on 28/05/2024.
 //
