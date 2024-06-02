@@ -71,6 +71,13 @@ class MAadClientBase: NSObject {
         //to be implemented by subclasses
     }
     
+    func reset() {
+        adIndexes = Set<Int>()
+        displayedAds = []
+        guard let availableAd, availableAd.createdAt.timeIntervalSince1970 - Date().timeIntervalSince1970 > availableAdsRefreshThreshold else { return }
+        self.availableAd = nil
+    }
+    
     func finishLoading() {
         isLoading = false
         retryAttempt = 0

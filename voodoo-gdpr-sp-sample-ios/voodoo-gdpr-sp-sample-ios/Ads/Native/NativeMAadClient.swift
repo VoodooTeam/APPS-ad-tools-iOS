@@ -63,11 +63,9 @@ final class NativeMAadClient: MAadClientBase, AdClient {
     
     // MARK: - Destroy
     
-    func reset() {
+    override func reset() {
         displayedAds.forEach { adLoader.destroy($0.ad) }
-        displayedAds = []
-        guard let availableAd, availableAd.createdAt.timeIntervalSince1970 - Date().timeIntervalSince1970 > availableAdsRefreshThreshold else { return }
-        self.availableAd = nil
+        super.reset()
     }
 }
 

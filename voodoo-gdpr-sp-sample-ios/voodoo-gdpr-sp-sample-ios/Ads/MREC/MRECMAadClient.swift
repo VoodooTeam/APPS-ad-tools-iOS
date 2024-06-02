@@ -65,12 +65,7 @@ final class MRECMAadClient: MAadClientBase, AdClient {
     
     private func resetIndexedAd() {
         adIndexes = Set<Int>()
-    }
-    
-    func reset() {
-        resetIndexedAd()
-        guard let availableAd, availableAd.createdAt.timeIntervalSince1970 - Date().timeIntervalSince1970 > availableAdsRefreshThreshold else { return }
-        resetAvailableAd()
+        displayedAds = []
     }
 
     // MARK: - Private

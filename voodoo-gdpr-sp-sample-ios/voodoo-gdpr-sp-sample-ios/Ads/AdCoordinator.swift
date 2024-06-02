@@ -91,5 +91,8 @@ final class AdCoordinator {
     
     private func newAdLoaded() {
         firstAdLoadedCallback?()
+        for var client in clients.values {
+            client.adAvailableCallback = nil
+        }
     }
 }

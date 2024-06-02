@@ -9,19 +9,19 @@
 /* Begin PBXBuildFile section */
 		1379EC302C0A038300142B8D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC2F2C0A038300142B8D /* Config.swift */; };
 		1379EC322C0A03A300142B8D /* PrivacyPurpose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC312C0A03A300142B8D /* PrivacyPurpose.swift */; };
-		1379EC8A2C0C708B00142B8D /* MAad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC772C0C708B00142B8D /* MAad.swift */; };
-		1379EC8B2C0C708B00142B8D /* MAadClientBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC782C0C708B00142B8D /* MAadClientBase.swift */; };
-		1379EC8C2C0C708B00142B8D /* SessionUserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC7A2C0C708B00142B8D /* SessionUserInformation.swift */; };
-		1379EC8D2C0C708B00142B8D /* MRECAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC7C2C0C708B00142B8D /* MRECAd.swift */; };
-		1379EC8E2C0C708B00142B8D /* MRECMAadClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC7D2C0C708B00142B8D /* MRECMAadClient.swift */; };
-		1379EC8F2C0C708B00142B8D /* NativeAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC7F2C0C708B00142B8D /* NativeAd.swift */; };
-		1379EC902C0C708B00142B8D /* NativeMAadClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC802C0C708B00142B8D /* NativeMAadClient.swift */; };
-		1379EC912C0C708B00142B8D /* MRECAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC822C0C708B00142B8D /* MRECAdView.swift */; };
-		1379EC922C0C708B00142B8D /* NativeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC832C0C708B00142B8D /* NativeAdView.swift */; };
-		1379EC932C0C708B00142B8D /* AdClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC852C0C708B00142B8D /* AdClient.swift */; };
-		1379EC942C0C708B00142B8D /* AdCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC862C0C708B00142B8D /* AdCoordinator.swift */; };
-		1379EC952C0C708B00142B8D /* AdInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC872C0C708B00142B8D /* AdInitializer.swift */; };
-		1379EC962C0C708B00142B8D /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC882C0C708B00142B8D /* AnalyticsEvent.swift */; };
+		1379ECAA2C0CD7FF00142B8D /* MAad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC972C0CD7FF00142B8D /* MAad.swift */; };
+		1379ECAB2C0CD7FF00142B8D /* MAadClientBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC982C0CD7FF00142B8D /* MAadClientBase.swift */; };
+		1379ECAC2C0CD7FF00142B8D /* SessionUserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC9A2C0CD7FF00142B8D /* SessionUserInformation.swift */; };
+		1379ECAD2C0CD7FF00142B8D /* MRECAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC9C2C0CD7FF00142B8D /* MRECAd.swift */; };
+		1379ECAE2C0CD7FF00142B8D /* MRECMAadClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC9D2C0CD7FF00142B8D /* MRECMAadClient.swift */; };
+		1379ECAF2C0CD7FF00142B8D /* NativeAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379EC9F2C0CD7FF00142B8D /* NativeAd.swift */; };
+		1379ECB02C0CD7FF00142B8D /* NativeMAadClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379ECA02C0CD7FF00142B8D /* NativeMAadClient.swift */; };
+		1379ECB12C0CD7FF00142B8D /* MRECAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379ECA22C0CD7FF00142B8D /* MRECAdView.swift */; };
+		1379ECB22C0CD7FF00142B8D /* NativeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379ECA32C0CD7FF00142B8D /* NativeAdView.swift */; };
+		1379ECB32C0CD7FF00142B8D /* AdClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379ECA52C0CD7FF00142B8D /* AdClient.swift */; };
+		1379ECB42C0CD7FF00142B8D /* AdCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379ECA62C0CD7FF00142B8D /* AdCoordinator.swift */; };
+		1379ECB52C0CD7FF00142B8D /* AdInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379ECA72C0CD7FF00142B8D /* AdInitializer.swift */; };
+		1379ECB62C0CD7FF00142B8D /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1379ECA82C0CD7FF00142B8D /* AnalyticsEvent.swift */; };
 		23D049EB5576E7E3D17CA5DD /* libPods-voodoo-gdpr-sp-sample-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E28CC5A6615CCCFAA2D5B737 /* libPods-voodoo-gdpr-sp-sample-ios.a */; };
 		621EB591322911DCC4DC4CA8 /* AppLovinQualityService.xcframework in AppLovinQualityService Embed Framework */ = {isa = PBXBuildFile; fileRef = D318223CFB95BC5185B539B3 /* AppLovinQualityService.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		87EDD01827588CE6110C9DB7 /* AppLovinQualityService.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D318223CFB95BC5185B539B3 /* AppLovinQualityService.xcframework */; };
@@ -53,19 +53,19 @@
 /* Begin PBXFileReference section */
 		1379EC2F2C0A038300142B8D /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		1379EC312C0A03A300142B8D /* PrivacyPurpose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPurpose.swift; sourceTree = "<group>"; };
-		1379EC772C0C708B00142B8D /* MAad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAad.swift; sourceTree = "<group>"; };
-		1379EC782C0C708B00142B8D /* MAadClientBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAadClientBase.swift; sourceTree = "<group>"; };
-		1379EC7A2C0C708B00142B8D /* SessionUserInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionUserInformation.swift; sourceTree = "<group>"; };
-		1379EC7C2C0C708B00142B8D /* MRECAd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRECAd.swift; sourceTree = "<group>"; };
-		1379EC7D2C0C708B00142B8D /* MRECMAadClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRECMAadClient.swift; sourceTree = "<group>"; };
-		1379EC7F2C0C708B00142B8D /* NativeAd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeAd.swift; sourceTree = "<group>"; };
-		1379EC802C0C708B00142B8D /* NativeMAadClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeMAadClient.swift; sourceTree = "<group>"; };
-		1379EC822C0C708B00142B8D /* MRECAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRECAdView.swift; sourceTree = "<group>"; };
-		1379EC832C0C708B00142B8D /* NativeAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeAdView.swift; sourceTree = "<group>"; };
-		1379EC852C0C708B00142B8D /* AdClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdClient.swift; sourceTree = "<group>"; };
-		1379EC862C0C708B00142B8D /* AdCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdCoordinator.swift; sourceTree = "<group>"; };
-		1379EC872C0C708B00142B8D /* AdInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdInitializer.swift; sourceTree = "<group>"; };
-		1379EC882C0C708B00142B8D /* AnalyticsEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsEvent.swift; sourceTree = "<group>"; };
+		1379EC972C0CD7FF00142B8D /* MAad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAad.swift; sourceTree = "<group>"; };
+		1379EC982C0CD7FF00142B8D /* MAadClientBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAadClientBase.swift; sourceTree = "<group>"; };
+		1379EC9A2C0CD7FF00142B8D /* SessionUserInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionUserInformation.swift; sourceTree = "<group>"; };
+		1379EC9C2C0CD7FF00142B8D /* MRECAd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRECAd.swift; sourceTree = "<group>"; };
+		1379EC9D2C0CD7FF00142B8D /* MRECMAadClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRECMAadClient.swift; sourceTree = "<group>"; };
+		1379EC9F2C0CD7FF00142B8D /* NativeAd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeAd.swift; sourceTree = "<group>"; };
+		1379ECA02C0CD7FF00142B8D /* NativeMAadClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeMAadClient.swift; sourceTree = "<group>"; };
+		1379ECA22C0CD7FF00142B8D /* MRECAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRECAdView.swift; sourceTree = "<group>"; };
+		1379ECA32C0CD7FF00142B8D /* NativeAdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeAdView.swift; sourceTree = "<group>"; };
+		1379ECA52C0CD7FF00142B8D /* AdClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdClient.swift; sourceTree = "<group>"; };
+		1379ECA62C0CD7FF00142B8D /* AdCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdCoordinator.swift; sourceTree = "<group>"; };
+		1379ECA72C0CD7FF00142B8D /* AdInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdInitializer.swift; sourceTree = "<group>"; };
+		1379ECA82C0CD7FF00142B8D /* AnalyticsEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsEvent.swift; sourceTree = "<group>"; };
 		361327BF6DD735930DEEB2D3 /* Pods-voodoo-gdpr-sp-sample-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-voodoo-gdpr-sp-sample-ios.release.xcconfig"; path = "Target Support Files/Pods-voodoo-gdpr-sp-sample-ios/Pods-voodoo-gdpr-sp-sample-ios.release.xcconfig"; sourceTree = "<group>"; };
 		D318223CFB95BC5185B539B3 /* AppLovinQualityService.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:B8HZ37M8S5:SafeDK Mobile Ltd."; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = AppLovinQualityService.xcframework; path = AppLovinQualityService/AppLovinQualityService.xcframework; sourceTree = "<group>"; };
 		DEDC72A72C088413006ED1F1 /* voodoo-gdpr-sp-sample-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "voodoo-gdpr-sp-sample-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,62 +112,62 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		1379EC792C0C708B00142B8D /* Max */ = {
+		1379EC992C0CD7FF00142B8D /* Max */ = {
 			isa = PBXGroup;
 			children = (
-				1379EC772C0C708B00142B8D /* MAad.swift */,
-				1379EC782C0C708B00142B8D /* MAadClientBase.swift */,
+				1379EC972C0CD7FF00142B8D /* MAad.swift */,
+				1379EC982C0CD7FF00142B8D /* MAadClientBase.swift */,
 			);
 			path = Max;
 			sourceTree = "<group>";
 		};
-		1379EC7B2C0C708B00142B8D /* Model */ = {
+		1379EC9B2C0CD7FF00142B8D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1379EC7A2C0C708B00142B8D /* SessionUserInformation.swift */,
+				1379EC9A2C0CD7FF00142B8D /* SessionUserInformation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		1379EC7E2C0C708B00142B8D /* MREC */ = {
+		1379EC9E2C0CD7FF00142B8D /* MREC */ = {
 			isa = PBXGroup;
 			children = (
-				1379EC7C2C0C708B00142B8D /* MRECAd.swift */,
-				1379EC7D2C0C708B00142B8D /* MRECMAadClient.swift */,
+				1379EC9C2C0CD7FF00142B8D /* MRECAd.swift */,
+				1379EC9D2C0CD7FF00142B8D /* MRECMAadClient.swift */,
 			);
 			path = MREC;
 			sourceTree = "<group>";
 		};
-		1379EC812C0C708B00142B8D /* Native */ = {
+		1379ECA12C0CD7FF00142B8D /* Native */ = {
 			isa = PBXGroup;
 			children = (
-				1379EC7F2C0C708B00142B8D /* NativeAd.swift */,
-				1379EC802C0C708B00142B8D /* NativeMAadClient.swift */,
+				1379EC9F2C0CD7FF00142B8D /* NativeAd.swift */,
+				1379ECA02C0CD7FF00142B8D /* NativeMAadClient.swift */,
 			);
 			path = Native;
 			sourceTree = "<group>";
 		};
-		1379EC842C0C708B00142B8D /* View */ = {
+		1379ECA42C0CD7FF00142B8D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1379EC822C0C708B00142B8D /* MRECAdView.swift */,
-				1379EC832C0C708B00142B8D /* NativeAdView.swift */,
+				1379ECA22C0CD7FF00142B8D /* MRECAdView.swift */,
+				1379ECA32C0CD7FF00142B8D /* NativeAdView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		1379EC892C0C708B00142B8D /* Ads */ = {
+		1379ECA92C0CD7FF00142B8D /* Ads */ = {
 			isa = PBXGroup;
 			children = (
-				1379EC792C0C708B00142B8D /* Max */,
-				1379EC7B2C0C708B00142B8D /* Model */,
-				1379EC7E2C0C708B00142B8D /* MREC */,
-				1379EC812C0C708B00142B8D /* Native */,
-				1379EC842C0C708B00142B8D /* View */,
-				1379EC852C0C708B00142B8D /* AdClient.swift */,
-				1379EC862C0C708B00142B8D /* AdCoordinator.swift */,
-				1379EC872C0C708B00142B8D /* AdInitializer.swift */,
-				1379EC882C0C708B00142B8D /* AnalyticsEvent.swift */,
+				1379EC992C0CD7FF00142B8D /* Max */,
+				1379EC9B2C0CD7FF00142B8D /* Model */,
+				1379EC9E2C0CD7FF00142B8D /* MREC */,
+				1379ECA12C0CD7FF00142B8D /* Native */,
+				1379ECA42C0CD7FF00142B8D /* View */,
+				1379ECA52C0CD7FF00142B8D /* AdClient.swift */,
+				1379ECA62C0CD7FF00142B8D /* AdCoordinator.swift */,
+				1379ECA72C0CD7FF00142B8D /* AdInitializer.swift */,
+				1379ECA82C0CD7FF00142B8D /* AnalyticsEvent.swift */,
 			);
 			path = Ads;
 			sourceTree = "<group>";
@@ -212,8 +212,8 @@
 			isa = PBXGroup;
 			children = (
 				DEDC72CE2C088552006ED1F1 /* Info.plist */,
-				1379EC892C0C708B00142B8D /* Ads */,
 				1379EC332C0C3EB600142B8D /* Common */,
+				1379ECA92C0CD7FF00142B8D /* Ads */,
 				DEDC72B82C088423006ED1F1 /* Privacy */,
 				DEDC72AC2C088413006ED1F1 /* ContentView.swift */,
 				DEDC72C82C0884CC006ED1F1 /* AppDelegate.swift */,
@@ -433,28 +433,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1379EC8C2C0C708B00142B8D /* SessionUserInformation.swift in Sources */,
+				1379ECAC2C0CD7FF00142B8D /* SessionUserInformation.swift in Sources */,
 				DEDC72C92C0884CC006ED1F1 /* AppDelegate.swift in Sources */,
 				DEDC72C12C088432006ED1F1 /* PrivacyManager.swift in Sources */,
-				1379EC912C0C708B00142B8D /* MRECAdView.swift in Sources */,
+				1379ECB12C0CD7FF00142B8D /* MRECAdView.swift in Sources */,
 				1379EC322C0A03A300142B8D /* PrivacyPurpose.swift in Sources */,
 				DEDC72BE2C088432006ED1F1 /* PrivacyATTManager.swift in Sources */,
-				1379EC8D2C0C708B00142B8D /* MRECAd.swift in Sources */,
-				1379EC8A2C0C708B00142B8D /* MAad.swift in Sources */,
-				1379EC922C0C708B00142B8D /* NativeAdView.swift in Sources */,
+				1379ECAD2C0CD7FF00142B8D /* MRECAd.swift in Sources */,
+				1379ECAA2C0CD7FF00142B8D /* MAad.swift in Sources */,
+				1379ECB22C0CD7FF00142B8D /* NativeAdView.swift in Sources */,
 				DEDC72CC2C088506006ED1F1 /* ConsentViewControllerRepresentable.swift in Sources */,
 				DEDC72D02C08D148006ED1F1 /* PrivacyLanguageMapper.swift in Sources */,
-				1379EC8B2C0C708B00142B8D /* MAadClientBase.swift in Sources */,
-				1379EC902C0C708B00142B8D /* NativeMAadClient.swift in Sources */,
-				1379EC962C0C708B00142B8D /* AnalyticsEvent.swift in Sources */,
-				1379EC952C0C708B00142B8D /* AdInitializer.swift in Sources */,
+				1379ECAB2C0CD7FF00142B8D /* MAadClientBase.swift in Sources */,
+				1379ECB02C0CD7FF00142B8D /* NativeMAadClient.swift in Sources */,
+				1379ECB62C0CD7FF00142B8D /* AnalyticsEvent.swift in Sources */,
+				1379ECB52C0CD7FF00142B8D /* AdInitializer.swift in Sources */,
 				DEDC72AD2C088413006ED1F1 /* ContentView.swift in Sources */,
-				1379EC932C0C708B00142B8D /* AdClient.swift in Sources */,
-				1379EC8F2C0C708B00142B8D /* NativeAd.swift in Sources */,
+				1379ECB32C0CD7FF00142B8D /* AdClient.swift in Sources */,
+				1379ECAF2C0CD7FF00142B8D /* NativeAd.swift in Sources */,
 				DEDC72C02C088432006ED1F1 /* PrivacyConsent.swift in Sources */,
-				1379EC8E2C0C708B00142B8D /* MRECMAadClient.swift in Sources */,
+				1379ECAE2C0CD7FF00142B8D /* MRECMAadClient.swift in Sources */,
 				1379EC302C0A038300142B8D /* Config.swift in Sources */,
-				1379EC942C0C708B00142B8D /* AdCoordinator.swift in Sources */,
+				1379ECB42C0CD7FF00142B8D /* AdCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
