@@ -1,6 +1,6 @@
 //
 //  MAad.swift
-//  Drop
+//  voodoo-gdpr-sp-sample-ios
 //
 //  Created by Gautier Gedoux on 31/05/2024.
 //

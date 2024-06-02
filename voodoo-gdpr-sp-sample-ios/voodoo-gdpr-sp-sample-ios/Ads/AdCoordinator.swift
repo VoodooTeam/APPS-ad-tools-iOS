@@ -1,6 +1,6 @@
 //
 //  AdCoordinator.swift
-//  Drop
+//  voodoo-gdpr-sp-sample-ios
 //
 //  Created by Gautier Gedoux on 29/05/2024.
 //
@@ -24,10 +24,17 @@ final class AdCoordinator {
         return Array(adIndexes).sorted()
     }
     
+    var adAvailableCallback: (() -> Void)?
+    
     // MARK: - init
     
     func initWith(clients: [AdClient]) {
-        clients.forEach { self.clients[$0.adUnit] = $0 }
+        for var client in clients {
+            client.adAvailableCallback = { [weak self] in
+                self?.newAdLoaded()
+            }
+            self.clients[client.adUnit] = client
+        }
     }
     
     // MARK: - instance methods
@@ -46,9 +53,10 @@ final class AdCoordinator {
         return UIView()
     }
     
-    func isAdAvailable(for index: Int, surroundingIds: [String]) -> Bool {
+    func isAdAvailable(for index: Int, isLastIndex: Bool = false, surroundingIds: [String] = []) -> Bool {
         load(with: surroundingIds)
-        guard index > currentBiggestIndex + AdConfig.interval else { return false }
+        guard index > currentBiggestIndex + AdConfig.interval ||
+                isLastIndex && index < AdConfig.interval else { return false }
         
         let ads = clients.values.map { $0.getAd(for: index) }
         var electedAd: Ad?
@@ -68,5 +76,9 @@ final class AdCoordinator {
     
     func load(with surroundingIds: [String] = []) {
         clients.values.forEach { $0.load(with: surroundingIds) }
+    }
+    
+    private func newAdLoaded() {
+        adAvailableCallback?()
     }
 }
