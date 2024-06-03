@@ -1,6 +1,6 @@
 //
 //  NativeMAadClient.swift
-//  Drop
+//  voodoo-gdpr-sp-sample-ios
 //
 //  Created by Loïc Saillant on 28/05/2024.
 //
@@ -13,11 +13,9 @@ final class NativeMAadClient: MAadClientBase, AdClient {
     
     // MARK: - data
     
-    //properties
-    let adUnit: String = AdConfig.nativeAdUnit
-    
+    //properties    
     private lazy var adLoader: MANativeAdLoader = {
-        let adLoader = AdInitializer.nativeAdLoader
+        let adLoader = MANativeAdLoader(adUnitIdentifier: AdConfig.nativeAdUnit, sdk: ALSdk.shared())
         adLoader.setLocalExtraParameterForKey("google_max_ad_content_rating", value: "T")
         adLoader.setLocalExtraParameterForKey("google_native_ad_view_tag", value: AdConfig.gadNativeAdViewTag)
         setBigoParameters(for: adLoader)
@@ -38,34 +36,32 @@ final class NativeMAadClient: MAadClientBase, AdClient {
     }
         
     override func load(with surroundingIds: [String] = []) {
-        guard !isLoading, availableAd == nil
-        else { return }
+        guard !isLoading, availableAd == nil else { return }
         isLoading = true
         AdAnalytics.adLoadingStarted.send(params: ["adUnitIdentifier": adUnit])
         adLoader.setLocalExtraParameterForKey("google_neighbouring_content_url_strings", value: surroundingIds)
-        adLoader.loadAd()
+        loadBackgroundQueue.async { self.adLoader.loadAd() }
     }
     
     // MARK: - Private
     
     private func setBigoParameters(for adLoader: MANativeAdLoader) {
-        guard let userInfo else { return }
-        if let age = userInfo.age {
+        if let age = userInfo?.age {
             adLoader.setLocalExtraParameterForKey("bigoads_age", value: "\(age)")
         }
-        if let gender = userInfo.gender {
+        if let gender = userInfo?.gender {
             adLoader.setLocalExtraParameterForKey("bigoads_gender", value: "\(gender)")
         }
-        if let activatedTime = userInfo.activatedTime {
+        if let activatedTime = userInfo?.activatedTime {
             adLoader.setLocalExtraParameterForKey("bigoads_activated_time", value: "\(activatedTime)")
         }
     }
     
     // MARK: - Destroy
     
-    func reset() {
+    override func reset() {
         displayedAds.forEach { adLoader.destroy($0.ad) }
-        displayedAds = []
+        super.reset()
     }
 }
 

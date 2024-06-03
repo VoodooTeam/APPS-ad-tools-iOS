@@ -11,49 +11,63 @@ import FBAudienceNetwork
 import UIKit
 import AppHarbrSDK
 
-enum MediationProvider: String {
-    case max
-}
-
-final class AdInitializer: NSObject {
-        
-    // MARK: - Static properties
-    
-    static var nativeAdLoader = MANativeAdLoader(adUnitIdentifier: AdConfig.nativeAdUnit, sdk: ALSdk.shared())
-            
-    private static var isStarted = false
-    
+class AdInitializer: NSObject {
+                            
     // MARK: - class methods
     
     static func launchAdsSDK(hasUserConsent: Bool, doNotSell: Bool, isAgeRestrictedUser: Bool) {
-        guard !isStarted else { return }
-        ALPrivacySettings.setHasUserConsent(hasUserConsent)
-        ALPrivacySettings.setDoNotSell(doNotSell)
-        ALPrivacySettings.setIsAgeRestrictedUser(isAgeRestrictedUser)
-        
-        setupAppHarbr()
-        let configuration = ALSdkInitializationConfiguration(sdkKey: AdConfig.appLovinKey) { configuration in
-            configuration.mediationProvider = MediationProvider.max.rawValue
-        }
-        ALSdk.shared().initialize(with: configuration) { configuration in
-            FBAdSettings.setDataProcessingOptions([])
-            isStarted = true
-            AdCoordinator.shared.initWith(
-                clients: [
-                    NativeMAadClient(userInfo: .empty),
-                    MRECMAadClient(userInfo: .empty)
-                ]
-            )
+        let group = DispatchGroup()
+        setupAppHarbr(group)
+        setupAppLovin(
+            group,
+            hasUserConsent: hasUserConsent,
+            doNotSell: doNotSell,
+            isAgeRestrictedUser: isAgeRestrictedUser
+        )
+        group.notify(queue: .main) {
+            setupCoordinator()
         }
     }
     
-    static func setupAppHarbr() {
+    private static func setupAppHarbr(_ group: DispatchGroup) {
+        group.enter()
         let configuration = AppHarbrConfigurationBuilder(apiKey: AdConfig.appHarbrKey).build()
         AH.initializeSdk(configuration: configuration) { error in
             if let error = error {
                 print(error)
-                return
+            } else {
+                group.leave()
             }
         }
+    }
+    
+    private static func setupAppLovin(_ group: DispatchGroup, 
+                                      hasUserConsent: Bool,
+                                      doNotSell: Bool,
+                                      isAgeRestrictedUser: Bool) {
+        group.enter()
+
+        let initConfig = ALSdkInitializationConfiguration(sdkKey: AdConfig.appLovinKey) { builder in
+            builder.mediationProvider = ALMediationProviderMAX
+        }
+        
+        ALPrivacySettings.setHasUserConsent(hasUserConsent)
+        ALPrivacySettings.setDoNotSell(doNotSell)
+        ALPrivacySettings.setIsAgeRestrictedUser(isAgeRestrictedUser)
+
+        // Initialize the SDK with the configuration
+        ALSdk.shared().initialize(with: initConfig) { sdkConfig in
+            FBAdSettings.setDataProcessingOptions([])
+            group.leave()
+        }
+    }
+    
+    private static func setupCoordinator() {
+        AdCoordinator.shared.initWith(
+            clients: [
+                NativeMAadClient(adUnit: AdConfig.nativeAdUnit, userInfo: .empty),
+                MRECMAadClient(adUnit: AdConfig.mrecAdUnit, userInfo: .empty)
+            ]
+        )
     }
 }

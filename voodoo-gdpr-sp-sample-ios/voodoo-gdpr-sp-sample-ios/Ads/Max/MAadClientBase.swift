@@ -1,6 +1,6 @@
 //
 //  MAadClientBase.swift
-//  Drop
+//  voodoo-gdpr-sp-sample-ios
 //
 //  Created by Gautier Gedoux on 31/05/2024.
 //
@@ -14,20 +14,34 @@ class MAadClientBase: NSObject {
     // MARK: - data
     
     //properties
-    var availableAd: MAXAd?
+    let adUnit: String
+    
+    var availableAd: MAXAd? {
+        didSet {
+            guard availableAd != nil else { return }
+            adAvailableCallback?()
+        }
+    }
     var displayedAds: [MAXAd] = []
     var adIndexes = Set<Int>()
+    var adAvailableCallback: (() -> Void)?
     
     var isLoading = false
     var retryAttempt = 0
     let maxRetryAttempt = 5
+    let loadBackgroundQueue: DispatchQueue
     
     let userInfo: SessionUserInformation?
+
+    //constants
+    let availableAdsRefreshThreshold: TimeInterval = 10 * 60
     
     // MARK: - Init
     
-    init(userInfo: SessionUserInformation) {
+    init(adUnit: String, userInfo: SessionUserInformation) {
+        self.adUnit = adUnit
         self.userInfo = userInfo
+        self.loadBackgroundQueue = DispatchQueue(label: adUnit, qos: .default)
     }
             
     // MARK: - instance methods
@@ -59,6 +73,13 @@ class MAadClientBase: NSObject {
         
     func load(with surroundingIds: [String] = []) {
         //to be implemented by subclasses
+    }
+    
+    func reset() {
+        adIndexes = Set<Int>()
+        displayedAds = []
+        guard let availableAd, availableAd.createdAt.timeIntervalSince1970 - Date().timeIntervalSince1970 > availableAdsRefreshThreshold else { return }
+        self.availableAd = nil
     }
     
     func finishLoading() {

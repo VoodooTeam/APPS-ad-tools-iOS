@@ -1,13 +1,14 @@
 //
 //  AdAnalytics.swift
-//  Drop
+//  voodoo-gdpr-sp-sample-ios
 //
-//  Created by Gautier Gedoux on 29/05/2024.
+//  Created by Gautier Gedoux on 02/06/2024.
 //
 
 import Foundation
 
 enum AdAnalytics: String {
+    //ad
     case adWatched = "Ad Watched"
     case adClicked = "Ad Clicked"
     case adLoadingStarted = "Ad Loading Started"
@@ -18,6 +19,6 @@ enum AdAnalytics: String {
     
     func send(params: [String: Any]) {
         //TODO: to be completed by Limitless team
-        print("💰 \(rawValue), adUnit \(params["adUnitIdentifier"] ?? "unknown")")
+        print("📊 \(rawValue), adUnit \(params["adUnitIdentifier"] ?? "unknown")")
     }
 }
