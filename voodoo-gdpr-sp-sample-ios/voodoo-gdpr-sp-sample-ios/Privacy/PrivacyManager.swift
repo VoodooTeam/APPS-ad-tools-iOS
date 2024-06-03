@@ -50,7 +50,6 @@ final class PrivacyManager {
     private var consentManager: SPSDK?
     private var consentViewController: UIViewController?
     private var onCompletion: ((Status) -> Void)?
-    private(set) var fromViewController: UIViewController?
     private(set) var status: Status = .notRequested
     private var purposeConsentDictionary: [PrivacyPurpose: Bool] = [:]
     private var keyPurposeDictionary: [String: PrivacyPurpose] = [:]
@@ -125,7 +124,7 @@ final class PrivacyManager {
         from.present(consentViewController, animated: true)
     }
 
-    func loadAndDisplayConsentUI(from: UIViewController) {
+    func loadAndDisplayConsentUI() {
         guard let consentManager else {
             if status != .notAvailable {
                 status = .error(PrivacyError.consentManagerUnavailable)
@@ -134,7 +133,6 @@ final class PrivacyManager {
         }
 
         if shouldPrivacyApplicable() {
-            fromViewController = from
             consentManager.loadGDPRPrivacyManager(withId:PrivacyConfig.privacyManagerId)
         } else {
             status = .notAvailable
@@ -252,25 +250,15 @@ extension PrivacyManager: SPDelegate {
         consentViewController = controller
         status = .available
 
-        if let fromViewController {
-            displayContentUI(from: fromViewController)
-        } else if let topController = topMostViewController() {
-            displayContentUI(from: topController)
-        }
+        guard let topController = topMostViewController() else { return }
+        displayContentUI(from: topController)
     }
 
     func onSPUIFinished(_ controller: UIViewController) {
-        /* La joie du swiftUI + UIKIT :) please adpot it to your code <3 */
-        controller.dismiss(animated: true) {
-            if let topController = self.topMostViewController() {
-                topController.dismiss(animated: true) {
-                    self.onCompletion?(self.status)
-                    self.onCompletion = nil
-                }
-            } else {
-                self.onCompletion?(self.status)
-                self.onCompletion = nil
-            }
+        controller.dismiss(animated: true) { [weak self] in
+            guard let self else { return }
+            self.onCompletion?(self.status)
+            self.onCompletion = nil
         }
     }
 

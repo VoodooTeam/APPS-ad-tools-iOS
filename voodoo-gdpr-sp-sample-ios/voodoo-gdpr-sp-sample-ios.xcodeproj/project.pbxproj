@@ -43,7 +43,6 @@
 		DEDC72C02C088432006ED1F1 /* PrivacyConsent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72BB2C088432006ED1F1 /* PrivacyConsent.swift */; };
 		DEDC72C12C088432006ED1F1 /* PrivacyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72BC2C088432006ED1F1 /* PrivacyManager.swift */; };
 		DEDC72C92C0884CC006ED1F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72C82C0884CC006ED1F1 /* AppDelegate.swift */; };
-		DEDC72CC2C088506006ED1F1 /* ConsentViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72CB2C088506006ED1F1 /* ConsentViewControllerRepresentable.swift */; };
 		DEDC72D02C08D148006ED1F1 /* PrivacyLanguageMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72CF2C08D148006ED1F1 /* PrivacyLanguageMapper.swift */; };
 /* End PBXBuildFile section */
 
@@ -98,7 +97,6 @@
 		DEDC72BB2C088432006ED1F1 /* PrivacyConsent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyConsent.swift; sourceTree = "<group>"; };
 		DEDC72BC2C088432006ED1F1 /* PrivacyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyManager.swift; sourceTree = "<group>"; };
 		DEDC72C82C0884CC006ED1F1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DEDC72CB2C088506006ED1F1 /* ConsentViewControllerRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		DEDC72CE2C088552006ED1F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DEDC72CF2C08D148006ED1F1 /* PrivacyLanguageMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyLanguageMapper.swift; sourceTree = "<group>"; };
 		E28CC5A6615CCCFAA2D5B737 /* libPods-voodoo-gdpr-sp-sample-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-voodoo-gdpr-sp-sample-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,7 +119,6 @@
 		1379EC2E2C09FFE800142B8D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DEDC72CB2C088506006ED1F1 /* ConsentViewControllerRepresentable.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -279,7 +276,7 @@
 				1379EC332C0C3EB600142B8D /* Common */,
 				1379ED092C0D080C00142B8D /* Ads */,
 				DEDC72B82C088423006ED1F1 /* Privacy */,
-                CA36E53B2C09CE0000F35344 /* Sample */,
+				CA36E53B2C09CE0000F35344 /* Sample */,
 				DEDC72AC2C088413006ED1F1 /* ContentView.swift */,
 				DEDC72C82C0884CC006ED1F1 /* AppDelegate.swift */,
 				DEDC72AE2C088415006ED1F1 /* Assets.xcassets */,
@@ -520,7 +517,6 @@
 				1379ED0D2C0D080C00142B8D /* MRECAd.swift in Sources */,
 				1379ED0A2C0D080C00142B8D /* MAad.swift in Sources */,
 				1379ED122C0D080C00142B8D /* NativeAdView.swift in Sources */,
-				DEDC72CC2C088506006ED1F1 /* ConsentViewControllerRepresentable.swift in Sources */,
 				DEDC72D02C08D148006ED1F1 /* PrivacyLanguageMapper.swift in Sources */,
 				1379ED0B2C0D080C00142B8D /* MAadClientBase.swift in Sources */,
 				1379ED102C0D080C00142B8D /* NativeMAadClient.swift in Sources */,

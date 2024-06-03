@@ -11,8 +11,6 @@ import AppLovinSDK
 struct BeFeedView: View {
     
     @StateObject var viewModel: BeFeedViewModel
-    @State var showConsentView: Bool = false
-    
 
     var body: some View {
         VStack {
@@ -31,7 +29,7 @@ struct BeFeedView: View {
                     }
                     Spacer()
                     Button("Privacy Settings") {
-                        showConsentView = true
+                        PrivacyManager.shared.loadAndDisplayConsentUI()
                     }
                 }.padding(.horizontal, 8)
                 ForEach(viewModel.feedItems) { item in
@@ -51,9 +49,6 @@ struct BeFeedView: View {
                             }
                     }
                 }
-                .fullScreenCover(isPresented: $showConsentView) {
-                    ConsentViewControllerRepresentable()
-                }
             }
             .padding(.top, 50)
             .padding(.bottom, 100)
@@ -63,4 +58,18 @@ struct BeFeedView: View {
 
 #Preview {
     BeFeedView(viewModel: BeFeedViewModel())
+}
+
+struct ClearBackgroundView: UIViewRepresentable {
+    func makeUIView(context: Context) -> UIView {
+        let view = UIView()
+        DispatchQueue.main.async {
+            view.backgroundColor = .clear
+            view.superview?.backgroundColor = .clear
+            view.superview?.superview?.backgroundColor = .clear
+        }
+        return view
+    }
+
+    func updateUIView(_ uiView: UIView, context: Context) {}
 }
