@@ -7,10 +7,10 @@
 
 import Foundation
 
-class PrivacyConsent {
+class GdprPrivacyConsent {
     var adsConsent: Bool
     var analyticsConsent: Bool
-
+    
     init(adsConsent: Bool, analyticsConsent: Bool) {
         self.adsConsent = adsConsent
         self.analyticsConsent = analyticsConsent

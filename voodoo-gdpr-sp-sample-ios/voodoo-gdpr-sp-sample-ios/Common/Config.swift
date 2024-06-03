@@ -20,9 +20,9 @@ struct AdConfig {
 struct PrivacyConfig {
     static let accountId = 1909
     static let propertyId = 36309
-    static let privacyManagerId = "1142456"
+    static let gdprPrivacyManagerId = "1142456"
+    static let usMspsPrivacyManagerId = "1143800"
     static let propertyName = "voodoo.native.app"
-
     static let storeAndAccessInformationOnDeviceKey = "6656fcd5a0fa9305065e56a3"
     static let selectBasicAdsKey = "6656fcd5a0fa9305065e562c"
     static let createPersonalisedAdsProfileKey = "6656fcd5a0fa9305065e55e7"
