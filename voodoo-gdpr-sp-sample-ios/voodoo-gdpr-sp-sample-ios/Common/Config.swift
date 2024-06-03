@@ -12,7 +12,7 @@ struct AdConfig {
     static let nativeAdUnit = "252036be5c9ebe29"
     static let mrecAdUnit = "0b317d8985405a5e"
     static let interval = 3
-    static let fetchOffset = 2
+    static let fetchOffset = 1
     static let surroundingUserBaseUrl = "https://crawler.getwizz.io/wizz_profiles.html?uid=%1$@"
     static let amazonSlotID = "b636cd42-59d9-46f6-bec8-017dad7bef1b"
 }

@@ -27,10 +27,8 @@ class AdInitializer: NSObject {
             if case .failure(let error) = results.first {
                 print("[AppHarbr init error] \(error)")
             }
-            else {
-                await MainActor.run {
-                    setupCoordinator()
-                }
+            await MainActor.run {
+                setupCoordinator()
             }
         }
     }
