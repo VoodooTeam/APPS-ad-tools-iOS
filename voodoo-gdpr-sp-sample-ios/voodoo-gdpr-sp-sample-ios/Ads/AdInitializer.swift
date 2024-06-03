@@ -28,7 +28,10 @@ class AdInitializer: NSObject {
                 print("[AppHarbr init error] \(error)")
             }
             await MainActor.run {
-                setupCoordinator()
+                AdCoordinator.shared.launch(with: [
+                    NativeMAadClient(adUnit: AdConfig.nativeAdUnit, userInfo: .empty),
+                    MRECMAadClient(adUnit: AdConfig.mrecAdUnit, userInfo: .empty)
+                ])
             }
         }
     }
@@ -69,12 +72,7 @@ class AdInitializer: NSObject {
         }
     }
     
-    private static func setupCoordinator() {
-        AdCoordinator.shared.initWith(
-            clients: [
-                NativeMAadClient(adUnit: AdConfig.nativeAdUnit, userInfo: .empty),
-                MRECMAadClient(adUnit: AdConfig.mrecAdUnit, userInfo: .empty)
-            ]
-        )
+    static func resetAdsSDK() {
+        AdCoordinator.shared.restart()
     }
 }

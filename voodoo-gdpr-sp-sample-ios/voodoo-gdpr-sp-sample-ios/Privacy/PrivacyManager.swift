@@ -77,9 +77,6 @@ final class PrivacyManager {
     }
     
     private func launchSDKs() {
-
-        print("🧙🏻‍♂️ launchSDKs")
-        
         let consent = getGdprPrivacyConsent()
         print("Consent privacy ads: \(consent.adsConsent)")
         print("Consent privacy analytics: \(consent.analyticsConsent)")
@@ -88,6 +85,8 @@ final class PrivacyManager {
         Task {
             await PrivacyATTManager.shared.requestTrackingAuthorization()
         }
+        
+        AdInitializer.resetAdsSDK()
         
         if shouldPrivacyApplicable() {
             if consent.adsConsent {
@@ -101,7 +100,6 @@ final class PrivacyManager {
             if consent.analyticsConsent {
                 // Initialize Analytics SDK
             }
-            
         } else {
             AdInitializer.launchAdsSDK(
                 hasUserConsent: hasUserConsent,
@@ -292,4 +290,4 @@ extension PrivacyManager: SPDelegate {
             updatePurposeConsentDictionary(gdprConsent)
         }
     }
-} 
+}
