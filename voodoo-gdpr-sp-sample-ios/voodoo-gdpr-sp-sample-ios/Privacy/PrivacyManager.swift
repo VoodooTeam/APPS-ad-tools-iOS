@@ -46,7 +46,7 @@ final class PrivacyManager {
     static let shared = PrivacyManager()
 
     // MARK: - Properties
-    
+
     private var consentManager: SPSDK?
     private var consentViewController: UIViewController?
     private var onCompletion: ((Status) -> Void)?
@@ -56,12 +56,9 @@ final class PrivacyManager {
     var language: SPMessageLanguage?
     
     private var hasUserConsent: Bool {
-        getPrivacyConsent().adsConsent
+        getGdprPrivacyConsent().adsConsent
     }
-    private var doNotSell: Bool {
-        let consent = getPrivacyConsent()
-        return !consent.adsConsent || !consent.adsConsent
-    }
+    private var doNotSellEnabled: Bool = false
     private var isAgeRestrictedUser: Bool {
         false
     }
@@ -83,10 +80,11 @@ final class PrivacyManager {
 
         print("🧙🏻‍♂️ launchSDKs")
         
-        let consent = getPrivacyConsent()
+        let consent = getGdprPrivacyConsent()
         print("Consent privacy ads: \(consent.adsConsent)")
         print("Consent privacy analytics: \(consent.analyticsConsent)")
-
+        print("Do Not Sell Data enabled: \(doNotSellEnabled)")
+        
         Task {
             await PrivacyATTManager.shared.requestTrackingAuthorization()
         }
@@ -95,7 +93,7 @@ final class PrivacyManager {
             if consent.adsConsent {
                 AdInitializer.launchAdsSDK(
                     hasUserConsent: hasUserConsent,
-                    doNotSell: doNotSell,
+                    doNotSell: doNotSellEnabled,
                     isAgeRestrictedUser: isAgeRestrictedUser
                 )
             }
@@ -107,7 +105,7 @@ final class PrivacyManager {
         } else {
             AdInitializer.launchAdsSDK(
                 hasUserConsent: hasUserConsent,
-                doNotSell: doNotSell,
+                doNotSell: doNotSellEnabled,
                 isAgeRestrictedUser: isAgeRestrictedUser
             )
         }
@@ -133,7 +131,11 @@ final class PrivacyManager {
         }
 
         if shouldPrivacyApplicable() {
-            consentManager.loadGDPRPrivacyManager(withId:PrivacyConfig.privacyManagerId)
+            if(consentManager.usnatApplies) {
+                consentManager.loadGDPRPrivacyManager(withId: PrivacyConfig.usMspsPrivacyManagerId)
+            } else {
+                consentManager.loadGDPRPrivacyManager(withId:PrivacyConfig.gdprPrivacyManagerId)
+            }
         } else {
             status = .notAvailable
             print("Privacy -- not available in your country")
@@ -167,7 +169,7 @@ final class PrivacyManager {
             propertyName: try! SPPropertyName(PrivacyConfig.propertyName),
             campaigns: SPCampaigns(
                 gdpr: SPCampaign(),
-                ccpa: SPCampaign(),
+                usnat: SPCampaign(transitionCCPAAuth: true),
                 ios14: SPCampaign()
             ),
             language: language,
@@ -208,8 +210,8 @@ final class PrivacyManager {
         }
     }
 
-    private func getPrivacyConsent() -> PrivacyConsent {
-        return PrivacyConsent(
+    private func getGdprPrivacyConsent() -> GdprPrivacyConsent {
+        return GdprPrivacyConsent(
             adsConsent: purposeConsentDictionary[.StoreAndAccessInformationOnDevice] ?? false &&
                         purposeConsentDictionary[.SelectBasicAds] ?? false &&
                         purposeConsentDictionary[.CreatePersonalisedAdsProfile] ?? false &&
@@ -282,7 +284,10 @@ extension PrivacyManager: SPDelegate {
 
     func onSPFinished(userData: SPUserData) {
         status = .finished
-
+        if (userData.usnat?.applies == true) {
+            doNotSellEnabled = userData.usnat?.consents?.statuses.sellStatus ?? false
+        }
+        
         if let gdprConsent = userData.gdpr?.consents {
             updatePurposeConsentDictionary(gdprConsent)
         }
