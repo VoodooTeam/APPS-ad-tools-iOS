@@ -132,7 +132,7 @@ final class PrivacyManager {
 
         if shouldPrivacyApplicable() {
             if(consentManager.usnatApplies) {
-                consentManager.loadGDPRPrivacyManager(withId: PrivacyConfig.usMspsPrivacyManagerId)
+                consentManager.loadUSNatPrivacyManager(withId: PrivacyConfig.usMspsPrivacyManagerId)
             } else {
                 consentManager.loadGDPRPrivacyManager(withId:PrivacyConfig.gdprPrivacyManagerId)
             }
@@ -284,8 +284,8 @@ extension PrivacyManager: SPDelegate {
 
     func onSPFinished(userData: SPUserData) {
         status = .finished
-        if (userData.usnat?.applies == true) {
-            doNotSellEnabled = userData.usnat?.consents?.statuses.sellStatus ?? false
+        if (userData.usnat?.consents?.statuses.consentedToAny == false) {
+            doNotSellEnabled = true
         }
         
         if let gdprConsent = userData.gdpr?.consents {
