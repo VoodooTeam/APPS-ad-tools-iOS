@@ -16,37 +16,44 @@ class AdInitializer: NSObject {
     // MARK: - class methods
     
     static func launchAdsSDK(hasUserConsent: Bool, doNotSell: Bool, isAgeRestrictedUser: Bool) {
-        let group = DispatchGroup()
-        setupAppHarbr(group)
-        setupAppLovin(
-            group,
-            hasUserConsent: hasUserConsent,
-            doNotSell: doNotSell,
-            isAgeRestrictedUser: isAgeRestrictedUser
-        )
-        group.notify(queue: .main) {
-            setupCoordinator()
-        }
-    }
-    
-    private static func setupAppHarbr(_ group: DispatchGroup) {
-        group.enter()
-        let configuration = AppHarbrConfigurationBuilder(apiKey: AdConfig.appHarbrKey).build()
-        AH.initializeSdk(configuration: configuration) { error in
-            if let error = error {
-                print(error)
-            } else {
-                group.leave()
+        Task {
+            async let appHarbrResult = setupAppHarbr()
+            async let appLovinResult = setupAppLovin(
+                hasUserConsent: hasUserConsent,
+                doNotSell: doNotSell,
+                isAgeRestrictedUser: isAgeRestrictedUser
+            )
+            let results = await [appHarbrResult, appLovinResult]
+            if case .failure(let error) = results.first {
+                print("[AppHarbr init error] \(error)")
+            }
+            else {
+                await MainActor.run {
+                    setupCoordinator()
+                }
             }
         }
     }
     
-    private static func setupAppLovin(_ group: DispatchGroup, 
-                                      hasUserConsent: Bool,
+    private static func setupAppHarbr() async -> Result<Void, Error> {
+        let configuration = AppHarbrConfigurationBuilder(apiKey: AdConfig.appHarbrKey).build()
+        
+        return await withCheckedContinuation { continuation in
+            AH.initializeSdk(configuration: configuration) { error in
+                if let error = error {
+                    continuation.resume(returning: .failure(error))
+                }
+                else {
+                    continuation.resume(returning: .success(()))
+                }
+            }
+        }
+    }
+    
+    private static func setupAppLovin(hasUserConsent: Bool,
                                       doNotSell: Bool,
-                                      isAgeRestrictedUser: Bool) {
-        group.enter()
-
+                                      isAgeRestrictedUser: Bool) async -> Result<Void, Error> {
+        
         let initConfig = ALSdkInitializationConfiguration(sdkKey: AdConfig.appLovinKey) { builder in
             builder.mediationProvider = ALMediationProviderMAX
         }
@@ -56,9 +63,11 @@ class AdInitializer: NSObject {
         ALPrivacySettings.setIsAgeRestrictedUser(isAgeRestrictedUser)
 
         // Initialize the SDK with the configuration
-        ALSdk.shared().initialize(with: initConfig) { sdkConfig in
-            FBAdSettings.setDataProcessingOptions([])
-            group.leave()
+        return await withCheckedContinuation { continuation in
+            ALSdk.shared().initialize(with: initConfig) { sdkConfig in
+                FBAdSettings.setDataProcessingOptions([])
+                continuation.resume(returning: .success(()))
+            }
         }
     }
     
