@@ -13,12 +13,12 @@ import SwiftUI
 final class PrivacyManager {
 
     // MARK: - Enums
-
+    
     enum PrivacyError: Error {
         case unknown
         case consentManagerUnavailable
     }
-
+    
     enum Status: Equatable {
         case notAvailable
         case notRequested
@@ -30,32 +30,42 @@ final class PrivacyManager {
         static func == (lhs: PrivacyManager.Status, rhs: PrivacyManager.Status) -> Bool {
             switch (lhs, rhs) {
             case (.notAvailable, .notAvailable),
-                 (.notRequested, .notRequested),
-                 (.running, .running),
-                 (.available, .available),
-                 (.finished, .finished):
+                (.notRequested, .notRequested),
+                (.running, .running),
+                (.available, .available),
+                (.finished, .finished):
                 return true
             default:
                 return false
             }
         }
     }
-
+    
     // MARK: - Singleton
 
     static let shared = PrivacyManager()
 
     // MARK: - Properties
-
+    
     private var consentManager: SPSDK?
     private var consentViewController: UIViewController?
     private var onCompletion: ((Status) -> Void)?
     private(set) var fromViewController: UIViewController?
     private(set) var status: Status = .notRequested
-
     private var purposeConsentDictionary: [PrivacyPurpose: Bool] = [:]
     private var keyPurposeDictionary: [String: PrivacyPurpose] = [:]
     var language: SPMessageLanguage?
+    
+    private var hasUserConsent: Bool {
+        getPrivacyConsent().adsConsent
+    }
+    private var doNotSell: Bool {
+        let consent = getPrivacyConsent()
+        return !consent.adsConsent || !consent.adsConsent
+    }
+    private var isAgeRestrictedUser: Bool {
+        false
+    }
 
 
     // MARK: - Initializer
@@ -79,12 +89,16 @@ final class PrivacyManager {
         print("Consent privacy analytics: \(consent.analyticsConsent)")
 
         Task {
-            let status = await PrivacyATTManager.shared.requestTrackingAuthorization()
+            await PrivacyATTManager.shared.requestTrackingAuthorization()
         }
         
         if shouldPrivacyApplicable() {
             if consent.adsConsent {
-                AdInitializer.launchAdsSDK()
+                AdInitializer.launchAdsSDK(
+                    hasUserConsent: hasUserConsent,
+                    doNotSell: doNotSell,
+                    isAgeRestrictedUser: isAgeRestrictedUser
+                )
             }
 
             if consent.analyticsConsent {
@@ -92,7 +106,11 @@ final class PrivacyManager {
             }
             
         } else {
-            AdInitializer.launchAdsSDK()
+            AdInitializer.launchAdsSDK(
+                hasUserConsent: hasUserConsent,
+                doNotSell: doNotSell,
+                isAgeRestrictedUser: isAgeRestrictedUser
+            )
         }
 
         

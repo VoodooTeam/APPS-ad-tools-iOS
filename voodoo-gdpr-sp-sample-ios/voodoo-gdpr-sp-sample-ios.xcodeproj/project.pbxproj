@@ -25,6 +25,17 @@
 		23D049EB5576E7E3D17CA5DD /* libPods-voodoo-gdpr-sp-sample-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E28CC5A6615CCCFAA2D5B737 /* libPods-voodoo-gdpr-sp-sample-ios.a */; };
 		621EB591322911DCC4DC4CA8 /* AppLovinQualityService.xcframework in AppLovinQualityService Embed Framework */ = {isa = PBXBuildFile; fileRef = D318223CFB95BC5185B539B3 /* AppLovinQualityService.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		87EDD01827588CE6110C9DB7 /* AppLovinQualityService.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D318223CFB95BC5185B539B3 /* AppLovinQualityService.xcframework */; };
+		CA36E5502C09CE1400F35344 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA36E5422C09CE1400F35344 /* Media.swift */; };
+		CA36E5512C09CE1400F35344 /* MediaContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA36E5432C09CE1400F35344 /* MediaContent.swift */; };
+		CA36E5522C09CE1400F35344 /* MemeDatasetsFilenames.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA36E5442C09CE1400F35344 /* MemeDatasetsFilenames.swift */; };
+		CA36E5532C09CE1400F35344 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA36E5452C09CE1400F35344 /* User.swift */; };
+		CA36E5542C09CE1400F35344 /* AdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA36E5472C09CE1400F35344 /* AdView.swift */; };
+		CA36E5552C09CE1400F35344 /* BeFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA36E5482C09CE1400F35344 /* BeFeedView.swift */; };
+		CA36E5562C09CE1400F35344 /* BeMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA36E5492C09CE1400F35344 /* BeMediaView.swift */; };
+		CA36E5572C09CE1400F35344 /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA36E54A2C09CE1400F35344 /* PlaceholderView.swift */; };
+		CA36E5582C09CE1400F35344 /* UserPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA36E54B2C09CE1400F35344 /* UserPhotoView.swift */; };
+		CA36E5592C09CE1400F35344 /* BeFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA36E54D2C09CE1400F35344 /* BeFeedViewModel.swift */; };
+		CA36E55A2C09CE1400F35344 /* MediaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA36E54E2C09CE1400F35344 /* MediaViewModel.swift */; };
 		DEDC72AD2C088413006ED1F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72AC2C088413006ED1F1 /* ContentView.swift */; };
 		DEDC72AF2C088415006ED1F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDC72AE2C088415006ED1F1 /* Assets.xcassets */; };
 		DEDC72B22C088415006ED1F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDC72B12C088415006ED1F1 /* Preview Assets.xcassets */; };
@@ -67,6 +78,17 @@
 		1379ED072C0D080C00142B8D /* AdCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdCoordinator.swift; sourceTree = "<group>"; };
 		1379ED082C0D080C00142B8D /* AdInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdInitializer.swift; sourceTree = "<group>"; };
 		361327BF6DD735930DEEB2D3 /* Pods-voodoo-gdpr-sp-sample-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-voodoo-gdpr-sp-sample-ios.release.xcconfig"; path = "Target Support Files/Pods-voodoo-gdpr-sp-sample-ios/Pods-voodoo-gdpr-sp-sample-ios.release.xcconfig"; sourceTree = "<group>"; };
+		CA36E5422C09CE1400F35344 /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
+		CA36E5432C09CE1400F35344 /* MediaContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaContent.swift; sourceTree = "<group>"; };
+		CA36E5442C09CE1400F35344 /* MemeDatasetsFilenames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeDatasetsFilenames.swift; sourceTree = "<group>"; };
+		CA36E5452C09CE1400F35344 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CA36E5472C09CE1400F35344 /* AdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdView.swift; sourceTree = "<group>"; };
+		CA36E5482C09CE1400F35344 /* BeFeedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeFeedView.swift; sourceTree = "<group>"; };
+		CA36E5492C09CE1400F35344 /* BeMediaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeMediaView.swift; sourceTree = "<group>"; };
+		CA36E54A2C09CE1400F35344 /* PlaceholderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
+		CA36E54B2C09CE1400F35344 /* UserPhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPhotoView.swift; sourceTree = "<group>"; };
+		CA36E54D2C09CE1400F35344 /* BeFeedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeFeedViewModel.swift; sourceTree = "<group>"; };
+		CA36E54E2C09CE1400F35344 /* MediaViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaViewModel.swift; sourceTree = "<group>"; };
 		D318223CFB95BC5185B539B3 /* AppLovinQualityService.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:B8HZ37M8S5:SafeDK Mobile Ltd."; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = AppLovinQualityService.xcframework; path = AppLovinQualityService/AppLovinQualityService.xcframework; sourceTree = "<group>"; };
 		DEDC72A72C088413006ED1F1 /* voodoo-gdpr-sp-sample-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "voodoo-gdpr-sp-sample-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDC72AC2C088413006ED1F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -189,6 +211,48 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		CA36E53B2C09CE0000F35344 /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				CA36E54F2C09CE1400F35344 /* BeFeed */,
+			);
+			path = Sample;
+			sourceTree = "<group>";
+		};
+		CA36E5462C09CE1400F35344 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CA36E5422C09CE1400F35344 /* Media.swift */,
+				CA36E5432C09CE1400F35344 /* MediaContent.swift */,
+				CA36E5442C09CE1400F35344 /* MemeDatasetsFilenames.swift */,
+				CA36E5452C09CE1400F35344 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CA36E54C2C09CE1400F35344 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CA36E5472C09CE1400F35344 /* AdView.swift */,
+				CA36E5482C09CE1400F35344 /* BeFeedView.swift */,
+				CA36E5492C09CE1400F35344 /* BeMediaView.swift */,
+				CA36E54A2C09CE1400F35344 /* PlaceholderView.swift */,
+				CA36E54B2C09CE1400F35344 /* UserPhotoView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CA36E54F2C09CE1400F35344 /* BeFeed */ = {
+			isa = PBXGroup;
+			children = (
+				CA36E5462C09CE1400F35344 /* Model */,
+				CA36E54C2C09CE1400F35344 /* View */,
+				CA36E54D2C09CE1400F35344 /* BeFeedViewModel.swift */,
+				CA36E54E2C09CE1400F35344 /* MediaViewModel.swift */,
+			);
+			path = BeFeed;
+			sourceTree = "<group>";
+		};
 		DEDC729E2C088413006ED1F1 = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +279,7 @@
 				1379EC332C0C3EB600142B8D /* Common */,
 				1379ED092C0D080C00142B8D /* Ads */,
 				DEDC72B82C088423006ED1F1 /* Privacy */,
+                CA36E53B2C09CE0000F35344 /* Sample */,
 				DEDC72AC2C088413006ED1F1 /* ContentView.swift */,
 				DEDC72C82C0884CC006ED1F1 /* AppDelegate.swift */,
 				DEDC72AE2C088415006ED1F1 /* Assets.xcassets */,
@@ -435,6 +500,18 @@
 			files = (
 				1379ED0C2C0D080C00142B8D /* SessionUserInformation.swift in Sources */,
 				DEDC72C92C0884CC006ED1F1 /* AppDelegate.swift in Sources */,
+				CA36E5512C09CE1400F35344 /* MediaContent.swift in Sources */,
+				CA36E5572C09CE1400F35344 /* PlaceholderView.swift in Sources */,
+				CA36E5562C09CE1400F35344 /* BeMediaView.swift in Sources */,
+				CA36E5522C09CE1400F35344 /* MemeDatasetsFilenames.swift in Sources */,
+				CA36E5552C09CE1400F35344 /* BeFeedView.swift in Sources */,
+				CA36E5582C09CE1400F35344 /* UserPhotoView.swift in Sources */,
+				CA36E5542C09CE1400F35344 /* AdView.swift in Sources */,
+				CA36E5502C09CE1400F35344 /* Media.swift in Sources */,
+				CA36E5592C09CE1400F35344 /* BeFeedViewModel.swift in Sources */,
+				DEDC72AD2C088413006ED1F1 /* ContentView.swift in Sources */,
+				CA36E55A2C09CE1400F35344 /* MediaViewModel.swift in Sources */,
+				CA36E5532C09CE1400F35344 /* User.swift in Sources */,
 				DEDC72C12C088432006ED1F1 /* PrivacyManager.swift in Sources */,
 				1379ED162C0D080C00142B8D /* AdInitializer.swift in Sources */,
 				1379ED112C0D080C00142B8D /* MRECAdView.swift in Sources */,

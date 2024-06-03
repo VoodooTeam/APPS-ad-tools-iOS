@@ -128,6 +128,7 @@ PODS:
   - GoogleUserMessagingPlatform (2.4.0)
   - InMobiSDK (10.7.1)
   - IronSourceSDK (8.1.0.0)
+  - Kingfisher (7.11.0)
   - MintegralAdSDK (7.6.6):
     - MintegralAdSDK/BannerAd (= 7.6.6)
     - MintegralAdSDK/BidBannerAd (= 7.6.6)
@@ -262,6 +263,7 @@ DEPENDENCIES:
   - AppLovinSDK (= 12.5.0)
   - bigo-ads-max-adapter (= 4.2.0)
   - ConsentViewController
+  - Kingfisher
   - SnapKit
 
 SPEC REPOS:
@@ -300,6 +302,7 @@ SPEC REPOS:
     - GoogleUserMessagingPlatform
     - InMobiSDK
     - IronSourceSDK
+    - Kingfisher
     - MintegralAdSDK
     - MobileFuseSDK
     - OguryAds
@@ -341,13 +344,14 @@ SPEC CHECKSUMS:
   BURelyFoundation_Global: 17ed9cd58d138feefd8c0711dd3294766adcb28e
   ChartboostSDK: 0cd093c90a5a21c89783fe5be486e511fb2dbfc8
   ConsentViewController: b132e5d3438c6c135a6faef8ed8cada5a75c4d8e
-  FBAudienceNetwork: 80a035aa69cc3a71c99e44cb5c2874e4cef9909f
+  FBAudienceNetwork: 6c560e4c68823ec5da1e84868544a8a246e0e201
   FiveAd: 27375ac7fde76085544389cc090d744149fdbe78
   Fyber_Marketplace_SDK: 50fb9e3077ddbd99e3da08dfcaab60df689ac106
   Google-Mobile-Ads-SDK: 7db2098033ad3bfcd72a11e7503b49700a93029e
   GoogleUserMessagingPlatform: f131fa7978d2ba88d7426702b057c2cc318e6595
   InMobiSDK: 8b93c1d4d8ac0d91cf9585fc8b65750b8f09e835
   IronSourceSDK: f4380fe08a2bfa1cd37c26948fcfd2585a0493a2
+  Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
   MintegralAdSDK: 4d19fa4637ad7f07916168528337d23ae6368181
   MobileFuseSDK: 519246003ecf08b18d9d5cb52a8286958dc3a4f8
   OguryAds: c87da5c25096a7e2e9b298898d09ba99fd6640d9
@@ -361,6 +365,6 @@ SPEC CHECKSUMS:
   UnityAds: 4c2dbd3e82778b536b0bad23b640c16aae91dbb1
   VungleAds: 0d696ed96dd7d715a9432997356d59b2e3b58882
 
-PODFILE CHECKSUM: 88ce5bd071d0c20ae5c066a0d7d0e42ae42ac1c4
+PODFILE CHECKSUM: 00061f66fa3bdf814206bf9e2137b4d5f0dcaf28
 
 COCOAPODS: 1.15.2

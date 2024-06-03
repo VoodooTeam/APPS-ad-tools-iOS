@@ -32,6 +32,7 @@ final class MRECMAadClient: MAadClientBase, AdClient {
     override func load(with surroundingIds: [String] = []) {
         guard !isLoading && availableAd == nil else { return }
         isLoading = true
+        
         didDisplay = false
 
         AdAnalytics.adLoadingStarted.send(params: ["adUnitIdentifier": adUnit])

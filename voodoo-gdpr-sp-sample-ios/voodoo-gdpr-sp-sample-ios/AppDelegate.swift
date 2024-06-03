@@ -20,8 +20,9 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         PrivacyManager.shared.configure()
         
         window = UIWindow(frame: UIScreen.main.bounds)
+        let viewModel = BeFeedViewModel()
         window?.rootViewController = UIHostingController(
-            rootView: ContentView()
+            rootView: BeFeedView(viewModel: .init())
         )
         window?.makeKeyAndVisible()
         

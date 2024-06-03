@@ -15,10 +15,15 @@ class AdInitializer: NSObject {
                             
     // MARK: - class methods
     
-    static func launchAdsSDK() {
+    static func launchAdsSDK(hasUserConsent: Bool, doNotSell: Bool, isAgeRestrictedUser: Bool) {
         let group = DispatchGroup()
         setupAppHarbr(group)
-        setupAppLovin(group)
+        setupAppLovin(
+            group,
+            hasUserConsent: hasUserConsent,
+            doNotSell: doNotSell,
+            isAgeRestrictedUser: isAgeRestrictedUser
+        )
         group.notify(queue: .main) {
             setupCoordinator()
         }
@@ -36,16 +41,19 @@ class AdInitializer: NSObject {
         }
     }
     
-    private static func setupAppLovin(_ group: DispatchGroup) {
+    private static func setupAppLovin(_ group: DispatchGroup, 
+                                      hasUserConsent: Bool,
+                                      doNotSell: Bool,
+                                      isAgeRestrictedUser: Bool) {
         group.enter()
 
         let initConfig = ALSdkInitializationConfiguration(sdkKey: AdConfig.appLovinKey) { builder in
-          builder.mediationProvider = ALMediationProviderMAX
+            builder.mediationProvider = ALMediationProviderMAX
         }
         
-        ALPrivacySettings.setHasUserConsent(true)
-        ALPrivacySettings.setDoNotSell(false)
-        ALPrivacySettings.setIsAgeRestrictedUser(false)
+        ALPrivacySettings.setHasUserConsent(hasUserConsent)
+        ALPrivacySettings.setDoNotSell(doNotSell)
+        ALPrivacySettings.setIsAgeRestrictedUser(isAgeRestrictedUser)
 
         // Initialize the SDK with the configuration
         ALSdk.shared().initialize(with: initConfig) { sdkConfig in
