@@ -14,6 +14,7 @@ struct AdConfig {
     static let interval = 3
     static let fetchOffset = 1
     static let surroundingUserBaseUrl = "https://crawler.getwizz.io/wizz_profiles.html?uid=%1$@"
+    // ???: (Loic Saillant) 2024/06/03 Be careful to use another slotID if you add rewarded ads
     static let amazonSlotID = "b636cd42-59d9-46f6-bec8-017dad7bef1b"
 }
 
