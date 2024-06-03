@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State public var showConsentView = false
 
     var body: some View {
         VStack {
@@ -16,13 +15,10 @@ struct ContentView: View {
                 .padding()
 
             Button(action: {
-                showConsentView.toggle()
+                PrivacyManager.shared.loadAndDisplayConsentUI()
             }) {
                 Text("Show Consent")
             }
-        }
-        .fullScreenCover(isPresented: $showConsentView) {
-            ConsentViewControllerRepresentable()
         }
     }
 }
