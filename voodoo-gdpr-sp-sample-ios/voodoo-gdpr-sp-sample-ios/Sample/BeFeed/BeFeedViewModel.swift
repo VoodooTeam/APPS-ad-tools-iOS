@@ -76,18 +76,17 @@ final class BeFeedViewModel: ObservableObject {
     
     // MARK: - Limitless
     
-    private let adCheckOffset = 2
+    private let adCheckOffset = 1
     private var lastDisplayedId: Int = 0
 
     func didDisplay(item: FeedItem) {
         Task {
             guard let index = feedItems.firstIndex(where: { $0.id == item.id }), index > lastDisplayedId else { return }
-            self.lastDisplayedId = index
-            let adIndex = index + AdConfig.fetchOffset
-            let nextFeedItem = feedItems[safe: index + 1]
+            lastDisplayedId = index
+            let adIndex = min(index + AdConfig.fetchOffset, feedItems.count)
             let surroundingIds = [feedItems[safe: index], feedItems[safe: index+1]].compactMap { $0?.id }
             guard AdCoordinator.shared.isAdAvailable(for: adIndex, surroundingIds: surroundingIds) else { return }
-            Task { @MainActor in
+            await MainActor.run {
                 self.handleLoad()
             }
         }
