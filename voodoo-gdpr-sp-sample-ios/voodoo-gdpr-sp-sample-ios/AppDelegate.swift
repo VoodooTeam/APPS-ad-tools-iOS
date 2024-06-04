@@ -17,7 +17,23 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
 
-        PrivacyManager.shared.configure()
+        PrivacyManager.shared.configure { analyticsEnabled, adsEnabled in
+            if analyticsEnabled {
+                //TODO: configure analytics
+            } else {
+                //TODO: stop analytics
+            }
+            
+            if adsEnabled {
+                AdInitializer.launchAdsSDK(
+                    hasUserConsent: PrivacyManager.shared.hasUserConsent,
+                    doNotSell: PrivacyManager.shared.doNotSellEnabled,
+                    isAgeRestrictedUser: PrivacyManager.shared.isAgeRestrictedUser
+                )
+            } else {
+                AdInitializer.resetAdsSDK()
+            }
+        }
         
         window = UIWindow(frame: UIScreen.main.bounds)
         let viewModel = BeFeedViewModel()
