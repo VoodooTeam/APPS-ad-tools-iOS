@@ -5,19 +5,18 @@ def ad_pods
   pod 'AppLovinSDK', '12.5.0'
   pod 'AppLovinMediationGoogleAdapter'
   pod 'AppLovinMediationGoogleAdManagerAdapter'
-  pod 'AppHarbrSDK'
-  pod 'AmazonPublisherServicesSDK'
   pod 'AppLovinMediationAmazonAdMarketplaceAdapter'
   pod 'AppLovinMediationBidMachineAdapter', '2.6.1.0'
   pod 'AppLovinMediationInMobiAdapter', '10.7.1'
   pod 'AppLovinMediationVungleAdapter'
-  pod 'TeadsAppLovinAdapter'
   pod 'AppLovinMediationLineAdapter'
   pod 'AppLovinMediationFacebookAdapter'
   pod 'AppLovinMediationMintegralAdapter'
   pod 'AppLovinMediationByteDanceAdapter'
-  pod 'bigo-ads-max-adapter', "4.2.0"
   pod 'AppLovinMediationMobileFuseAdapter'
+  pod 'bigo-ads-max-adapter', "4.2.0"
+  pod 'AppHarbrSDK'
+  pod 'AmazonPublisherServicesSDK'
 end
 
 def consent_pods
