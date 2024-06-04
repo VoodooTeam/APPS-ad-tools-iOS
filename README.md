@@ -7,10 +7,10 @@ For any questions regarding the integration, slack **@Loic Saillant, Sarra Srair
 
 ## How to use the demo app
 
-* Ad the [ad-review file](https://www.notion.so/voodoo/Ads-in-BeReal-f56d438a6b6f4d2a8dd36e941a473fad?pvs=4#3aab2b062611417f920eff85e9c1e44f) at the root of the project and run `ruby AppLovinQualityServiceSetup-ios.rb` in your terminal
 * Run `pod repo update` then `pod install` in your terminal
-* ad any developper team in the build setting
-* run the app
+* Ad the [ad-review file](https://www.notion.so/voodoo/Ads-in-BeReal-f56d438a6b6f4d2a8dd36e941a473fad?pvs=4#3aab2b062611417f920eff85e9c1e44f) at the root of the project and run `ruby AppLovinQualityServiceSetup-ios.rb` in your terminal
+* Set any developper team in the build setting
+* Run the app
 
 
 ## installation
