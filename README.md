@@ -133,6 +133,14 @@ struct AdView: UIViewRepresentable {
 }
 ```
 
+* Bonus: you can add analytics automaticaly by adding amplitude directly in the `AdAnalytics.swift` file 
+```swift
+func send(params: [String: Any]) {
+    //TODO: to be completed by Limitless team
+    print("📊 \(rawValue), adUnit \(params["adUnitIdentifier"] ?? "unknown")")
+}
+```
+
 ## Cool tips
 
 * To test a specific network:
