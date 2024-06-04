@@ -16,9 +16,10 @@ final class NativeAdView: MANativeAdView {
     private enum Constants {
         static let iconViewSize: CGFloat = 35
         static let smallPadding: CGFloat = 5
-        static let verticalPadding: CGFloat = 10
-        static let horizontalPadding: CGFloat = 24
         static let horizontalSpacing: CGFloat = 10
+        static let topContainerHeight: CGFloat = 45
+        static let actionsContainerHeight: CGFloat = 50
+        static let mediaViewHorizontalInsets: CGFloat = 0
     }
 
     // MARK: - subviews
@@ -103,6 +104,13 @@ final class NativeAdView: MANativeAdView {
         return button
     }()
     
+    // MARK: - Properties
+    
+    private var aspectRatio: CGFloat = 1.33
+    private var mediaViewHeight: CGFloat {
+        (UIScreen.main.bounds.width - 2 * Constants.mediaViewHorizontalInsets) * aspectRatio
+    }
+    
     // MARK: - init
     
     override init(frame: CGRect = .zero) {
@@ -118,6 +126,34 @@ final class NativeAdView: MANativeAdView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - UIView
+    
+    override var intrinsicContentSize: CGSize {
+        CGSize(width: 0, height: Constants.topContainerHeight + mediaViewHeight + Constants.actionsContainerHeight)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        bringSubviewToFront(actionButton)
+
+        //HACK for updating the AppLovin mediaView
+        if let appLovinMediaView = mediaView.subviews.first, appLovinMediaView.layer.cornerCurve != .continuous {
+            appLovinMediaView.layer.cornerRadius = 15
+            appLovinMediaView.layer.cornerCurve = .continuous
+            appLovinMediaView.clipsToBounds = true
+            appLovinMediaView.backgroundColor = UIColor(white: 14/255, alpha: 1)
+        }
+        
+        if let appLovinMediaView = mediaView.subviews.first, let imageView = appLovinMediaView.subviews.first as? UIImageView {
+            aspectRatio = imageView.intrinsicContentSize.height / imageView.intrinsicContentSize.width
+            setLayoutMediaView()
+        }
+
+    }
+    
+    // MARK: - Instance
+    
     func prepare(for ad: MAAd) {
         ad.nativeAd?.prepare(
             forInteractionClickableViews: [topContainerView, iconView, mediaView, actionButton].compactMap { $0 },
@@ -129,6 +165,8 @@ final class NativeAdView: MANativeAdView {
         guard let titleLabelGestureRecognizer = actionButton.titleLabel?.gestureRecognizers?.first else { return }
         actionButton.addGestureRecognizer(titleLabelGestureRecognizer)
     }
+    
+    // MARK: - Private
     
     private func configureViews() {
         addSubview(googleContainerView)
@@ -172,7 +210,7 @@ final class NativeAdView: MANativeAdView {
         topContainerView.setContentHuggingPriority(.required, for: .vertical)
         topContainerView.snp.makeConstraints { make in
             make.left.right.top.equalToSuperview()
-            make.height.equalTo(45)
+            make.height.equalTo(Constants.topContainerHeight)
         }
         
         iconView.snp.makeConstraints { make in
@@ -192,15 +230,11 @@ final class NativeAdView: MANativeAdView {
             make.left.equalTo(iconView.snp.right).offset(10)
             make.right.equalToSuperview().inset(Constants.horizontalSpacing)
         }
-        
-        mediaView.snp.makeConstraints { make in
-            make.top.equalTo(topContainerView.snp.bottom)
-            make.left.right.equalToSuperview()
-//            make.height.equalTo(mediaView.snp.width).multipliedBy(1.33)
-        }
+
+        setLayoutMediaView()
 
         actionContainerView.snp.makeConstraints { make in
-            make.height.equalTo(50)
+            make.height.equalTo(Constants.actionsContainerHeight)
             make.top.equalTo(mediaView.snp.bottom)
             make.left.right.bottom.equalToSuperview()
         }
@@ -213,16 +247,10 @@ final class NativeAdView: MANativeAdView {
         }
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        bringSubviewToFront(actionButton)
-
-        //HACK for updating the AppLovin mediaView
-        guard let appLovinMediaView = mediaView.subviews.first, appLovinMediaView.layer.cornerCurve != .continuous else { return }
-        appLovinMediaView.layer.cornerRadius = 15
-        appLovinMediaView.layer.cornerCurve = .continuous
-        appLovinMediaView.clipsToBounds = true
-        appLovinMediaView.backgroundColor = UIColor(white: 14/255, alpha: 1)
+    private func setLayoutMediaView() {
+        mediaView.snp.remakeConstraints { make in
+            make.top.equalTo(topContainerView.snp.bottom)
+            make.center.equalToSuperview()
+        }
     }
 }

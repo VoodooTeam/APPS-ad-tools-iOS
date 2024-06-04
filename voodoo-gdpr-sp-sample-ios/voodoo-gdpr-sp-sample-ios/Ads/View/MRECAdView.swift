@@ -12,14 +12,16 @@ import SnapKit
 
 final class MRECAdView: UIView {
     
-    enum Constants {
-        static let iconViewSize: CGFloat = 35
-        static let smallPadding: CGFloat = 5
-        static let verticalPadding: CGFloat = 10
-        static let horizontalPadding: CGFloat = 24
-        static let horizontalSpacing: CGFloat = 10
+    enum PublicConstants {
         static let adWidth: CGFloat = 300
         static let adHeight: CGFloat = 250
+    }
+    
+    private enum Constants {
+        static let iconViewSize: CGFloat = 35
+        static let horizontalSpacing: CGFloat = 10
+        static let topContainerHeight: CGFloat = 45
+        static let verticalPadding: CGFloat = 8
     }
 
     // MARK: - subviews
@@ -69,6 +71,10 @@ final class MRECAdView: UIView {
     
     let mrecView: MAAdView
     
+    override var intrinsicContentSize: CGSize {
+        CGSize(width: 0, height: PublicConstants.adHeight + Constants.topContainerHeight + 2 * Constants.verticalPadding)
+    }
+    
     // MARK: - init
     
     init(mrecView: MAAdView, frame: CGRect = .zero) {
@@ -98,7 +104,7 @@ final class MRECAdView: UIView {
         topContainerView.setContentHuggingPriority(.required, for: .vertical)
         topContainerView.snp.makeConstraints { make in
             make.left.right.top.equalToSuperview()
-            make.height.equalTo(45)
+            make.height.equalTo(Constants.topContainerHeight)
         }
         
         iconView.snp.makeConstraints { make in
@@ -115,14 +121,13 @@ final class MRECAdView: UIView {
         
         mediaView.snp.makeConstraints { make in
             make.top.equalTo(topContainerView.snp.bottom)
-            make.left.right.equalToSuperview()
-            make.height.equalTo(mediaView.snp.width).multipliedBy(1.33)
+            make.left.right.bottom.equalToSuperview()
         }
         
         mrecView.snp.makeConstraints { (make) in
             make.center.equalToSuperview()
-            make.width.equalTo(Constants.adWidth)
-            make.height.equalTo(Constants.adHeight)
+            make.width.equalTo(PublicConstants.adWidth)
+            make.height.equalTo(PublicConstants.adHeight)
         }
     }
 }

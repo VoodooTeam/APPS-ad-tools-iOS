@@ -13,7 +13,7 @@ final class NativeMAadClient: MAadClientBase, AdClient {
     
     // MARK: - data
     
-    //properties    
+    //properties
     private lazy var adLoader: MANativeAdLoader = {
         let adLoader = MANativeAdLoader(adUnitIdentifier: AdConfig.nativeAdUnit, sdk: ALSdk.shared())
         adLoader.setLocalExtraParameterForKey("google_max_ad_content_rating", value: "T")
@@ -32,6 +32,7 @@ final class NativeMAadClient: MAadClientBase, AdClient {
             adLoader.renderNativeAdView(nativeAdView, with: ad.ad)
             nativeAdView.prepare(for: ad.ad)
         }
+        nativeAdView.layoutIfNeeded()
         return nativeAdView
     }
         
@@ -40,7 +41,7 @@ final class NativeMAadClient: MAadClientBase, AdClient {
         isLoading = true
         AdAnalytics.adLoadingStarted.send(params: ["adUnitIdentifier": adUnit])
         adLoader.setLocalExtraParameterForKey("google_neighbouring_content_url_strings", value: surroundingIds)
-        loadBackgroundQueue.async { self.adLoader.loadAd() }
+        loadBackgroundQueue.async { [weak self] in self?.adLoader.loadAd() }
     }
     
     // MARK: - Private
