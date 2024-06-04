@@ -6,64 +6,33 @@ For any questions regarding the integration, slack **@Loic Saillant, Sarra Srair
 
 ## installation
 
-* copy/paste the podfile or the element in it in your apps folder
+* copy/paste the podfile or the element in it in at the root of your app folder and change the Target name inside it by your app name
 * Add the Common, Ads and Privacy folder to your project
-
-## Demo app
-
-The sampe module is a demo app with integration of ads in a list (`LazyColumn`) of posts like
-instagram.
-
-* Add your GAID in `AdsInitiliazer` to the `setTestDeviceAdvertisingIds` call
-* [MainActivity](sample/src/main/java/io/voodoo/apps/ads/MainActivity.kt) handles getting user's
-  consent to use collect data/use ads. Only after this consent is given we can initialize the
-  various ads SDK.
-* AppLovin SDK + Apphrbr (moderation) initialization
-  in [AdsInitializer](sample/src/main/java/io/voodoo/apps/ads/feature/ads/AdsInitiliazer.kt) class
-  (called from `MainActivity` after the consent is given)
-* [AdArbitrageurFactory](sample/src/main/java/io/voodoo/apps/ads/feature/ads/AdArbitrageurFactory.kt):
-  `AdClient` + `AdArbitrageur` instantiation
-* [AdTracker](sample/src/main/java/io/voodoo/apps/ads/feature/ads/AdTracker.kt):
-  Base tracking implementation that you probably need to implement
-* [FeedScreen](sample/src/main/java/io/voodoo/apps/ads/feature/feed/FeedScreen.kt): main screen,
-  list of post
-* [FeedAdItem](sample/src/main/java/io/voodoo/apps/ads/feature/feed/component/FeedAdItem.kt):
-  composable to display the ad item
-    * For native ads, you need to implement the whole layout in an XML layout file with views for
-      each element (title, body, icon, ...) (applovin requirement). You'll need to pass a view
-      factory instance to your `MaxNativeAdClient`.
-      See [MaxNativeAdViewFactory](sample/src/main/java/io/voodoo/apps/ads/feature/ads/MaxNativeAdViewFactory.kt)
-      for sample.
-      see https://developers.applovin.com/en/android/ad-formats/native-ads#manual
-    * For MREC ads, the applovin SDK provides us with a 300x250 view, and we can use it as we want.
-      We can integrate this in a composable, like we do in the `FeedMRECAdItem` comopsable.
-      see https://developers.applovin.com/en/android/ad-formats/banner-mrec-ads#mrecs
-
-Because ads are loaded and can take time to be available, it creates a lot of edge cases, and we
-need to insert them dynamically once loaded into the LazyList.
-
-The [LazyListAdMediator](ads-compose/src/main/java/io/voodoo/apps/ads/compose/lazylist/LazyListAdMediator.kt)
-class available in the `ads-compose` artifact provides a default integration of this behavior and
-tries to handle most edge cases for the behavior wanted in an app like this.
-
-For a seemless integration in an existing LazyList, you can use the overloads
-of `LazyListScope.items` that takes a `adMediator: LazyListAdMediator` parameter
-(see `FeedScreenContent` composable).
-
-## Artifacts
-
-* `ads-api`: abstraction layer with no dependency to applovin/any network
-* `ads-compose`: provides some useful classes/extensions to use the lib with compose.
-    * `LazyListAdMediator` is a basic integration of the ads into a LazyList (used in sample app)
-* `ads-applovin`: the implementation of the API with applovin SDK dependency
-    * apphrbr is included until we find a clean API to extract it in another module like we did for
-      amazon's integration
-* `ads-applovin-plugin-*`: every extension plugin that might be required for a network to be
-  integrated (eg: amazon for mrec in `AmazonMRECAdClientPlugin`)
-* TODO `ads-noop`: a dummy implementation of `ads-api` to build your app without ads (eg: for faster
-  debug build)
+* Update the Config.swift file with the proper credential present in this file https://docs.google.com/spreadsheets/d/10GfnMXMkHk4YTUA1xX9oIcqg-vzzLkAdiWUDXRK9lU8/edit?pli=1#gid=0
 
 ## Integration steps
+
+Ask for consent in you AppDelegate.swift file in the 
+
+```swift
+        PrivacyManager.shared.configure { analyticsEnabled, adsEnabled in
+            if analyticsEnabled {
+                //TODO: configure analytics
+            } else {
+                //TODO: stop analytics
+            }
+            
+            if adsEnabled {
+                AdInitializer.launchAdsSDK(
+                    hasUserConsent: PrivacyManager.shared.hasUserConsent,
+                    doNotSell: PrivacyManager.shared.doNotSellEnabled,
+                    isAgeRestrictedUser: PrivacyManager.shared.isAgeRestrictedUser
+                )
+            } else {
+                AdInitializer.resetAdsSDK()
+            }
+        }
+```
 
 * Add SDK dependencies (see Setup section above)
 * Check sample `AdsInitiliazer` + https://developers.applovin.com/en/ios/overview/integration/
@@ -89,11 +58,8 @@ version (they tend to be very slow to support new versions). Check apphrbr suppo
 here https://helpcenter.appharbr.com/hc/en-us/articles/17039424125457-Before-Starting
 
 Once you checked the latest supported version of a network SDK, you'll need to check the latest
-applovin adapter for this network. The easiest way is to check on mvnrepository.com
-(eg for amazon: https://mvnrepository.com/artifact/com.applovin.mediation/amazon-tam-adapter).
+applovin adapter for this network. The easiest way is to check on 
 
-To see the latest adreview plugin version, check
-here https://artifacts.applovin.com/android/com/applovin/quality/AppLovinQualityServiceGradlePlugin/maven-metadata.xml
 
 ## Cool tips
 
