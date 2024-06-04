@@ -36,6 +36,7 @@ Here is the complete and standard installation
     * To see if you need additional steps [see this](https://developers.applovin.com/en/ios/testing-networks/mediation-debugger/)
     * You will Generate all required SKAdNetwork keys for your info.plist file [`here`](https://developers.applovin.com/en/ios/overview/skadnetwork/)
     * Bigo requires extra parameters when fetching an ad, [see this](https://www.bigossp.com/guide/sdk/ios/mediation/maxAdapter#5-load-and-show-an-ad)
+    * `AppHarbr` is an ad moderation provider. It is compatible with all major ad networks but it's mandatory to follow [this documentation](https://helpcenter.appharbr.com/hc/en-us/articles/17047099021329-Before-Starting#h_01HC2T5SAB7QXVTM8R5R04SX0V) to ensure you have compatible versions for your adapters.
     * Note: by calling `ALSdk.shared().showMediationDebugger()`
       you can launch the mediation debugger and check that every integration is working properly
       (and enable test mode to test a specific network)   
