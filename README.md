@@ -12,19 +12,25 @@ For any questions regarding the integration, slack **@Loic Saillant, Sarra Srair
 
 ## Integration steps
 
+Note: If you want to make things faster for this part you can just: 
+   * Copy/paste the info.plist file of the sample app into your app
+   * Override the `GADApplicationIdentifier` key with the credential from [`this doc`](https://docs.google.com/spreadsheets/d/10GfnMXMkHk4YTUA1xX9oIcqg-vzzLkAdiWUDXRK9lU8/edit?pli=1#gid=0)
+   * Follow the step to enable [`ad review`](https://developers.applovin.com/en/ios/overview/integration#enable-ad-review)
+   * And everything should work magically
+
+Here is the complete and standard installation
+
 * Add SDK dependencies (see Installation section above)
 * Add the dependency for each network in your app
-    * Check https://developers.applovin.com/en/ios/preparing-mediated-networks for each network
-      to see if you need additional steps
-      see https://developers.applovin.com/en/ios/testing-networks/mediation-debugger/)
-    * You will Generate all required SKAdNetwork keys for your info.plist file here: https://developers.applovin.com/en/ios/overview/skadnetwork/
-    * Bigo requires extra parameters when fetching an ad, see https://www.bigossp.com/guide/sdk/ios/mediation/maxAdapter#5-load-and-show-an-ad
+    * Check [`this doc`](https://developers.applovin.com/en/ios/preparing-mediated-networks) for each network
+    * To see if you need additional steps [`see this`](https://developers.applovin.com/en/ios/testing-networks/mediation-debugger/)
+    * You will Generate all required SKAdNetwork keys for your info.plist file [`here`](https://developers.applovin.com/en/ios/overview/skadnetwork/)
+    * Bigo requires extra parameters when fetching an ad, [`see this`](https://www.bigossp.com/guide/sdk/ios/mediation/maxAdapter#5-load-and-show-an-ad)
     * Note: by calling `ALSdk.shared().showMediationDebugger()`
       you can launch the mediation debugger and check that every integration is working properly
       (and enable test mode to test a specific network)   
-* Configure the ad review plugin by following the steps
-  here https://developers.applovin.com/en/ios/overview/integration#enable-ad-review
-* Update the Config.swift file with the proper credential present in this file https://docs.google.com/spreadsheets/d/10GfnMXMkHk4YTUA1xX9oIcqg-vzzLkAdiWUDXRK9lU8/edit?pli=1#gid=0
+* Configure the ad review plugin by following [`the steps here`](https://developers.applovin.com/en/ios/overview/integration#enable-ad-review)
+* Update the Config.swift file with the proper credential present [`in this file`](https://docs.google.com/spreadsheets/d/10GfnMXMkHk4YTUA1xX9oIcqg-vzzLkAdiWUDXRK9lU8/edit?pli=1#gid=0)
 
 To display the ad properly in your app see the next section
 
