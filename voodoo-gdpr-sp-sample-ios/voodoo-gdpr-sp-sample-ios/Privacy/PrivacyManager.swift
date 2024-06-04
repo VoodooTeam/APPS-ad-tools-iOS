@@ -46,7 +46,7 @@ final class PrivacyManager {
 
     // MARK: - Properties
     
-    typealias ConsentCallback = (_ analyticsEnabled: Bool, _ adsEnabled: Bool) -> Void
+    typealias ConsentCallback = (_ analyticsEnabled: Bool, _ adsEnabled: Bool, _ doNotSellData: Bool) -> Void
 
     private var consentManager: SPSDK?
     private var consentViewController: UIViewController?
@@ -90,7 +90,7 @@ final class PrivacyManager {
             return
         }
 
-        if shouldPrivacyApplicable() {
+        if canShowPrivacyPopup() {
             if(consentManager.usnatApplies) {
                 consentManager.loadUSNatPrivacyManager(withId: PrivacyConfig.usMspsPrivacyManagerId)
             } else {
@@ -102,11 +102,11 @@ final class PrivacyManager {
         }
     }
 
-    func shouldPrivacyApplicable() -> Bool {
+    func canShowPrivacyPopup() -> Bool {
         guard let consentManager else {
             return false
         }
-        return consentManager.gdprApplies || consentManager.usnatApplies || consentManager.ccpaApplies
+        return consentManager.gdprApplies || consentManager.usnatApplies
     }
 
     func isPurposeAuthorized(_ purpose: PrivacyPurpose) -> Bool {
@@ -129,8 +129,7 @@ final class PrivacyManager {
             propertyName: try! SPPropertyName(PrivacyConfig.propertyName),
             campaigns: SPCampaigns(
                 gdpr: SPCampaign(),
-                usnat: SPCampaign(transitionCCPAAuth: true),
-                ios14: SPCampaign()
+                usnat: SPCampaign()
             ),
             language: language,
             delegate: self
@@ -234,6 +233,10 @@ extension PrivacyManager: SPDelegate {
     func onConsentReady(userData: SPUserData) {
         status = .available
 
+        if let consentManager, consentManager.usnatApplies, let consentToAll = userData.usnat?.consents?.statuses.consentedToAll {
+            doNotSellEnabled = !consentToAll
+        }
+        
         if let gdprConsent = userData.gdpr?.consents {
             updatePurposeConsentDictionary(gdprConsent)
         }
@@ -243,20 +246,15 @@ extension PrivacyManager: SPDelegate {
         }
         
         let consent = getGdprPrivacyConsent()
-        if shouldPrivacyApplicable() {
-            consentCallback?(consent.analyticsConsent, consent.analyticsConsent)
-        } else {
-            consentCallback?(true, true)
-        }
+        let gdprApply = consentManager?.gdprApplies ?? false
+
+        consentCallback?(consent.analyticsConsent || !gdprApply, consent.analyticsConsent || !gdprApply, doNotSellEnabled)
     }
 
     func onSPNativeMessageReady(_ message: SPNativeMessage) {}
 
     func onSPFinished(userData: SPUserData) {
         status = .finished
-        if (userData.usnat?.consents?.statuses.consentedToAny == false) {
-            doNotSellEnabled = true
-        }
         
         if let gdprConsent = userData.gdpr?.consents {
             updatePurposeConsentDictionary(gdprConsent)
