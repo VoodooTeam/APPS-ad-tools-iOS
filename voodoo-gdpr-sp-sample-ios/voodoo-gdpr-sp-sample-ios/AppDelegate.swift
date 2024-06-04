@@ -17,7 +17,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
 
-        PrivacyManager.shared.configure { analyticsEnabled, adsEnabled in
+        PrivacyManager.shared.configure { analyticsEnabled, adsEnabled, doNotSellEnabled in
             if analyticsEnabled {
                 //TODO: configure analytics
             } else {
@@ -27,7 +27,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
             if adsEnabled {
                 AdInitializer.launchAdsSDK(
                     hasUserConsent: PrivacyManager.shared.hasUserConsent,
-                    doNotSell: PrivacyManager.shared.doNotSellEnabled,
+                    doNotSell: doNotSellEnabled,
                     isAgeRestrictedUser: PrivacyManager.shared.isAgeRestrictedUser
                 )
             } else {
