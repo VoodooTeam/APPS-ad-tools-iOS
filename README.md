@@ -127,6 +127,5 @@ struct AdView: UIViewRepresentable {
     * you might need to change your location with a VPN
     * some free VPN won't work, NordVPN seems to work
     * the location will depend of the network (some networks only serve in a few countries)
-  * in the `configureSettings` block add the following call:
 * If loading ads starts to get slow or you get a lot of no-fill, try to reset your advertising ID
 
