@@ -13,7 +13,6 @@ def ad_pods
   pod 'AppLovinMediationFacebookAdapter'
   pod 'AppLovinMediationMintegralAdapter'
   pod 'AppLovinMediationByteDanceAdapter'
-  pod 'AppLovinMediationMobileFuseAdapter'
   pod 'bigo-ads-max-adapter', "4.2.0"
   pod 'AppHarbrSDK'
   pod 'AmazonPublisherServicesSDK'
