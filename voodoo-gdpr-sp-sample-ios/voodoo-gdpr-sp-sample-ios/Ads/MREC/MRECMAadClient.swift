@@ -42,7 +42,7 @@ final class MRECMAadClient: MAadClientBase, AdClient {
         loadingView.setExtraParameterForKey("allow_pause_auto_refresh_immediately", value: "true")
         loadingView.setLocalExtraParameterForKey("google_max_ad_content_rating", value: "T")
         loadingView.setExtraParameterForKey("allow_pause_auto_refresh_immediately", value: "true")
-        loadingView.setLocalExtraParameterForKey("google_neighbouring_content_url_strings", value: surroundingIds)
+        loadingView.setLocalExtraParameterForKey("google_neighbouring_content_url_strings", value: getContentMappingUrls(for: surroundingIds))
         
         setBigoParameters()
         

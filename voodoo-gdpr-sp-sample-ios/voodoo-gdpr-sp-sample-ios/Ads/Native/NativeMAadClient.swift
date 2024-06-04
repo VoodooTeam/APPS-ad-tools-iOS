@@ -40,7 +40,7 @@ final class NativeMAadClient: MAadClientBase, AdClient {
         guard !isLoading, availableAd == nil else { return }
         isLoading = true
         AdAnalytics.adLoadingStarted.send(params: ["adUnitIdentifier": adUnit])
-        adLoader.setLocalExtraParameterForKey("google_neighbouring_content_url_strings", value: surroundingIds)
+        adLoader.setLocalExtraParameterForKey("google_neighbouring_content_url_strings", value: getContentMappingUrls(for: surroundingIds))
         loadBackgroundQueue.async { [weak self] in self?.adLoader.loadAd() }
     }
     
