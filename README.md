@@ -136,7 +136,7 @@ struct AdView: UIViewRepresentable {
 * Bonus: you can add analytics automaticaly by adding amplitude directly in the `AdAnalytics.swift` file 
 ```swift
 func send(params: [String: Any]) {
-    //TODO: to be completed by Limitless team
+    //TODO: amplitude.track(eventType: rawValue ,eventProperties: params)
     print("📊 \(rawValue), adUnit \(params["adUnitIdentifier"] ?? "unknown")")
 }
 ```
