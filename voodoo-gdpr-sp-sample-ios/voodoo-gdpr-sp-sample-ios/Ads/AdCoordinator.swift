@@ -28,7 +28,12 @@ final class AdCoordinator {
     
     // MARK: - init
     
-    func initWith(clients: [AdClient]) {
+    func restart() {
+        reset()
+        clients = [:]
+    }
+    
+    func launch(with clients: [AdClient] ) {
         clients.forEach { self.clients[$0.adUnit] = $0 }
         reload()
     }
@@ -79,12 +84,6 @@ final class AdCoordinator {
     
     // MARK: - private methods
     
-    private func reset() {
-        adIndexes = Set<Int>()
-        clients.values.forEach { $0.reset() }
-        currentBiggestIndex = -1
-    }
-    
     private func load(with surroundingIds: [String] = []) {
         clients.values.forEach { $0.load(with: surroundingIds) }
     }
@@ -94,5 +93,13 @@ final class AdCoordinator {
         for var client in clients.values {
             client.adAvailableCallback = nil
         }
+    }
+    
+    // MARK: - Destroy
+    
+    private func reset() {
+        adIndexes = Set<Int>()
+        clients.values.forEach { $0.reset() }
+        currentBiggestIndex = -1
     }
 }

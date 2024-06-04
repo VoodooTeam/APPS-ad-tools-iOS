@@ -8,7 +8,6 @@
 import Foundation
 import ConsentViewController
 import UIKit
-import SwiftUI
 
 final class PrivacyManager {
 
@@ -46,71 +45,32 @@ final class PrivacyManager {
     static let shared = PrivacyManager()
 
     // MARK: - Properties
+    
+    typealias ConsentCallback = (_ analyticsEnabled: Bool, _ adsEnabled: Bool) -> Void
 
     private var consentManager: SPSDK?
     private var consentViewController: UIViewController?
     private var onCompletion: ((Status) -> Void)?
+    private var consentCallback: ConsentCallback?
     private(set) var status: Status = .notRequested
     private var purposeConsentDictionary: [PrivacyPurpose: Bool] = [:]
     private var keyPurposeDictionary: [String: PrivacyPurpose] = [:]
     var language: SPMessageLanguage?
     
-    private var hasUserConsent: Bool {
+    var hasUserConsent: Bool {
         getGdprPrivacyConsent().adsConsent
     }
-    private var doNotSellEnabled: Bool = false
-    private var isAgeRestrictedUser: Bool {
-        false
-    }
-
-
-    // MARK: - Initializer
-
-    private init() {}
+    var doNotSellEnabled: Bool = false
+    var isAgeRestrictedUser: Bool = false
+    
 
     // MARK: - Public Methods
 
-    func configure() {
+    func configure(_ consentCallback: @escaping ConsentCallback) {
         self.setupConsentManager()
         self.initializeKeyPurposeDictionary()
         self.loadConsentUI()
-    }
-    
-    private func launchSDKs() {
-
-        print("🧙🏻‍♂️ launchSDKs")
-        
-        let consent = getGdprPrivacyConsent()
-        print("Consent privacy ads: \(consent.adsConsent)")
-        print("Consent privacy analytics: \(consent.analyticsConsent)")
-        print("Do Not Sell Data enabled: \(doNotSellEnabled)")
-        
-        Task {
-            await PrivacyATTManager.shared.requestTrackingAuthorization()
-        }
-        
-        if shouldPrivacyApplicable() {
-            if consent.adsConsent {
-                AdInitializer.launchAdsSDK(
-                    hasUserConsent: hasUserConsent,
-                    doNotSell: doNotSellEnabled,
-                    isAgeRestrictedUser: isAgeRestrictedUser
-                )
-            }
-
-            if consent.analyticsConsent {
-                // Initialize Analytics SDK
-            }
-            
-        } else {
-            AdInitializer.launchAdsSDK(
-                hasUserConsent: hasUserConsent,
-                doNotSell: doNotSellEnabled,
-                isAgeRestrictedUser: isAgeRestrictedUser
-            )
-        }
-
-        
+        self.consentCallback = consentCallback
     }
 
     func displayContentUI(from: UIViewController, completion: ((Status) -> Void)? = nil) {
@@ -277,7 +237,17 @@ extension PrivacyManager: SPDelegate {
         if let gdprConsent = userData.gdpr?.consents {
             updatePurposeConsentDictionary(gdprConsent)
         }
-        launchSDKs()
+       
+        Task {
+            await PrivacyATTManager.shared.requestTrackingAuthorization()
+        }
+        
+        let consent = getGdprPrivacyConsent()
+        if shouldPrivacyApplicable() {
+            consentCallback?(consent.analyticsConsent, consent.analyticsConsent)
+        } else {
+            consentCallback?(true, true)
+        }
     }
 
     func onSPNativeMessageReady(_ message: SPNativeMessage) {}
@@ -292,4 +262,4 @@ extension PrivacyManager: SPDelegate {
             updatePurposeConsentDictionary(gdprConsent)
         }
     }
-} 
+}
