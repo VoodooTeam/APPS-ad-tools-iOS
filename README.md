@@ -9,10 +9,11 @@ For any questions regarding the integration, slack **@Loic Saillant, Sarra Srair
 * copy/paste the podfile or the element in it in at the root of your app folder and change the Target name inside it by your app name
 * Add the Common, Ads and Privacy folder to your project
 * Update the Config.swift file with the proper credential present in this file https://docs.google.com/spreadsheets/d/10GfnMXMkHk4YTUA1xX9oIcqg-vzzLkAdiWUDXRK9lU8/edit?pli=1#gid=0
+* Run `pod repo update` then `pod install` in your terminal
 
 ## Integration steps
 
-Ask for consent in you AppDelegate.swift file in the 
+Ask for consent in you `AppDelegate.swift` file in the `didFinishLaunchingWithOptions` method
 
 ```swift
         PrivacyManager.shared.configure { analyticsEnabled, adsEnabled in
@@ -32,6 +33,12 @@ Ask for consent in you AppDelegate.swift file in the
                 AdInitializer.resetAdsSDK()
             }
         }
+```
+
+You will also need to ad a CTA in the settings view to display consent and allowing him to opt out
+
+```swift
+        PrivacyManager.shared.loadAndDisplayConsentUI()
 ```
 
 * Add SDK dependencies (see Setup section above)
