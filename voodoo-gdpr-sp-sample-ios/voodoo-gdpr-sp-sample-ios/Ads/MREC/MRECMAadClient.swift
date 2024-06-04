@@ -52,8 +52,8 @@ final class MRECMAadClient: MAadClientBase, AdClient {
         loadingView.loadAd()
         
         let amazonAdLoader = DTBAdLoader()
-        let amazonAdSize = DTBAdSize(bannerAdSizeWithWidth: Int(MRECAdView.Constants.adWidth),
-                                     height: Int(MRECAdView.Constants.adHeight),
+        let amazonAdSize = DTBAdSize(bannerAdSizeWithWidth: Int(MRECAdView.PublicConstants.adWidth),
+                                     height: Int(MRECAdView.PublicConstants.adHeight),
                                      andSlotUUID: AdConfig.amazonSlotID)
         amazonAdLoader.setAdSizes([amazonAdSize!])
         loadBackgroundQueue.async { amazonAdLoader.loadAd(self) }
