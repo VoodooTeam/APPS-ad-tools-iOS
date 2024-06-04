@@ -125,6 +125,10 @@ class MAadClientBase: NSObject {
             "revenueName": ad.format.label
         ]
     }
+    
+    func getContentMappingUrls(for surroundingIds: [String]) {
+        return String(format: AdConfig.contentMappingBaseUrl, $0)
+    }
 }
 
 // MARK: - MAAdRevenueDelegate
