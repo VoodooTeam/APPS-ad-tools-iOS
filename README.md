@@ -6,7 +6,7 @@ For any questions regarding the integration, slack **@Loic Saillant, Sarra Srair
 
 ## installation
 
-* copy/paste the Podfile or the element in it in at the root of your app folder and change the Target name inside it by your app name
+* copy/paste the Podfile or the element in it at the root of your app folder and change the Target name inside it by your app name
 * Add the Common, Ads and Privacy folder to your project
 * Run `pod repo update` then `pod install` in your terminal
 * Update the `Config.swift` file with the proper credential present [in this file](https://docs.google.com/spreadsheets/d/10GfnMXMkHk4YTUA1xX9oIcqg-vzzLkAdiWUDXRK9lU8/edit?pli=1#gid=0)
