@@ -12,7 +12,7 @@ For any questions regarding the integration, slack **@Loic Saillant, Sarra Srair
 
 ## Integration steps
 
-Note: If you want to make things faster for this part you can just: 
+Note: If you want to make things faster for this part you can just:
    * Copy/paste the info.plist file of the sample app into your app
    * Override the `GADApplicationIdentifier` key with the credential from [`this doc`](https://docs.google.com/spreadsheets/d/10GfnMXMkHk4YTUA1xX9oIcqg-vzzLkAdiWUDXRK9lU8/edit?pli=1#gid=0)
    * Follow the step to enable [`ad review`](https://developers.applovin.com/en/ios/overview/integration#enable-ad-review)
@@ -39,33 +39,36 @@ To display the ad properly in your app see the next section
 Ask for consent in you `AppDelegate.swift` file in the `didFinishLaunchingWithOptions` method
 
 ```swift
-        PrivacyManager.shared.configure { analyticsEnabled, adsEnabled in
-            if analyticsEnabled {
-                //TODO: configure analytics
-            } else {
-                //TODO: stop analytics
-            }
-            
-            if adsEnabled {
-                AdInitializer.launchAdsSDK(
-                    hasUserConsent: PrivacyManager.shared.hasUserConsent,
-                    doNotSell: PrivacyManager.shared.doNotSellEnabled,
-                    isAgeRestrictedUser: PrivacyManager.shared.isAgeRestrictedUser
-                )
-            } else {
-                AdInitializer.resetAdsSDK()
-            }
-        }
+PrivacyManager.shared.configure { analyticsEnabled, adsEnabled, doNotSellEnabled in
+if analyticsEnabled {
+    //TODO: configure analytics
+} else {
+    //TODO: stop analytics
+}
+
+if adsEnabled {
+    AdInitializer.launchAdsSDK(
+        hasUserConsent: PrivacyManager.shared.hasUserConsent,
+        doNotSell: doNotSellEnabled,
+        isAgeRestrictedUser: PrivacyManager.shared.isAgeRestrictedUser
+    )
+} else {
+    AdInitializer.resetAdsSDK()
+}
+}
 ```
 
 You will also need to ad a CTA in the settings view to display consent and allowing him to opt out
 
 ```swift
-        if PrivacyManager.shared.shouldPrivacyApplicable() {
-                //Add your CTA in Setting with the following trigger
-                PrivacyManager.shared.loadAndDisplayConsentUI()     
-        }
+PrivacyManager.shared.loadAndDisplayConsentUI()     
 ```
+
+Please make sure the CTA is visible only when necessary by calling the following method
+```swift
+PrivacyManager.shared.canShowPrivacyPopup()     
+```
+
 
 Once the Ads are properly initialized (you should see a lot of stuff in the logs) you can start the implementation in the feed
 
@@ -87,4 +90,3 @@ setExtraParameter("test_mode_network", "ADMOB_BIDDING")
 ```
 
 * If loading ads starts to get slow or you get a lot of no-fill, try to reset your advertising ID
-

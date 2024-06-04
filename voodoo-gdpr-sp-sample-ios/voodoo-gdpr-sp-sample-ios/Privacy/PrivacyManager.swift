@@ -66,7 +66,7 @@ final class PrivacyManager {
 
     // MARK: - Public Methods
 
-    func configure(_ consentCallback: @escaping ConsentCallback) {
+    public func configure(_ consentCallback: @escaping ConsentCallback) {
         self.setupConsentManager()
         self.initializeKeyPurposeDictionary()
         self.loadConsentUI()
@@ -82,7 +82,7 @@ final class PrivacyManager {
         from.present(consentViewController, animated: true)
     }
 
-    func loadAndDisplayConsentUI() {
+    public func loadAndDisplayConsentUI() {
         guard let consentManager else {
             if status != .notAvailable {
                 status = .error(PrivacyError.consentManagerUnavailable)
@@ -102,7 +102,7 @@ final class PrivacyManager {
         }
     }
 
-    func canShowPrivacyPopup() -> Bool {
+    public func canShowPrivacyPopup() -> Bool {
         guard let consentManager else {
             return false
         }
