@@ -63,7 +63,7 @@ final class NativeAdView: MANativeAdView {
     private let subtitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .systemGray
-        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.text = "Sponsored"
         return label
     }()
