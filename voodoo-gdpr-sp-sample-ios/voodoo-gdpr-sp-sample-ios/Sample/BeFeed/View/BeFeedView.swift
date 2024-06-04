@@ -43,7 +43,7 @@ struct BeFeedView: View {
                     case .adIndex(let adIndex):
                         AdView(adIndex: adIndex)
                             .containerRelativeFrame(.horizontal)
-                            .frame(height: 650)
+                            .fixedSize(horizontal: false, vertical: true)
                             .onAppear {
                                 viewModel.didDisplay(item: item)
                             }

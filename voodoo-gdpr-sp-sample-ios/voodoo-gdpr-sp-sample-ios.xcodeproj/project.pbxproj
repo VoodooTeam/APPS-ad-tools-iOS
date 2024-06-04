@@ -36,10 +36,10 @@
 		CA36E5582C09CE1400F35344 /* UserPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA36E54B2C09CE1400F35344 /* UserPhotoView.swift */; };
 		CA36E5592C09CE1400F35344 /* BeFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA36E54D2C09CE1400F35344 /* BeFeedViewModel.swift */; };
 		CA36E55A2C09CE1400F35344 /* MediaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA36E54E2C09CE1400F35344 /* MediaViewModel.swift */; };
+		CA4928802C0F0BD000CA208C /* GdprPrivacyConsent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA49287F2C0F0BD000CA208C /* GdprPrivacyConsent.swift */; };
 		DEDC72AF2C088415006ED1F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDC72AE2C088415006ED1F1 /* Assets.xcassets */; };
 		DEDC72B22C088415006ED1F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDC72B12C088415006ED1F1 /* Preview Assets.xcassets */; };
 		DEDC72BE2C088432006ED1F1 /* PrivacyATTManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72B92C088432006ED1F1 /* PrivacyATTManager.swift */; };
-		DEDC72C02C088432006ED1F1 /* PrivacyConsent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72BB2C088432006ED1F1 /* PrivacyConsent.swift */; };
 		DEDC72C12C088432006ED1F1 /* PrivacyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72BC2C088432006ED1F1 /* PrivacyManager.swift */; };
 		DEDC72C92C0884CC006ED1F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72C82C0884CC006ED1F1 /* AppDelegate.swift */; };
 		DEDC72D02C08D148006ED1F1 /* PrivacyLanguageMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72CF2C08D148006ED1F1 /* PrivacyLanguageMapper.swift */; };
@@ -87,12 +87,12 @@
 		CA36E54B2C09CE1400F35344 /* UserPhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPhotoView.swift; sourceTree = "<group>"; };
 		CA36E54D2C09CE1400F35344 /* BeFeedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeFeedViewModel.swift; sourceTree = "<group>"; };
 		CA36E54E2C09CE1400F35344 /* MediaViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaViewModel.swift; sourceTree = "<group>"; };
+		CA49287F2C0F0BD000CA208C /* GdprPrivacyConsent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GdprPrivacyConsent.swift; sourceTree = "<group>"; };
 		D318223CFB95BC5185B539B3 /* AppLovinQualityService.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:B8HZ37M8S5:SafeDK Mobile Ltd."; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = AppLovinQualityService.xcframework; path = AppLovinQualityService/AppLovinQualityService.xcframework; sourceTree = "<group>"; };
 		DEDC72A72C088413006ED1F1 /* voodoo-gdpr-sp-sample-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "voodoo-gdpr-sp-sample-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDC72AE2C088415006ED1F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEDC72B12C088415006ED1F1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DEDC72B92C088432006ED1F1 /* PrivacyATTManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyATTManager.swift; sourceTree = "<group>"; };
-		DEDC72BB2C088432006ED1F1 /* PrivacyConsent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyConsent.swift; sourceTree = "<group>"; };
 		DEDC72BC2C088432006ED1F1 /* PrivacyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyManager.swift; sourceTree = "<group>"; };
 		DEDC72C82C0884CC006ED1F1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEDC72CE2C088552006ED1F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -114,13 +114,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1379EC2E2C09FFE800142B8D /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		1379EC332C0C3EB600142B8D /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,8 +290,7 @@
 				DEDC72CF2C08D148006ED1F1 /* PrivacyLanguageMapper.swift */,
 				1379EC312C0A03A300142B8D /* PrivacyPurpose.swift */,
 				DEDC72B92C088432006ED1F1 /* PrivacyATTManager.swift */,
-				DEDC72BB2C088432006ED1F1 /* PrivacyConsent.swift */,
-				1379EC2E2C09FFE800142B8D /* View */,
+				CA49287F2C0F0BD000CA208C /* GdprPrivacyConsent.swift */,
 			);
 			path = Privacy;
 			sourceTree = "<group>";
@@ -517,8 +509,8 @@
 				1379ED0B2C0D080C00142B8D /* MAadClientBase.swift in Sources */,
 				1379ED102C0D080C00142B8D /* NativeMAadClient.swift in Sources */,
 				1379ED142C0D080C00142B8D /* AdClient.swift in Sources */,
+				CA4928802C0F0BD000CA208C /* GdprPrivacyConsent.swift in Sources */,
 				1379ED0F2C0D080C00142B8D /* NativeAd.swift in Sources */,
-				DEDC72C02C088432006ED1F1 /* PrivacyConsent.swift in Sources */,
 				1379ED0E2C0D080C00142B8D /* MRECMAadClient.swift in Sources */,
 				1379ED152C0D080C00142B8D /* AdCoordinator.swift in Sources */,
 				1379EC302C0A038300142B8D /* Config.swift in Sources */,
