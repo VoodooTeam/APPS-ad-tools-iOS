@@ -44,6 +44,9 @@ You will also need to ad a CTA in the settings view to display consent and allow
         }
 ```
 
+
+
+
 * Add SDK dependencies (see Setup section above)
 * Check sample `AdsInitiliazer` + https://developers.applovin.com/en/ios/overview/integration/
   for reference
