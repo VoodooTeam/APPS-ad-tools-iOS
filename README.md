@@ -4,6 +4,15 @@ Wrapping library around AppLovin and Sourcepoint SDK to simplify the integration
 
 For any questions regarding the integration, slack **@Loic Saillant, Sarra Srairi or Gautier Gédoux**
 
+
+## How to use the demo app
+
+* Ad the [ad-review file](https://www.notion.so/voodoo/Ads-in-BeReal-f56d438a6b6f4d2a8dd36e941a473fad?pvs=4#3aab2b062611417f920eff85e9c1e44f) at the root of the project and run `ruby AppLovinQualityServiceSetup-ios.rb` in your terminal
+* Run `pod repo update` then `pod install` in your terminal
+* ad any developper team in the build setting
+* run the app
+
+
 ## installation
 
 * copy/paste the Podfile or the element in it at the root of your app folder and change the Target name inside it by your app name
@@ -16,7 +25,7 @@ For any questions regarding the integration, slack **@Loic Saillant, Sarra Srair
 Note: If you want to make things faster for this part you can just:
    * Copy/paste the info.plist file of the sample app into your app
    * Override the `GADApplicationIdentifier` key with the credential from [this doc](https://docs.google.com/spreadsheets/d/10GfnMXMkHk4YTUA1xX9oIcqg-vzzLkAdiWUDXRK9lU8/edit?pli=1#gid=0)
-   * Connect to your AppLovin account and follow the step to enable [ad review](https://developers.applovin.com/en/ios/overview/integration#enable-ad-review)
+   * Ad the [ad-review file](https://www.notion.so/voodoo/Ads-in-BeReal-f56d438a6b6f4d2a8dd36e941a473fad?pvs=4#3aab2b062611417f920eff85e9c1e44f) at the root of the project and run `ruby AppLovinQualityServiceSetup-ios.rb` in your terminal
    * And everything should work magically
 
 Here is the complete and standard installation
