@@ -38,7 +38,10 @@ Ask for consent in you `AppDelegate.swift` file in the `didFinishLaunchingWithOp
 You will also need to ad a CTA in the settings view to display consent and allowing him to opt out
 
 ```swift
-        PrivacyManager.shared.loadAndDisplayConsentUI()
+        if PrivacyManager.shared.shouldPrivacyApplicable() {
+                //Add your CTA in Setting with the following trigger
+                PrivacyManager.shared.loadAndDisplayConsentUI()     
+        }
 ```
 
 * Add SDK dependencies (see Setup section above)
