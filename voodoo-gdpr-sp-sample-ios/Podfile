@@ -17,6 +17,7 @@ def ad_pods
   pod 'bigo-ads-max-adapter', "4.2.0"
   pod 'AppHarbrSDK'
   pod 'AmazonPublisherServicesSDK'
+  pod 'SnapKit'
 end
 
 def consent_pods
@@ -27,7 +28,6 @@ end
 target 'voodoo-gdpr-sp-sample-ios' do
   ad_pods
   consent_pods
-  pod 'SnapKit'
   pod 'Kingfisher'
 end
 
