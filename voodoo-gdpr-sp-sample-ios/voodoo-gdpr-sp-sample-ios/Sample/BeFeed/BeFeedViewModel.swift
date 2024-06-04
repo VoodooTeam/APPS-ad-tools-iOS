@@ -29,13 +29,20 @@ final class BeFeedViewModel: ObservableObject {
         case adIndex(Int)
     }
     
-    @Published var verticalScrollPosition: Int?
-    @Published var mediaScrollPosition: String?
     @Published var feedItems: [FeedItem] = []
+    
+    private let prefilledItems = getPrefilledItems()
     private var mediaViewModels: [Media.ID: MediaViewModel] = [:]
+
     
     init() {
         handleLoad()
+        
+        AdCoordinator.shared.firstAdLoadedCallback = { [weak self] in
+            guard let self = self else { return }
+            guard AdCoordinator.shared.shouldDisplayFooterAd(forDataSize: self.feedItems.count) else { return }
+            self.handleLoad()
+        }
     }
     
     // MARK: - View interactions
@@ -49,8 +56,7 @@ final class BeFeedViewModel: ObservableObject {
     // MARK: - Private
     
     private func handleLoad() {
-        let prefillMedias = getPrefillMedias()
-        feedItems = prefillMedias.map { FeedItem(id: $0.id, content: FeedItemContent.media($0)) }
+        feedItems = prefilledItems
         
         AdCoordinator.shared.allAdIndexes.forEach { index in
             guard index < feedItems.count else { return }
@@ -58,11 +64,12 @@ final class BeFeedViewModel: ObservableObject {
         }
     }
     
-    private func getPrefillMedias() -> [Media] {
+    private static func getPrefilledItems() -> [FeedItem] {
         memeDatasetsFilenames.enumerated().map { index, assetName in
-            Media(
-                id: "-\(index + 1)",
-                createdAt: Date(), 
+            let id = UUID().uuidString
+            return FeedItem(id: id, content: .media(Media(
+                id: id,
+                createdAt: Date(),
                 updatedAt: Date(),
                 content: MediaContent(source: .asset(assetName),
                 thumbnail: nil,
@@ -70,25 +77,17 @@ final class BeFeedViewModel: ObservableObject {
                 author: .voodoo,
                 state: .synced(at: Date()),
                 isUnseen: false
-            )
+            )))
         }
     }
     
-    // MARK: - Limitless
-    
-    private let adCheckOffset = 1
-    private var lastDisplayedId: Int = 0
-
     func didDisplay(item: FeedItem) {
         Task {
-            guard let index = feedItems.firstIndex(where: { $0.id == item.id }), index > lastDisplayedId else { return }
-            lastDisplayedId = index
+            guard let index = feedItems.firstIndex(where: { $0.id == item.id }) else { return }
             let adIndex = min(index + AdConfig.fetchOffset, feedItems.count)
-            let surroundingIds = [feedItems[safe: index], feedItems[safe: index+1]].compactMap { $0?.id }
+            let surroundingIds = [feedItems[safe: adIndex-1], feedItems[safe: adIndex+1]].compactMap { $0?.id }
             guard AdCoordinator.shared.isAdAvailable(for: adIndex, surroundingIds: surroundingIds) else { return }
-            await MainActor.run {
-                self.handleLoad()
-            }
+            await MainActor.run {self.handleLoad()}
         }
     }
 }
