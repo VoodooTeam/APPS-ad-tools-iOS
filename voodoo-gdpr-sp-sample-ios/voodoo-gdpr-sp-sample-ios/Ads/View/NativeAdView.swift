@@ -11,15 +11,16 @@ import GoogleMobileAds
 import SnapKit
 
 final class NativeAdView: MANativeAdView {
-    
-
+//mettre des multiples de 8
     private enum Constants {
-        static let iconViewSize: CGFloat = 35
-        static let smallPadding: CGFloat = 5
-        static let horizontalSpacing: CGFloat = 10
-        static let topContainerHeight: CGFloat = 45
-        static let actionsContainerHeight: CGFloat = 50
-        static let mediaViewHorizontalInsets: CGFloat = 0
+        static let iconViewSize: CGFloat = 36
+        static let smallPadding: CGFloat = 8
+        static let horizontalSpacing: CGFloat = 8
+        static let topContainerHeight: CGFloat = 48
+        static let bottomContainerHeight: CGFloat = 48
+        static let mediaViewHorizontalPadding: CGFloat = 4
+        static let mediaCornerRadius: CGFloat = 16
+        static let horizontalPadding: CGFloat = 8
     }
 
     // MARK: - subviews
@@ -59,6 +60,14 @@ final class NativeAdView: MANativeAdView {
         return label
     }()
     
+    private let subtitleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .systemGray
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.text = "Sponsored"
+        return label
+    }()
+    
     private let hiddenAdvertiserLabel: UILabel = {
         let label = UILabel()
         label.textColor = .systemGray
@@ -70,12 +79,21 @@ final class NativeAdView: MANativeAdView {
     
     private let adDescriptionLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .systemGray
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         label.tag = 14
+        label.numberOfLines = 0
         return label
     }()
 
+    private let mediaAndButtonContainerView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = Constants.mediaCornerRadius
+        view.layer.cornerCurve = .continuous
+        view.clipsToBounds = true
+        view.backgroundColor = UIColor(white: 14/255, alpha: 1)
+        return view
+    }()
     
     private let mediaView: UIView = {
         let mediaView = UIView()
@@ -88,27 +106,20 @@ final class NativeAdView: MANativeAdView {
         adOptionView.tag = 16
         return adOptionView
     }()
-
-    private let actionContainerView = UIView()
     
-    private let actionButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = UIColor(white: 22/255, alpha: 1)
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-        button.layer.cornerCurve = .continuous
-        button.layer.cornerRadius = 12
-        button.layer.borderColor = UIColor(white: 68/255, alpha: 1).cgColor
-        button.layer.borderWidth = 2
-        button.tag = 17
-        return button
+    private let actionButtonView: NativeAdActionButtonView = {
+        let view = NativeAdActionButtonView()
+        view.button.tag = 17
+        return view
     }()
+    
+    private let bottomContainerView = UIView()
     
     // MARK: - Properties
     
     private var aspectRatio: CGFloat = 1.33
     private var mediaViewHeight: CGFloat {
-        (UIScreen.main.bounds.width - 2 * Constants.mediaViewHorizontalInsets) * aspectRatio
+        (UIScreen.main.bounds.width - 2 * Constants.mediaViewHorizontalPadding) * aspectRatio
     }
     
     // MARK: - init
@@ -129,41 +140,30 @@ final class NativeAdView: MANativeAdView {
     // MARK: - UIView
     
     override var intrinsicContentSize: CGSize {
-        CGSize(width: 0, height: Constants.topContainerHeight + mediaViewHeight + Constants.actionsContainerHeight)
+        CGSize(width: 0, height: Constants.topContainerHeight + mediaViewHeight + NativeAdActionButtonView.PublicConstants.height + Constants.bottomContainerHeight)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        bringSubviewToFront(actionButton)
-
-        //HACK for updating the AppLovin mediaView
-        if let appLovinMediaView = mediaView.subviews.first, appLovinMediaView.layer.cornerCurve != .continuous {
-            appLovinMediaView.layer.cornerRadius = 15
-            appLovinMediaView.layer.cornerCurve = .continuous
-            appLovinMediaView.clipsToBounds = true
-            appLovinMediaView.backgroundColor = UIColor(white: 14/255, alpha: 1)
-        }
-        
+    
         if let appLovinMediaView = mediaView.subviews.first, let imageView = appLovinMediaView.subviews.first as? UIImageView {
             aspectRatio = imageView.intrinsicContentSize.height / imageView.intrinsicContentSize.width
-            setLayoutMediaView()
         }
-
+        actionButtonView.refreshTitle()
     }
     
     // MARK: - Instance
     
     func prepare(for ad: MAAd) {
         ad.nativeAd?.prepare(
-            forInteractionClickableViews: [topContainerView, iconView, mediaView, actionButton].compactMap { $0 },
+            forInteractionClickableViews: [topContainerView, iconView, mediaView, actionButtonView].compactMap { $0 },
             withContainer: self
         )
     }
     
     func handleBidMachine() {
-        guard let titleLabelGestureRecognizer = actionButton.titleLabel?.gestureRecognizers?.first else { return }
-        actionButton.addGestureRecognizer(titleLabelGestureRecognizer)
+        guard let titleLabelGestureRecognizer = actionButtonView.button.titleLabel?.gestureRecognizers?.first else { return }
+        actionButtonView.button.addGestureRecognizer(titleLabelGestureRecognizer)
     }
     
     // MARK: - Private
@@ -171,17 +171,18 @@ final class NativeAdView: MANativeAdView {
     private func configureViews() {
         addSubview(googleContainerView)
         
-        [topContainerView, mediaView, actionContainerView, hiddenAdvertiserLabel, adOptionView].forEach { googleContainerView.addSubview($0) }
+        [topContainerView, mediaAndButtonContainerView, hiddenAdvertiserLabel, adOptionView, bottomContainerView].forEach { googleContainerView.addSubview($0) }
+        [mediaView, actionButtonView].forEach { mediaAndButtonContainerView.addSubview($0) }
         topContainerView.addSubview(iconView)
         topContainerView.addSubview(labelsStackView)
         labelsStackView.addArrangedSubview(adTitleLabel)
-        labelsStackView.addArrangedSubview(adDescriptionLabel)
-        actionContainerView.addSubview(actionButton)
+        labelsStackView.addArrangedSubview(subtitleLabel)
+        bottomContainerView.addSubview(adDescriptionLabel)
 
         titleLabel = adTitleLabel
         bodyLabel = adDescriptionLabel
         optionsContentView = adOptionView
-        callToActionButton = actionButton
+        callToActionButton = actionButtonView.button
         iconImageView = iconView
         mediaContentView = mediaView
         advertiserLabel = hiddenAdvertiserLabel
@@ -193,7 +194,7 @@ final class NativeAdView: MANativeAdView {
             builder.titleLabelTag = self.adTitleLabel.tag
             builder.optionsContentViewTag = self.adOptionView.tag
             builder.bodyLabelTag = self.adDescriptionLabel.tag
-            builder.callToActionButtonTag = self.actionButton.tag
+            builder.callToActionButtonTag = self.actionButtonView.button.tag
             builder.iconImageViewTag = self.iconView.tag
             builder.mediaContentViewTag = self.mediaView.tag
             builder.advertiserLabelTag = self.hiddenAdvertiserLabel.tag
@@ -230,27 +231,30 @@ final class NativeAdView: MANativeAdView {
             make.left.equalTo(iconView.snp.right).offset(10)
             make.right.equalToSuperview().inset(Constants.horizontalSpacing)
         }
-
-        setLayoutMediaView()
-
-        actionContainerView.snp.makeConstraints { make in
-            make.height.equalTo(Constants.actionsContainerHeight)
-            make.top.equalTo(mediaView.snp.bottom)
-            make.left.right.bottom.equalToSuperview()
-        }
-
-        actionButton.snp.makeConstraints { make in
-            make.top.equalTo(actionContainerView).offset(10)
-            make.height.equalTo(40)
-            make.width.equalTo(250)
-            make.centerX.equalToSuperview()
-        }
-    }
-    
-    private func setLayoutMediaView() {
-        mediaView.snp.remakeConstraints { make in
+        
+        mediaAndButtonContainerView.snp.makeConstraints { make in
             make.top.equalTo(topContainerView.snp.bottom)
-            make.center.equalToSuperview()
+            make.left.right.equalToSuperview().inset(Constants.mediaViewHorizontalPadding)
+        }
+        
+        mediaView.snp.makeConstraints { make in
+            make.top.left.right.equalToSuperview()
+        }
+        
+        actionButtonView.snp.makeConstraints { make in
+            make.left.bottom.right.equalToSuperview()
+            make.top.equalTo(mediaView.snp.bottom)
+        }
+        
+        bottomContainerView.snp.makeConstraints { make in
+            make.left.right.bottom.equalToSuperview()
+            make.top.equalTo(mediaAndButtonContainerView.snp.bottom)
+            make.height.equalTo(Constants.bottomContainerHeight)
+        }
+        
+        adDescriptionLabel.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(Constants.horizontalPadding)
+            make.centerY.equalToSuperview()
         }
     }
 }

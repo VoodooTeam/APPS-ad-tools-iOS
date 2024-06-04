@@ -18,10 +18,11 @@ final class MRECAdView: UIView {
     }
     
     private enum Constants {
-        static let iconViewSize: CGFloat = 35
-        static let horizontalSpacing: CGFloat = 10
-        static let topContainerHeight: CGFloat = 45
+        static let iconViewSize: CGFloat = 36
+        static let horizontalSpacing: CGFloat = 8
+        static let topContainerHeight: CGFloat = 48
         static let verticalPadding: CGFloat = 8
+        static let mediaCornerRadius: CGFloat = 16
     }
 
     // MARK: - subviews
@@ -48,7 +49,7 @@ final class MRECAdView: UIView {
         let label = UILabel()
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-        label.text = "Sponsored"
+        label.text = "Time for an ad"
         return label
     }()
 
@@ -56,13 +57,13 @@ final class MRECAdView: UIView {
         let label = UILabel()
         label.textColor = .systemGray
         label.font = UIFont.systemFont(ofSize: 12)
-        label.text = "Thanks for helping us making voodoo-gdpr-sp-sample-ios a better app"
+        label.text = "Sponsored"
         return label
     }()
     
     private let mediaView: UIView = {
         let mediaView = UIView()
-        mediaView.layer.cornerRadius = 15
+        mediaView.layer.cornerRadius = Constants.mediaCornerRadius
         mediaView.layer.cornerCurve = .continuous
         mediaView.clipsToBounds = true
         mediaView.backgroundColor = UIColor(white: 14/255, alpha: 1)

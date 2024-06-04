@@ -37,6 +37,7 @@
 		CA36E5592C09CE1400F35344 /* BeFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA36E54D2C09CE1400F35344 /* BeFeedViewModel.swift */; };
 		CA36E55A2C09CE1400F35344 /* MediaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA36E54E2C09CE1400F35344 /* MediaViewModel.swift */; };
 		CA4928802C0F0BD000CA208C /* GdprPrivacyConsent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA49287F2C0F0BD000CA208C /* GdprPrivacyConsent.swift */; };
+		CA4928852C0F5EDF00CA208C /* NativeAdActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4928842C0F5EDF00CA208C /* NativeAdActionButtonView.swift */; };
 		DEDC72AF2C088415006ED1F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDC72AE2C088415006ED1F1 /* Assets.xcassets */; };
 		DEDC72B22C088415006ED1F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDC72B12C088415006ED1F1 /* Preview Assets.xcassets */; };
 		DEDC72BE2C088432006ED1F1 /* PrivacyATTManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC72B92C088432006ED1F1 /* PrivacyATTManager.swift */; };
@@ -88,6 +89,7 @@
 		CA36E54D2C09CE1400F35344 /* BeFeedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeFeedViewModel.swift; sourceTree = "<group>"; };
 		CA36E54E2C09CE1400F35344 /* MediaViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaViewModel.swift; sourceTree = "<group>"; };
 		CA49287F2C0F0BD000CA208C /* GdprPrivacyConsent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GdprPrivacyConsent.swift; sourceTree = "<group>"; };
+		CA4928842C0F5EDF00CA208C /* NativeAdActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeAdActionButtonView.swift; sourceTree = "<group>"; };
 		D318223CFB95BC5185B539B3 /* AppLovinQualityService.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:B8HZ37M8S5:SafeDK Mobile Ltd."; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = AppLovinQualityService.xcframework; path = AppLovinQualityService/AppLovinQualityService.xcframework; sourceTree = "<group>"; };
 		DEDC72A72C088413006ED1F1 /* voodoo-gdpr-sp-sample-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "voodoo-gdpr-sp-sample-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDC72AE2C088415006ED1F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -160,8 +162,9 @@
 		1379ED042C0D080C00142B8D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1379ED022C0D080C00142B8D /* MRECAdView.swift */,
 				1379ED032C0D080C00142B8D /* NativeAdView.swift */,
+				1379ED022C0D080C00142B8D /* MRECAdView.swift */,
+				CA4928842C0F5EDF00CA208C /* NativeAdActionButtonView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				1379ED102C0D080C00142B8D /* NativeMAadClient.swift in Sources */,
 				1379ED142C0D080C00142B8D /* AdClient.swift in Sources */,
 				CA4928802C0F0BD000CA208C /* GdprPrivacyConsent.swift in Sources */,
+				CA4928852C0F5EDF00CA208C /* NativeAdActionButtonView.swift in Sources */,
 				1379ED0F2C0D080C00142B8D /* NativeAd.swift in Sources */,
 				1379ED0E2C0D080C00142B8D /* MRECMAadClient.swift in Sources */,
 				1379ED152C0D080C00142B8D /* AdCoordinator.swift in Sources */,
