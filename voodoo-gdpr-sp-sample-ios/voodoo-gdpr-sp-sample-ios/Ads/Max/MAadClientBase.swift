@@ -126,8 +126,8 @@ class MAadClientBase: NSObject {
         ]
     }
     
-    func getContentMappingUrls(for surroundingIds: [String]) {
-        return String(format: AdConfig.contentMappingBaseUrl, $0)
+    func getContentMappingUrls(for surroundingIds: [String]) -> [String] {
+        return surroundingIds.map { String(format: AdConfig.contentMappingBaseUrl, $0) }
     }
 }
 
