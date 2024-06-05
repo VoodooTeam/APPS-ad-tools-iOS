@@ -2,18 +2,20 @@
 # platform :ios, '9.0'
 
 def ad_pods
+  # As we are using AppHarbr we should be careful when updating max adapters
+  # Check this link for adapters updates https://helpcenter.appharbr.com/hc/en-us/articles/17047099021329-Before-Starting
   pod 'AppLovinSDK', '12.5.0'
   pod 'AppLovinMediationGoogleAdapter'
-  pod 'AppLovinMediationGoogleAdManagerAdapter'
+  pod 'AppLovinMediationGoogleAdManagerAdapter', '11.5.0'
   pod 'AppLovinMediationAmazonAdMarketplaceAdapter'
-  pod 'AppLovinMediationBidMachineAdapter', '2.6.1.0'
-  pod 'AppLovinMediationInMobiAdapter', '10.7.1'
-  pod 'AppLovinMediationVungleAdapter'
+  pod 'AppLovinMediationBidMachineAdapter', '2.7.0'
+  pod 'AppLovinMediationInMobiAdapter', '10.7.2'
+  pod 'AppLovinMediationVungleAdapter', '7.2.1'
   pod 'AppLovinMediationLineAdapter'
-  pod 'AppLovinMediationFacebookAdapter'
-  pod 'AppLovinMediationMintegralAdapter'
-  pod 'AppLovinMediationByteDanceAdapter'
-  pod 'bigo-ads-max-adapter', "4.2.0"
+  pod 'AppLovinMediationFacebookAdapter', '6.15.0'
+  pod 'AppLovinMediationMintegralAdapter', '7.6.6'
+  pod 'AppLovinMediationByteDanceAdapter', '5.9.0.7'
+  pod 'bigo-ads-max-adapter', "4.2.3"
   pod 'AppHarbrSDK'
   pod 'AmazonPublisherServicesSDK'
 end
