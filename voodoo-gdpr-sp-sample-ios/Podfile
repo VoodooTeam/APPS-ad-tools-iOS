@@ -16,7 +16,6 @@ def ad_pods
   pod 'bigo-ads-max-adapter', "4.2.0"
   pod 'AppHarbrSDK'
   pod 'AmazonPublisherServicesSDK'
-  pod 'SnapKit'
 end
 
 def consent_pods

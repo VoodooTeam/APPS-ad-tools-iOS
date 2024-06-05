@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SnapKit
 
 final class NativeAdActionButtonView: UIView {
     
@@ -80,24 +79,16 @@ final class NativeAdActionButtonView: UIView {
     }
     
     private func setLayout() {
-        snp.makeConstraints { make in
-            make.height.equalTo(PublicConstants.height)
-        }
+        constraint([.height], constant: PublicConstants.height)
+
+        titleLabel.pinToSuperview([.centerY])
+        titleLabel.pinToSuperview([.left], constant: Constants.horizontalPadding)
         
-        titleLabel.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.left.equalToSuperview().inset(Constants.horizontalPadding)
-        }
+        disclosureImageView.pinToSuperview([.centerY])
+        disclosureImageView.pinToSuperview([.right], constant: Constants.horizontalPadding)
+        disclosureImageView.pin(.left, to: titleLabel, otherViewAttribute: .right)
+        disclosureImageView.constraint([.height, .width], constant: Constants.imageViewSize)
         
-        disclosureImageView.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.right.equalToSuperview().inset(Constants.horizontalPadding)
-            make.left.equalTo(titleLabel.snp.right)
-            make.height.width.equalTo(Constants.imageViewSize)
-        }
-        
-        button.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+        button.pinToSuperview()
     }
 }

@@ -34,9 +34,6 @@ PODS:
     - AppLovinSDK
     - MintegralAdSDK (= 7.6.6)
     - MintegralAdSDK/BidSplashAd (= 7.6.6)
-  - AppLovinMediationMobileFuseAdapter (1.7.4.0):
-    - AppLovinSDK
-    - MobileFuseSDK (= 1.7.4)
   - AppLovinMediationVungleAdapter (7.3.2.1):
     - AppLovinSDK
     - VungleAds (= 7.3.2)
@@ -151,9 +148,7 @@ PODS:
     - MintegralAdSDK/NativeAd
   - MintegralAdSDK/SplashAd (7.6.6):
     - MintegralAdSDK/NativeAd
-  - MobileFuseSDK (1.7.4)
   - OMSDK_Appodeal (1.4.12)
-  - SnapKit (5.7.1)
   - StackIAB (2.6.0):
     - StackIAB/StackIABAssets (= 2.6.0)
     - StackIAB/StackMRAIDKit (= 2.6.0)
@@ -216,13 +211,11 @@ DEPENDENCIES:
   - AppLovinMediationInMobiAdapter (= 10.7.1)
   - AppLovinMediationLineAdapter
   - AppLovinMediationMintegralAdapter
-  - AppLovinMediationMobileFuseAdapter
   - AppLovinMediationVungleAdapter
   - AppLovinSDK (= 12.5.0)
   - bigo-ads-max-adapter (= 4.2.0)
   - ConsentViewController
   - Kingfisher
-  - SnapKit
 
 SPEC REPOS:
   trunk:
@@ -238,7 +231,6 @@ SPEC REPOS:
     - AppLovinMediationInMobiAdapter
     - AppLovinMediationLineAdapter
     - AppLovinMediationMintegralAdapter
-    - AppLovinMediationMobileFuseAdapter
     - AppLovinMediationVungleAdapter
     - AppLovinSDK
     - BidMachine
@@ -254,9 +246,7 @@ SPEC REPOS:
     - InMobiSDK
     - Kingfisher
     - MintegralAdSDK
-    - MobileFuseSDK
     - OMSDK_Appodeal
-    - SnapKit
     - StackIAB
     - StackModules
     - VungleAds
@@ -274,7 +264,6 @@ SPEC CHECKSUMS:
   AppLovinMediationInMobiAdapter: d1c71cc41a9ec382d9cc2f457875508ebe66281f
   AppLovinMediationLineAdapter: 4a0489e805708e016f0bb6bd6943f31eb4875ccc
   AppLovinMediationMintegralAdapter: 98920febb1a949d87da64be5f1cb0c8e030c295e
-  AppLovinMediationMobileFuseAdapter: 91cb91eb73ed23d3cfdb88e18cd2156c903cb4c7
   AppLovinMediationVungleAdapter: ea357ea16cc166e1de259de5d6e1ba593e528f7d
   AppLovinSDK: 626d2aea57ae1bf9280d2012e8e20c521c58ce28
   BidMachine: bbc6ea4c7bde7aee940483758b4dab2355916478
@@ -290,13 +279,11 @@ SPEC CHECKSUMS:
   InMobiSDK: 8b93c1d4d8ac0d91cf9585fc8b65750b8f09e835
   Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
   MintegralAdSDK: 4d19fa4637ad7f07916168528337d23ae6368181
-  MobileFuseSDK: 519246003ecf08b18d9d5cb52a8286958dc3a4f8
   OMSDK_Appodeal: 416c070dfce46ca2b6875dba686271070df6b270
-  SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
   StackIAB: 495c0df22795d2b0193a0d1853c2c5f900a7f3cd
   StackModules: fe9f4fcd32d427c8502968bbb0d63aed6587e46d
   VungleAds: 0d696ed96dd7d715a9432997356d59b2e3b58882
 
-PODFILE CHECKSUM: 9c1df8e0e7973c53547cd0b9b231b099683df244
+PODFILE CHECKSUM: 315752fff46f66d813f0a8651b32f995f5d1e514
 
 COCOAPODS: 1.15.2

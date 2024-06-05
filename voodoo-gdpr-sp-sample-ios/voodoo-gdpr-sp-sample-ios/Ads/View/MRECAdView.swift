@@ -8,7 +8,6 @@
 import UIKit
 import AppLovinSDK
 import GoogleMobileAds
-import SnapKit
 
 final class MRECAdView: UIView {
     
@@ -103,32 +102,22 @@ final class MRECAdView: UIView {
     
     private func setLayout() {
         topContainerView.setContentHuggingPriority(.required, for: .vertical)
-        topContainerView.snp.makeConstraints { make in
-            make.left.right.top.equalToSuperview()
-            make.height.equalTo(Constants.topContainerHeight)
-        }
+        topContainerView.pinToSuperview([.left, .top, .right])
+        topContainerView.constraint([.height], constant: Constants.topContainerHeight)
+
+        iconView.pinToSuperview([.top])
+        iconView.pinToSuperview([.left], constant: Constants.horizontalSpacing)
+        iconView.constraint([.width, .height], constant: Constants.iconViewSize)
+
+        labelsStackView.pin(.left, to: iconView, otherViewAttribute: .right, constant: Constants.horizontalSpacing)
+        labelsStackView.pin(.centerY, to: iconView)
+        labelsStackView.pinToSuperview([.right], constant: Constants.horizontalSpacing)
+
+        mediaView.pin(.top, to: topContainerView, otherViewAttribute: .bottom)
+        mediaView.pinToSuperview([.left, .right, .bottom])
         
-        iconView.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(Constants.horizontalSpacing)
-            make.width.height.equalTo(Constants.iconViewSize)
-            make.top.equalToSuperview()
-        }
-        
-        labelsStackView.snp.makeConstraints { make in
-            make.centerY.equalTo(iconView.snp.centerY)
-            make.left.equalTo(iconView.snp.right).offset(10)
-            make.right.equalToSuperview().inset(Constants.horizontalSpacing)
-        }
-        
-        mediaView.snp.makeConstraints { make in
-            make.top.equalTo(topContainerView.snp.bottom)
-            make.left.right.bottom.equalToSuperview()
-        }
-        
-        mrecView.snp.makeConstraints { (make) in
-            make.center.equalToSuperview()
-            make.width.equalTo(PublicConstants.adWidth)
-            make.height.equalTo(PublicConstants.adHeight)
-        }
+        mrecView.pinToSuperview([.centerX, .centerY])
+        mrecView.constraint([.height], constant: PublicConstants.adHeight)
+        mrecView.constraint([.width], constant: PublicConstants.adWidth)
     }
 }

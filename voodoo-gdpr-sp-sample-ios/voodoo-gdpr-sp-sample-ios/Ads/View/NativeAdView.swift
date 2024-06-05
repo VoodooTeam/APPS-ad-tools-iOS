@@ -8,19 +8,19 @@
 import UIKit
 import AppLovinSDK
 import GoogleMobileAds
-import SnapKit
 
 final class NativeAdView: MANativeAdView {
-//mettre des multiples de 8
+
     private enum Constants {
         static let iconViewSize: CGFloat = 36
         static let smallPadding: CGFloat = 8
         static let horizontalSpacing: CGFloat = 8
         static let topContainerHeight: CGFloat = 48
-        static let bottomContainerHeight: CGFloat = 48
         static let mediaViewHorizontalPadding: CGFloat = 4
         static let mediaCornerRadius: CGFloat = 16
-        static let horizontalPadding: CGFloat = 15
+        static let horizontalPadding: CGFloat = 16
+        static let verticalPadding: CGFloat = 16
+        static let descriptionLabelFont: UIFont = .systemFont(ofSize: 12, weight: .semibold)
     }
 
     // MARK: - subviews
@@ -107,7 +107,7 @@ final class NativeAdView: MANativeAdView {
     private let adDescriptionLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
+        label.font = Constants.descriptionLabelFont
         label.tag = 14
         label.numberOfLines = 0
         return label
@@ -138,7 +138,13 @@ final class NativeAdView: MANativeAdView {
     // MARK: - UIView
     
     override var intrinsicContentSize: CGSize {
-        CGSize(width: 0, height: Constants.topContainerHeight + mediaViewHeight + NativeAdActionButtonView.PublicConstants.height + adDescriptionLabel.frame.height + 2*Constants.horizontalPadding)
+        CGSize(width: 0, height: Constants.topContainerHeight
+               + mediaViewHeight
+               + NativeAdActionButtonView.PublicConstants.height
+               + Constants.descriptionLabelFont.calculateHeight(text: adDescriptionLabel.text ?? "", width: UIScreen.main.bounds.width - 2 * Constants.horizontalPadding)
+               + Constants.verticalPadding
+               + Constants.smallPadding
+        )
     }
     
     override func layoutSubviews() {
@@ -201,52 +207,48 @@ final class NativeAdView: MANativeAdView {
     
     private func setLayout() {
         
-        googleContainerView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-        
+        googleContainerView.pinToSuperview()
+
         topContainerView.setContentHuggingPriority(.required, for: .vertical)
-        topContainerView.snp.makeConstraints { make in
-            make.left.right.top.equalToSuperview()
-            make.height.equalTo(Constants.topContainerHeight)
-        }
-        
-        iconView.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(Constants.horizontalSpacing)
-            make.width.height.equalTo(Constants.iconViewSize)
-            make.top.equalToSuperview()
-        }
+        topContainerView.pinToSuperview([.left, .right, .top])
+        topContainerView.constraint([.height], constant: Constants.topContainerHeight)
+
+        iconView.pinToSuperview([.left], constant: Constants.horizontalSpacing)
+        iconView.pinToSuperview([.top])
+        iconView.constraint([.height, .width], constant: Constants.iconViewSize)
+
         
         adOptionView.setContentHuggingPriority(.required, for: .horizontal)
-        adOptionView.snp.makeConstraints { make in
-            make.right.equalToSuperview().inset(Constants.smallPadding)
-            make.centerY.equalTo(topContainerView)
-        }
+        adOptionView.pinToSuperview([.right], constant: Constants.smallPadding)
+        adOptionView.pin(.centerY, to: topContainerView)
         
-        labelsStackView.snp.makeConstraints { make in
-            make.centerY.equalTo(iconView.snp.centerY)
-            make.left.equalTo(iconView.snp.right).offset(10)
-            make.right.equalToSuperview().inset(Constants.horizontalSpacing)
-        }
+        labelsStackView.pin(.centerY, to: iconView)
+        labelsStackView.pin(.left, to: iconView, otherViewAttribute: .right, constant: Constants.horizontalSpacing)
+        labelsStackView.pinToSuperview([.right], constant: Constants.horizontalSpacing)
+
+        mediaAndButtonContainerView.pin(.top, to: topContainerView, otherViewAttribute: .bottom)
+        mediaAndButtonContainerView.pinToSuperview([.left, .right], constant: Constants.mediaViewHorizontalPadding)
+
+        mediaView.pinToSuperview([.top, .left, .right])
+
+        actionButtonView.pinToSuperview([.bottom, .left, .right])
+        actionButtonView.pin(.top, to: mediaView, otherViewAttribute: .bottom)
         
-        mediaAndButtonContainerView.snp.makeConstraints { make in
-            make.top.equalTo(topContainerView.snp.bottom)
-            make.left.right.equalToSuperview().inset(Constants.mediaViewHorizontalPadding)
-        }
-        
-        mediaView.snp.makeConstraints { make in
-            make.top.left.right.equalToSuperview()
-        }
-        
-        actionButtonView.snp.makeConstraints { make in
-            make.left.bottom.right.equalToSuperview()
-            make.top.equalTo(mediaView.snp.bottom)
-        }
-        
-        
-        adDescriptionLabel.snp.makeConstraints { make in
-            make.top.equalTo(mediaAndButtonContainerView.snp.bottom).offset(10)
-            make.left.right.bottom.equalToSuperview().inset(Constants.horizontalPadding)
-        }
+        adDescriptionLabel.setContentHuggingPriority(.required, for: .vertical)
+        adDescriptionLabel.setContentCompressionResistancePriority(.required, for: .vertical)
+        adDescriptionLabel.pin(.top, to: mediaAndButtonContainerView, otherViewAttribute: .bottom, constant: Constants.smallPadding)
+        adDescriptionLabel.pinToSuperview([.left, .right], constant: Constants.horizontalPadding)
+        adDescriptionLabel.pinToSuperview([.bottom], constant: Constants.verticalPadding)
+    }
+}
+
+private extension UIFont {
+    func calculateHeight(text: String, width: CGFloat) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
+        let boundingBox = text.boundingRect(with: constraintRect,
+                                            options: [.usesLineFragmentOrigin],
+                                            attributes: [NSAttributedString.Key.font: self],
+                                            context: nil)
+        return boundingBox.height.rounded(.up)
     }
 }
