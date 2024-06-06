@@ -14,7 +14,8 @@ struct AdConfig {
     static let interval = 3
     static let fetchOffset = 1
     static let contentMappingBaseUrl = "https://crawler.getwizz.io/wizz_profiles.html?uid=%1$@"
-    static let amazonSlotID = "b636cd42-59d9-46f6-bec8-017dad7bef1b"
+    static let amazonAppID = "b636cd42-59d9-46f6-bec8-017dad7bef1b"
+    static let amazonSlotID = "91f0aaf4-95c5-4c4d-a5d0-3aa44a07e1cc"
 }
 
 struct PrivacyConfig {

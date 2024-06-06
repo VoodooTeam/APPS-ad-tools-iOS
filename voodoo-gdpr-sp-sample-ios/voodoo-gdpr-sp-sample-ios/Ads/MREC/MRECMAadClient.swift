@@ -19,6 +19,7 @@ final class MRECMAadClient: MAadClientBase, AdClient {
     private var loadingView: MAAdView!
     
     private var didDisplay: Bool = false
+    private var isFirstLoad: Bool = true
     
     // MARK: - instance methods
 
@@ -49,14 +50,22 @@ final class MRECMAadClient: MAadClientBase, AdClient {
         AH.addBanner(with: .max, adObject: loadingView, delegate: self)
 
         loadingView.stopAutoRefresh()
-        loadingView.loadAd()
         
-        let amazonAdLoader = DTBAdLoader()
-        let amazonAdSize = DTBAdSize(bannerAdSizeWithWidth: Int(MRECAdView.PublicConstants.adWidth),
-                                     height: Int(MRECAdView.PublicConstants.adHeight),
-                                     andSlotUUID: AdConfig.amazonSlotID)
-        amazonAdLoader.setAdSizes([amazonAdSize!])
-        loadBackgroundQueue.async { amazonAdLoader.loadAd(self) }
+        loadBackgroundQueue.async { [weak self] in
+            guard let self else { return }
+            if self.isFirstLoad {
+                self.isFirstLoad = false
+                let amazonAdLoader = DTBAdLoader()
+                let amazonAdSize = DTBAdSize(bannerAdSizeWithWidth: Int(MRECAdView.PublicConstants.adWidth),
+                                             height: Int(MRECAdView.PublicConstants.adHeight),
+                                             andSlotUUID: AdConfig.amazonSlotID)
+                amazonAdLoader.setAdSizes([amazonAdSize!])
+                amazonAdLoader.loadAd(self)
+            }
+            else {
+                loadingView.loadAd()
+            }
+        }
     }
 
 

@@ -10,6 +10,7 @@ import AppLovinSDK
 import FBAudienceNetwork
 import UIKit
 import AppHarbrSDK
+import DTBiOSSDK
 
 class AdInitializer: NSObject {
                             
@@ -67,9 +68,18 @@ class AdInitializer: NSObject {
         return await withCheckedContinuation { continuation in
             ALSdk.shared().initialize(with: initConfig) { sdkConfig in
                 FBAdSettings.setDataProcessingOptions([])
+                setupAmazonAdsIfNeeded()
                 continuation.resume(returning: .success(()))
             }
         }
+    }
+    
+    private static func setupAmazonAdsIfNeeded() {
+        DTBAds.sharedInstance().setAppKey(AdConfig.amazonAppID)
+        let adNetworkInfo = DTBAdNetworkInfo(networkName: DTBADNETWORK_MAX)
+        DTBAds.sharedInstance().mraidCustomVersions = ["1.0", "2.0", "3.0"]
+        DTBAds.sharedInstance().setAdNetworkInfo(adNetworkInfo)
+        DTBAds.sharedInstance().mraidPolicy = CUSTOM_MRAID
     }
     
     static func resetAdsSDK() {
